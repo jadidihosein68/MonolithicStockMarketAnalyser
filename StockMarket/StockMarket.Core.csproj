@@ -25,6 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\StockMarket.BAL\StockMarket.BAL.csproj" />
+    <ProjectReference Include="..\StockMarket.DAL\StockMarket.DAL.csproj" />
     <ProjectReference Include="..\StockMarket.Model\StockMarket.Model.csproj" />
   </ItemGroup>
 
