@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarket.Core", "StockMarket\StockMarket.Core.csproj", "{3A24373C-7AD1-4E4B-95EB-66BB4F4C5397}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket.Model", "StockMarket.Model\StockMarket.Model.csproj", "{448FE75D-1C45-4E83-BFF0-D2BB616448DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A24373C-7AD1-4E4B-95EB-66BB4F4C5397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A24373C-7AD1-4E4B-95EB-66BB4F4C5397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A24373C-7AD1-4E4B-95EB-66BB4F4C5397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A24373C-7AD1-4E4B-95EB-66BB4F4C5397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448FE75D-1C45-4E83-BFF0-D2BB616448DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448FE75D-1C45-4E83-BFF0-D2BB616448DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448FE75D-1C45-4E83-BFF0-D2BB616448DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448FE75D-1C45-4E83-BFF0-D2BB616448DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCA34F69-C48B-47E3-840B-2E6647B58C00}
+	EndGlobalSection
+EndGlobal
