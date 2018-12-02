@@ -41,15 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Historical_Table_Frame.cs" />
-    <Compile Include="Model\MovingAverage.cs" />
-    <Compile Include="Model\TimeSeries.cs" />
-    <Compile Include="Model\Time_Series_Table_Frame.cs" />
-    <Compile Include="Model\Tweet_Frame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
