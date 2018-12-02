@@ -1,0 +1,6 @@
+O:\Asp Core Projects\StockMarket\StockMarket.Model\bin\Debug\StockMarket.Model.dll
+O:\Asp Core Projects\StockMarket\StockMarket.Model\bin\Debug\StockMarket.Model.pdb
+O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\StockMarket.Model.csprojAssemblyReference.cache
+O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\StockMarket.Model.csproj.CoreCompileInputs.cache
+O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\StockMarket.Model.dll
+O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\StockMarket.Model.pdb
