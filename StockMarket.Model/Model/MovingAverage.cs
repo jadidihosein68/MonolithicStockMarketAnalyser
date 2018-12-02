@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StockMarket.Model
+namespace StockMarket.Model.Model
 {
-    public class Class1
+    public class MovingAverage
     {
+
     }
+
 }
+
