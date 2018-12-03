@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StockMarket.Adapter.Interface
+namespace StockMarket.Model
 {
-    public interface IHistoricalStock
+    public class RowHistoricalStock
     {
     }
 }
