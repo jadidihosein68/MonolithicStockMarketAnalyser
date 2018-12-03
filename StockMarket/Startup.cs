@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StockMarket.Adapter;
+using StockMarket.Adapter.Interface;
 using Swashbuckle.AspNetCore.Swagger;
 namespace StockMarket
 {
@@ -21,6 +23,9 @@ namespace StockMarket
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddHttpClient();
+            services.AddScoped<IHistoricalStock, HistoricalStock>();
+
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -28,27 +33,27 @@ namespace StockMarket
                 configuration.RootPath = "ClientApp/dist";
             });
 
-           services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new Info
-    {
-        Version = "v1",
-        Title = "ToDo API",
-        Description = "A simple example ASP.NET Core Web API",
-        TermsOfService = "None",
-        Contact = new Contact
-        {
-            Name = "Shayne Boyer",
-            Email = string.Empty,
-            Url = "https://twitter.com/spboyer"
-        },
-        License = new License
-        {
-            Name = "Use under LICX",
-            Url = "https://example.com/license"
-        }
-    });
-});
+            services.AddSwaggerGen(c =>
+             {
+                 c.SwaggerDoc("v1", new Info
+                 {
+                     Version = "v1",
+                     Title = "ToDo API",
+                     Description = "A simple example ASP.NET Core Web API",
+                     TermsOfService = "None",
+                     Contact = new Contact
+                     {
+                         Name = "Shayne Boyer",
+                         Email = string.Empty,
+                         Url = "https://twitter.com/spboyer"
+                     },
+                     License = new License
+                     {
+                         Name = "Use under LICX",
+                         Url = "https://example.com/license"
+                     }
+                 });
+             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

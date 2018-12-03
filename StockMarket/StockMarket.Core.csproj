@@ -11,6 +11,9 @@
 
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\StockMarket.Adapter\StockMarket.Adapter.csproj" />
     <ProjectReference Include="..\StockMarket.BAL\StockMarket.BAL.csproj" />
     <ProjectReference Include="..\StockMarket.DAL\StockMarket.DAL.csproj" />
     <ProjectReference Include="..\StockMarket.Model\StockMarket.Model.csproj" />
