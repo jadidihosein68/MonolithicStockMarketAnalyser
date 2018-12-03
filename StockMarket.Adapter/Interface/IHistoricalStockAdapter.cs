@@ -8,7 +8,6 @@ namespace StockMarket.Adapter.Interface
     public interface IHistoricalStockAdapter
     {
         Task<string> GetHistorical();
-
         string getCSV();
     }
 }

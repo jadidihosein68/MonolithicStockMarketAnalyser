@@ -19,14 +19,11 @@ namespace StockMarket.Adapter
             this.httpClientFactory = _httpClientFactory;
         }
 
-        //public async Task <RowHistoricalStock> GetHistorical()
         public async Task<string> GetHistorical()
         {
 
             var client = httpClientFactory.CreateClient();
             var response = await client.GetAsync("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&outputsize=full&datatype=json&apikey=ZUIAKZL5BZM0D24V");
-            //var response = await client.GetAsync("https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=EUR&to_symbol=USD&apikey=ZUIAKZL5BZM0D24V&datatype=csv");
-
             if (response.IsSuccessStatusCode)
             {
 
@@ -35,21 +32,13 @@ namespace StockMarket.Adapter
             }
 
             return "";
-
-            // return Ok(result);
-
-
         }
-
-
 
         public string getCSV()
         {
 
             return getCSV2();
         }
-
-
 
         private string getCSV1() {
 
@@ -63,7 +52,6 @@ namespace StockMarket.Adapter
             return results;
 
         }
-
 
         private string getCSV2()
         {
