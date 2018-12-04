@@ -29,12 +29,11 @@ namespace StockMarket.Adapter
         public IEnumerable<RowHistoricalStockBase> getCSVFromQuandl(RequestHistoricalStockQuandl RequestHistoricalStock)
         {
             var index = string.IsNullOrEmpty(RequestHistoricalStock.Index) ? QuandlStockIndex.DefaltIndex : RequestHistoricalStock.Index;
-            var URL = $"https://www.quandl.com/api/v3/datasets/WIKI/{index}/data.{RequestHistoricalStock.DataType}?api_key={AppConfiguration.QuandlAPIKey}";
+            var URL = $"{AppConfiguration.Endpoints.QuadlPoint}{index}/data.{RequestHistoricalStock.DataType}?api_key={AppConfiguration.QuandlAPIKey}";
             var client = new System.Net.WebClient();
             var result = client.DownloadString(URL);
             return (new CSVDeserializer().Decerialize<RowHistoricalStockBase>(result));
         }
-
 
     }
 
