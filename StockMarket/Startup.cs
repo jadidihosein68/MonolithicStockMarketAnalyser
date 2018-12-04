@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StockMarket.Adapter;
 using StockMarket.Adapter.Interface;
+using StockMarket.BAL.Generate_TimeSeries;
+using StockMarket.BAL.Generate_TimeSeries.Interfaces;
 using StockMarket.DAL.Interface.Persistance.Repositories;
 using StockMarket.DAL.Persistence.Repositories;
 using StockMarket.Model.Configuration;
@@ -31,6 +33,11 @@ namespace StockMarket
             services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
             services.AddScoped<IHistoricalStockAdapter, HistoricalStockAdapter>();
             services.AddScoped<IHisoricalStockRepository, HisoricalStockRepository>();
+
+            services.AddScoped<IGuppyGenerator, GuppyGenerator>();
+            services.AddScoped<IMACDGenerator, MACDGenerator>();
+            services.AddScoped<IRSIGenerator, RSIGenerator>();
+            services.AddScoped<ISOGenerator, SOGenerator>();
 
 
             // In production, the Angular files will be served from this directory
