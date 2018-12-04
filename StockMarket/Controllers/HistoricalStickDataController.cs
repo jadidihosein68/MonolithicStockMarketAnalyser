@@ -20,17 +20,16 @@ namespace StockMarket.Core.Controllers
     {
 
         private readonly IHisoricalStockRepository IHisoricalStockRepository;
-        private readonly AppConfiguration AppConfiguration;
-        public HistoricalStickDataController(IHisoricalStockRepository _IHisoricalStockRepository, IOptions<AppConfiguration> _AppConfiguration)
+        public HistoricalStickDataController(IHisoricalStockRepository _IHisoricalStockRepository)
         {
             IHisoricalStockRepository = _IHisoricalStockRepository;
-            AppConfiguration = _AppConfiguration.Value;
         }
 
         [HttpGet("[action]")]
         public IEnumerable<RowHistoricalStockBase> GetQuadel(string StockIndex)
         {
-            var result = IHisoricalStockRepository.GetQuandlData(new RequestHistoricalStockQuandl() { api_key = AppConfiguration.QuandlAPIKey, Index = StockIndex });
+
+            var result = IHisoricalStockRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex });
             return result;
         }
 
