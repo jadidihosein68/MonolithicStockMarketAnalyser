@@ -6,3 +6,4 @@ O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\netcoreapp2.1\Stock
 O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\netcoreapp2.1\StockMarket.Model.AssemblyInfo.cs
 O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\netcoreapp2.1\StockMarket.Model.dll
 O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\netcoreapp2.1\StockMarket.Model.pdb
+O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\netcoreapp2.1\StockMarket.Model.csprojAssemblyReference.cache

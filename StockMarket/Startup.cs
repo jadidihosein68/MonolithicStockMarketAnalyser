@@ -7,6 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StockMarket.Adapter;
 using StockMarket.Adapter.Interface;
+using StockMarket.DAL.Interface.Persistance.Repositories;
+using StockMarket.DAL.Persistence.Repositories;
+using StockMarket.Model.Configuration;
 using Swashbuckle.AspNetCore.Swagger;
 namespace StockMarket
 {
@@ -24,7 +27,10 @@ namespace StockMarket
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddHttpClient();
+
+            services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
             services.AddScoped<IHistoricalStockAdapter, HistoricalStockAdapter>();
+            services.AddScoped<IHisoricalStockRepository, HisoricalStockRepository>();
 
 
             // In production, the Angular files will be served from this directory
