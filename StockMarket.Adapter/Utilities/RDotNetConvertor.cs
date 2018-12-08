@@ -142,7 +142,6 @@ namespace StockMarket.Adapter.Utilities
 
         public IEnumerable<RSIHistoricalStock> DataFrametoRSIMapper(DataFrame dataframe)
         {
-            /*
             var reslt = dataframe.ToArray();
 
             var date = dataframe[0].AsCharacter().ToArray();
@@ -150,34 +149,33 @@ namespace StockMarket.Adapter.Utilities
             var Open = dataframe[2].AsNumeric().ToArray();
             var High = dataframe[3].AsNumeric().ToArray();
             var Low = dataframe[4].AsNumeric().ToArray();
-            var Signal = dataframe[5].AsNumeric().ToArray();
-            var MACD = dataframe[6].AsNumeric().ToArray();
+            var Volume = dataframe[5].AsNumeric().ToArray();
+            var RSI = dataframe[6].AsNumeric().ToArray();
 
             var Date = date.Select(x => DateTime.Parse(x)).ToArray();
             var decimalClose = Array.ConvertAll(Close, x => (decimal)x);
             var decimalOpen = Array.ConvertAll(Open, x => (decimal)x);
             var decimalHigh = Array.ConvertAll(High, x => (decimal)x);
             var decimalLow = Array.ConvertAll(Low, x => (decimal)x);
+            var decimalVolume = Array.ConvertAll(Volume, x => (decimal)x);
 
-            IList<MACDHistoricalStock> result = new List<MACDHistoricalStock>();
+            IList<RSIHistoricalStock> result = new List<RSIHistoricalStock>();
 
             for (int i = 0; i < Date.Length; i++)
                 result.Add(
-                    new MACDHistoricalStock
+                    new RSIHistoricalStock
                     {
                         Close = decimalClose[i],
                         Open = decimalOpen[i],
                         Date = Date[i],
                         High = decimalHigh[i],
                         Low = decimalLow[i],
-                        MACD = MACD[i],
-                        Signal = Signal[i],
+                        Volume = decimalVolume[i],
+                        RSI = RSI[i]
                     }
                     );
 
             return result;
-            */
-            return null;
         }
 
 

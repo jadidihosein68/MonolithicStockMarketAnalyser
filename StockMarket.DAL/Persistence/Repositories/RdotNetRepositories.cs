@@ -26,5 +26,12 @@ namespace StockMarket.DAL.Persistence.Repositories
             return result;
         }
 
+
+        public IEnumerable<RSIHistoricalStock> GetRSI(IEnumerable<RowHistoricalStockBase> input)
+        {
+            var result = RdotNetAdapter.CalculateRSI(input);
+            return result;
+        }
+
     }
 }

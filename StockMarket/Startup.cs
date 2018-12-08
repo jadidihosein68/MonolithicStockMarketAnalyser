@@ -37,10 +37,6 @@ namespace StockMarket
             services.AddScoped<IQuandlHistoricalStockAdapter, QuandlHistoricalStockAdapter>();
             services.AddScoped<IQuamdlHisoricalStockRepository, QuandlHisoricalStockRepository>();
 
-            services.AddScoped<IGuppyGenerator, GuppyGenerator>();
-            services.AddScoped<IMACDGenerator, MACDGenerator>();
-            services.AddScoped<IRSIGenerator, RSIGenerator>();
-            services.AddScoped<ISOGenerator, SOGenerator>();
             services.AddScoped<IRDotNetConvertor, RDotNetConvertor>();
             services.AddScoped<IRdotNetAdapter, RdotNetAdapter>();
             services.AddScoped<IRdotNetRepositories, RdotNetRepositories>();

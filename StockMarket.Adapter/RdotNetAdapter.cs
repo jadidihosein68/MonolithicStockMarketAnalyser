@@ -37,20 +37,17 @@ namespace StockMarket.Adapter
             return final;
         }
 
-        public IEnumerable<MACDHistoricalStock> CalculateRSI(IEnumerable<RowHistoricalStockBase> input)
+        public IEnumerable<RSIHistoricalStock> CalculateRSI(IEnumerable<RowHistoricalStockBase> input)
         {
-            /*
+            
             var StockDataFrame = RDotNetConvertor.StockBaseToDataFrame(input, engine);
             engine.SetSymbol("datasets", StockDataFrame);
-            engine.Evaluate($"macd <- MACD(datasets[,'Close'], 12, 26, 9 ,  maType = 'EMA')");
-            engine.Evaluate("datasets$MADC <- (macd[,'macd'])");
-            engine.Evaluate("datasets$Signal <- (macd[,'signal'])");
+            engine.Evaluate($"rsi <- RSI(datasets[, 'Close'])");
+            engine.Evaluate("datasets$Rsi <- (rsi)");
             var result = engine.Evaluate("finalReslt <- data.frame(datasets)").AsDataFrame();
-            var final = RDotNetConvertor.DataFrametoMACDMapper(result);
+            var final = RDotNetConvertor.DataFrametoRSIMapper(result);
 
             return final;
-           */
-            return null;
         }
 
         public IEnumerable<StochasticOscillatorHistoricalStock> CalculateStochasticOscillator(IEnumerable<RowHistoricalStockBase> input)
@@ -66,10 +63,6 @@ namespace StockMarket.Adapter
             var final = RDotNetConvertor.DataFrametoStochasticOscillatorMapper(result);
             return final;
         }
-
-
-
-
 
         public IEnumerable<MACDHistoricalStock> CalculateGuppy(IEnumerable<RowHistoricalStockBase> input)
         {

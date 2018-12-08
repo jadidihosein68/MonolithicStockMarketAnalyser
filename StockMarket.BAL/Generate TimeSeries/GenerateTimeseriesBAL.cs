@@ -41,5 +41,15 @@ namespace StockMarket.BAL.Generate_TimeSeries
 
         }
 
+
+        public IEnumerable<RSIHistoricalStock> generateRSI(string StockIndex)
+        {
+
+            var RowData = QuamdlHisoricalStockRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
+            var RSI = RdotNetRepositories.GetRSI(RowData);
+            return RSI;
+
+        }
+
     }
 }

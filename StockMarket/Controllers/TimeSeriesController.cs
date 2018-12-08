@@ -46,6 +46,18 @@ namespace StockMarket.Core.Controllers
             return result;
         }
 
+        [HttpGet("[action]")]
+        public IEnumerable<RSIHistoricalStock> generateRSI(string StockIndex)
+        {
+            StockIndex = string.IsNullOrEmpty(StockIndex) ? "FB" : StockIndex;
+
+            var result = generateTimeseriesBAL.generateRSI(StockIndex);
+
+            return result;
+        }
+
+
+
 
 
     }

@@ -6,5 +6,12 @@ namespace StockMarket.Model
 {
     public class RSIHistoricalStock : RowHistoricalStockBase
     {
+        public RSIHistoricalStock()
+        :base(){
+
+        }
+
+        public double RSI { get; set; }
+
     }
 }

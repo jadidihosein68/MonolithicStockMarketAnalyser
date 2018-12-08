@@ -9,5 +9,6 @@ namespace StockMarket.BAL.Generate_TimeSeries.Interfaces
     {
         IEnumerable<MACDHistoricalStock> generateMacd(string StockIndex);
         IEnumerable<StochasticOscillatorHistoricalStock> generateStochasticOscillator(string StockIndex);
+        IEnumerable<RSIHistoricalStock> generateRSI(string StockIndex);
     }
 }

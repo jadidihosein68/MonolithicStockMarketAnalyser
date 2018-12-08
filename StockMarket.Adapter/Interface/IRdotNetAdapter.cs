@@ -9,5 +9,6 @@ namespace StockMarket.Adapter.Interface
     {
         IEnumerable<MACDHistoricalStock> CalculateMACD(IEnumerable<RowHistoricalStockBase> input);
         IEnumerable<StochasticOscillatorHistoricalStock> CalculateStochasticOscillator(IEnumerable<RowHistoricalStockBase> input);
+        IEnumerable<RSIHistoricalStock> CalculateRSI(IEnumerable<RowHistoricalStockBase> input);
     }
 }
