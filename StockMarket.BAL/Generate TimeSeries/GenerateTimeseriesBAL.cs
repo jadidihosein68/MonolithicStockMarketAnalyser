@@ -14,8 +14,6 @@ namespace StockMarket.BAL.Generate_TimeSeries
         private readonly IRdotNetRepositories RdotNetRepositories;
         private readonly IQuamdlHisoricalStockRepository QuamdlHisoricalStockRepository;
 
-
-
         public GenerateTimeseriesBAL(IRdotNetRepositories _RdotNetRepositories,
                                     IQuamdlHisoricalStockRepository _QuamdlHisoricalStockRepository
             )
@@ -32,7 +30,7 @@ namespace StockMarket.BAL.Generate_TimeSeries
             var MACD = RdotNetRepositories.getMACD(RowData);
             return MACD;
 
-        } 
+        }
 
 
     }
