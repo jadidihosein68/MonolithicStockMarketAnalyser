@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace StockMarket.Adapter.Interface
 {
-    public interface IHistoricalStockAdapter
+    public interface IQuandlHistoricalStockAdapter
     {
         IEnumerable<RowHistoricalStockBase> getCSVFromQuandl(RequestHistoricalStockQuandl RequestHistoricalStock);
+        string getStringFromQuandl(RequestHistoricalStockQuandl RequestHistoricalStock);
     }
 }

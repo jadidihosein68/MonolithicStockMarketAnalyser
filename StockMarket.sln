@@ -5,13 +5,15 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarket.Core", "StockMarket\StockMarket.Core.csproj", "{3A24373C-7AD1-4E4B-95EB-66BB4F4C5397}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket.Adapter", "StockMarket.Adapter\StockMarket.Adapter.csproj", "{4CAE9B17-A25A-4AF6-9CB0-402F92DC1DD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarket.Adapter", "StockMarket.Adapter\StockMarket.Adapter.csproj", "{4CAE9B17-A25A-4AF6-9CB0-402F92DC1DD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket.DAL", "StockMarket.DAL\StockMarket.DAL.csproj", "{916AA2D5-5EB8-466E-862F-4A6F3105ADCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarket.DAL", "StockMarket.DAL\StockMarket.DAL.csproj", "{916AA2D5-5EB8-466E-862F-4A6F3105ADCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket.BAL", "StockMarket.BAL\StockMarket.BAL.csproj", "{E24F1949-ACC6-461E-95CE-3BEF980ABFBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarket.BAL", "StockMarket.BAL\StockMarket.BAL.csproj", "{E24F1949-ACC6-461E-95CE-3BEF980ABFBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket.Model", "StockMarket.Model\StockMarket.Model.csproj", "{B62E6A68-EE9A-4FAB-9AF6-B0097EB72F5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarket.Model", "StockMarket.Model\StockMarket.Model.csproj", "{B62E6A68-EE9A-4FAB-9AF6-B0097EB72F5F}"
+EndProject
+Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "StockCalculator", "StockCalculator\StockCalculator.rxproj", "{F8297D7F-83AF-4413-B4B5-57C220898F28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B62E6A68-EE9A-4FAB-9AF6-B0097EB72F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B62E6A68-EE9A-4FAB-9AF6-B0097EB72F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B62E6A68-EE9A-4FAB-9AF6-B0097EB72F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8297D7F-83AF-4413-B4B5-57C220898F28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8297D7F-83AF-4413-B4B5-57C220898F28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8297D7F-83AF-4413-B4B5-57C220898F28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8297D7F-83AF-4413-B4B5-57C220898F28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

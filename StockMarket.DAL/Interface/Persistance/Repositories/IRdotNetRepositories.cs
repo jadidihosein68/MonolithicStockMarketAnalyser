@@ -5,8 +5,8 @@ using System.Text;
 
 namespace StockMarket.DAL.Interface.Persistance.Repositories
 {
-    public interface IHisoricalStockRepository
+    public interface IRdotNetRepositories
     {
-        IEnumerable<RowHistoricalStockBase> GetQuandlData(RequestHistoricalStockQuandl RequestHistoricalStockQuandl);
+        IEnumerable<MACDHistoricalStock> getMACD(IEnumerable<RowHistoricalStockBase> input);
     }
 }

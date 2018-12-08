@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="11.0.0" />
+    <PackageReference Include="R.NET" Version="1.7.0" />
   </ItemGroup>
 
 </Project>

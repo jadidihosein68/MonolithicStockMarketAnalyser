@@ -15,6 +15,15 @@
           "lib/netstandard2.0/CsvHelper.dll": {}
         }
       },
+      "DynamicInterop/0.8.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.2/DynamicInterop.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.2/DynamicInterop.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.4.0": {
         "type": "package",
         "compile": {
@@ -230,6 +239,20 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "R.NET/1.7.0": {
+        "type": "package",
+        "dependencies": {
+          "DynamicInterop": "[0.8.1]"
+        },
+        "compile": {
+          "lib/net40/RDotNet.NativeLibrary.dll": {},
+          "lib/net40/RDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/net40/RDotNet.NativeLibrary.dll": {},
+          "lib/net40/RDotNet.dll": {}
+        }
+      },
       "System.Reflection.TypeExtensions/4.4.0": {
         "type": "package",
         "compile": {
@@ -265,6 +288,19 @@
         "lib/net45/CsvHelper.xml",
         "lib/netstandard2.0/CsvHelper.dll",
         "lib/netstandard2.0/CsvHelper.xml"
+      ]
+    },
+    "DynamicInterop/0.8.1": {
+      "sha512": "CguR9YnQGiEDhcAzxfvziCC3nuS2ioj3vcD4LSvGj3RVqDN8MEVjYRxXlFp2lMXsG9WPbuV+LHYt9wxIDVKbjg==",
+      "type": "package",
+      "path": "dynamicinterop/0.8.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dynamicinterop.0.8.1.nupkg.sha512",
+        "dynamicinterop.nuspec",
+        "lib/netstandard1.2/DynamicInterop.XML",
+        "lib/netstandard1.2/DynamicInterop.dll"
       ]
     },
     "Microsoft.CSharp/4.4.0": {
@@ -803,6 +839,21 @@
         "netstandard.library.nuspec"
       ]
     },
+    "R.NET/1.7.0": {
+      "sha512": "5M8Cz4BL/vZG20x4c5Ft+DURqAdmXYGgGcPL28atCrFz+QmxPoU8Nj2TskW9vAwcJRODcigAFU5X/qWC9vIQKg==",
+      "type": "package",
+      "path": "r.net/1.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/RDotNet.NativeLibrary.XML",
+        "lib/net40/RDotNet.NativeLibrary.dll",
+        "lib/net40/RDotNet.XML",
+        "lib/net40/RDotNet.dll",
+        "r.net.1.7.0.nupkg.sha512",
+        "r.net.nuspec"
+      ]
+    },
     "System.Reflection.TypeExtensions/4.4.0": {
       "sha512": "JRxOAH6by+wn1gNnZc9jf2HbO/szhMJuLY2w44nEW77354WntXlFzWSVkx6280Uvcl3URZ/At+444vjX0/X1Aw==",
       "type": "package",
@@ -877,6 +928,7 @@
     ".NETCoreApp,Version=v2.1": [
       "CsvHelper >= 11.0.0",
       "Microsoft.NETCore.App >= 2.1.0",
+      "R.NET >= 1.7.0",
       "StockMarket.Model >= 1.0.0"
     ]
   },
@@ -934,6 +986,10 @@
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
+          },
+          "R.NET": {
+            "target": "Package",
+            "version": "[1.7.0, )"
           }
         },
         "imports": [
@@ -943,5 +999,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'R.NET 1.7.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "R.NET",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    }
+  ]
 }

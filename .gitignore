@@ -9,3 +9,6 @@
 /StockMarket.BAL/obj/Debug
 /StockMarket.DAL/bin/Debug
 /StockMarket.DAL/obj/Debug
+/TestApps/obj/Debug/netcoreapp2.1
+/TestApps/obj
+/TestApps/bin/Debug/netcoreapp2.1

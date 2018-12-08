@@ -15,14 +15,12 @@ using System.Threading.Tasks;
 
 namespace StockMarket.Adapter
 {
-    public class HistoricalStockAdapter : IHistoricalStockAdapter
+    public class QuandlHistoricalStockAdapter : IQuandlHistoricalStockAdapter
     {
-        private readonly IHttpClientFactory httpClientFactory;
         private readonly AppConfiguration AppConfiguration;
 
-        public HistoricalStockAdapter(IHttpClientFactory _httpClientFactory , IOptions<AppConfiguration> _AppConfiguration)
+        public QuandlHistoricalStockAdapter(IHttpClientFactory _httpClientFactory , IOptions<AppConfiguration> _AppConfiguration)
         {
-            this.httpClientFactory = _httpClientFactory;
             AppConfiguration = _AppConfiguration.Value;
         }
 
@@ -35,6 +33,14 @@ namespace StockMarket.Adapter
             return (new CSVDeserializer().Decerialize<RowHistoricalStockBase>(result));
         }
 
+        public string getStringFromQuandl(RequestHistoricalStockQuandl RequestHistoricalStock)
+        {
+            var index = string.IsNullOrEmpty(RequestHistoricalStock.Index) ? QuandlStockIndex.DefaltIndex : RequestHistoricalStock.Index;
+            var URL = $"{AppConfiguration.Endpoints.QuadlPoint}{index}/data.{RequestHistoricalStock.DataType}?api_key={AppConfiguration.QuandlAPIKey}";
+            var client = new System.Net.WebClient();
+            var result = client.DownloadString(URL);
+            return (result);
+        }
     }
 
 }

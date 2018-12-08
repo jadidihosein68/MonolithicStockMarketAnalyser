@@ -19,8 +19,8 @@ namespace StockMarket.Core.Controllers
     public class HistoricalStickDataController : ControllerBase
     {
 
-        private readonly IHisoricalStockRepository IHisoricalStockRepository;
-        public HistoricalStickDataController(IHisoricalStockRepository _IHisoricalStockRepository)
+        private readonly IQuamdlHisoricalStockRepository IHisoricalStockRepository;
+        public HistoricalStickDataController(IQuamdlHisoricalStockRepository _IHisoricalStockRepository)
         {
             IHisoricalStockRepository = _IHisoricalStockRepository;
         }
@@ -28,12 +28,9 @@ namespace StockMarket.Core.Controllers
         [HttpGet("[action]")]
         public IEnumerable<RowHistoricalStockBase> GetQuadel(string StockIndex)
         {
-
             var result = IHisoricalStockRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex });
             return result;
         }
-
-
 
 
     }

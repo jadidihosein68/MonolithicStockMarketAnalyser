@@ -7,11 +7,11 @@ using System.Text;
 
 namespace StockMarket.DAL.Persistence.Repositories
 {
-    public class HisoricalStockRepository : IHisoricalStockRepository
+    public class QuandlHisoricalStockRepository : IQuamdlHisoricalStockRepository
     {
-        private readonly IHistoricalStockAdapter IHistoricalStockAdapter;
+        private readonly IQuandlHistoricalStockAdapter IHistoricalStockAdapter;
 
-        public HisoricalStockRepository(IHistoricalStockAdapter _IHistoricalStockAdapter)
+        public QuandlHisoricalStockRepository(IQuandlHistoricalStockAdapter _IHistoricalStockAdapter)
         {
             IHistoricalStockAdapter = _IHistoricalStockAdapter;
         }
@@ -21,6 +21,13 @@ namespace StockMarket.DAL.Persistence.Repositories
         {
 
             var result = IHistoricalStockAdapter.getCSVFromQuandl(RequestHistoricalStockQuandl);
+            return result;
+        }
+
+        public string getStringFromQuandl(RequestHistoricalStockQuandl RequestHistoricalStockQuandl)
+        {
+
+            var result = IHistoricalStockAdapter.getStringFromQuandl(RequestHistoricalStockQuandl);
             return result;
         }
     }

@@ -1,14 +1,17 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StockMarket.Adapter;
 using StockMarket.Adapter.Interface;
+using StockMarket.Adapter.Interface.Utilities;
+using StockMarket.Adapter.Utilities;
 using StockMarket.BAL.Generate_TimeSeries;
 using StockMarket.BAL.Generate_TimeSeries.Interfaces;
+using StockMarket.BAL.Generate_TimeSeries.Interfaces.Utilities;
+using StockMarket.BAL.Generate_TimeSeries.Utilities;
 using StockMarket.DAL.Interface.Persistance.Repositories;
 using StockMarket.DAL.Persistence.Repositories;
 using StockMarket.Model.Configuration;
@@ -31,14 +34,17 @@ namespace StockMarket
             services.AddHttpClient();
 
             services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
-            services.AddScoped<IHistoricalStockAdapter, HistoricalStockAdapter>();
-            services.AddScoped<IHisoricalStockRepository, HisoricalStockRepository>();
+            services.AddScoped<IQuandlHistoricalStockAdapter, QuandlHistoricalStockAdapter>();
+            services.AddScoped<IQuamdlHisoricalStockRepository, QuandlHisoricalStockRepository>();
 
             services.AddScoped<IGuppyGenerator, GuppyGenerator>();
             services.AddScoped<IMACDGenerator, MACDGenerator>();
             services.AddScoped<IRSIGenerator, RSIGenerator>();
             services.AddScoped<ISOGenerator, SOGenerator>();
-
+            services.AddScoped<IRDotNetConvertor, RDotNetConvertor>();
+            services.AddScoped<IRdotNetAdapter, RdotNetAdapter>();
+            services.AddScoped<IRdotNetRepositories, RdotNetRepositories>();
+            services.AddScoped<IGenerateTimeseriesBAL, GenerateTimeseriesBAL>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
