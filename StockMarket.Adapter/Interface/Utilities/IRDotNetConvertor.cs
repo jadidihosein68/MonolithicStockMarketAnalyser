@@ -10,5 +10,6 @@ namespace StockMarket.Adapter.Interface.Utilities
     {
         DataFrame StockBaseToDataFrame(IEnumerable<RowHistoricalStockBase> input, REngine engine);
         IEnumerable<MACDHistoricalStock> DataFrametoMACDMapper(DataFrame dataframe);
+        IEnumerable<StochasticOscillatorHistoricalStock> DataFrametoStochasticOscillatorMapper(DataFrame dataframe);
     }
 }

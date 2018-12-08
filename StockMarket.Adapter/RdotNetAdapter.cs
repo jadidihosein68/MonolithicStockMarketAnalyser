@@ -53,20 +53,18 @@ namespace StockMarket.Adapter
             return null;
         }
 
-        public IEnumerable<MACDHistoricalStock> CalculateStochasticOcillator(IEnumerable<RowHistoricalStockBase> input)
+        public IEnumerable<StochasticOscillatorHistoricalStock> CalculateStochasticOscillator(IEnumerable<RowHistoricalStockBase> input)
         {
-            /*
+
             var StockDataFrame = RDotNetConvertor.StockBaseToDataFrame(input, engine);
             engine.SetSymbol("datasets", StockDataFrame);
-            engine.Evaluate($"macd <- MACD(datasets[,'Close'], 12, 26, 9 ,  maType = 'EMA')");
-            engine.Evaluate("datasets$MADC <- (macd[,'macd'])");
-            engine.Evaluate("datasets$Signal <- (macd[,'signal'])");
+            engine.Evaluate($"stoch2MA <- stoch(datasets[, c('High', 'Low', 'Close')], maType = list(list(SMA), list(EMA, wilder = TRUE), list(SMA)))");
+            engine.Evaluate("datasets$fastK <- (stoch2MA[,'fastK'])");
+            engine.Evaluate("datasets$fastD <- (stoch2MA[,'fastD'])");
+            engine.Evaluate("datasets$slowD <- (stoch2MA[,'slowD'])");
             var result = engine.Evaluate("finalReslt <- data.frame(datasets)").AsDataFrame();
-            var final = RDotNetConvertor.DataFrametoMACDMapper(result);
-
+            var final = RDotNetConvertor.DataFrametoStochasticOscillatorMapper(result);
             return final;
-            */
-            return null;
         }
 
 

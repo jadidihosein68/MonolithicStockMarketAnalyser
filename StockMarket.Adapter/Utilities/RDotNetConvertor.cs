@@ -103,15 +103,17 @@ namespace StockMarket.Adapter.Utilities
             var Open = dataframe[2].AsNumeric().ToArray();
             var High = dataframe[3].AsNumeric().ToArray();
             var Low = dataframe[4].AsNumeric().ToArray();
-            var fastK = dataframe[5].AsNumeric().ToArray();
-            var fastD = dataframe[6].AsNumeric().ToArray();
-            var slowD = dataframe[7].AsNumeric().ToArray();
+            var Volume = dataframe[5].AsNumeric().ToArray();
+            var fastK = dataframe[6].AsNumeric().ToArray();
+            var fastD = dataframe[7].AsNumeric().ToArray();
+            var slowD = dataframe[8].AsNumeric().ToArray();
 
             var Date = date.Select(x => DateTime.Parse(x)).ToArray();
             var decimalClose = Array.ConvertAll(Close, x => (decimal)x);
             var decimalOpen = Array.ConvertAll(Open, x => (decimal)x);
             var decimalHigh = Array.ConvertAll(High, x => (decimal)x);
             var decimalLow = Array.ConvertAll(Low, x => (decimal)x);
+            var decimalVolume = Array.ConvertAll(Volume, x => (decimal)x);
 
             IList<StochasticOscillatorHistoricalStock> result = new List<StochasticOscillatorHistoricalStock>();
 
@@ -124,6 +126,7 @@ namespace StockMarket.Adapter.Utilities
                         Date = Date[i],
                         High = decimalHigh[i],
                         Low = decimalLow[i],
+                        Volume= decimalVolume[i],
                         fastK = fastK[i],
                         fastD = fastD[i],
                         slowD = slowD[i]
@@ -131,8 +134,6 @@ namespace StockMarket.Adapter.Utilities
                     );
 
             return result;
-            
-           
 
         }
 

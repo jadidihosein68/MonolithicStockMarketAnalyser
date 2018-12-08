@@ -32,6 +32,14 @@ namespace StockMarket.BAL.Generate_TimeSeries
 
         }
 
+        public IEnumerable<StochasticOscillatorHistoricalStock> generateStochasticOscillator(string StockIndex)
+        {
+
+            var RowData = QuamdlHisoricalStockRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
+            var StochasticOscillator = RdotNetRepositories.GetStochasticOscillator(RowData);
+            return StochasticOscillator;
+
+        }
 
     }
 }

@@ -34,5 +34,19 @@ namespace StockMarket.Core.Controllers
             return result;
         }
 
+
+
+        [HttpGet("[action]")]
+        public IEnumerable<StochasticOscillatorHistoricalStock> generateStochasticOscillator(string StockIndex)
+        {
+            StockIndex = string.IsNullOrEmpty(StockIndex) ? "FB" : StockIndex;
+
+            var result = generateTimeseriesBAL.generateStochasticOscillator(StockIndex);
+
+            return result;
+        }
+
+
+
     }
 }

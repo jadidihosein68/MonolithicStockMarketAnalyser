@@ -20,5 +20,11 @@ namespace StockMarket.DAL.Persistence.Repositories
             return result;
         }
 
+        public IEnumerable<StochasticOscillatorHistoricalStock> GetStochasticOscillator(IEnumerable<RowHistoricalStockBase> input)
+        {
+            var result = RdotNetAdapter.CalculateStochasticOscillator(input);
+            return result;
+        }
+
     }
 }

@@ -8,5 +8,6 @@ namespace StockMarket.Adapter.Interface
     public interface IRdotNetAdapter
     {
         IEnumerable<MACDHistoricalStock> CalculateMACD(IEnumerable<RowHistoricalStockBase> input);
+        IEnumerable<StochasticOscillatorHistoricalStock> CalculateStochasticOscillator(IEnumerable<RowHistoricalStockBase> input);
     }
 }

@@ -13,7 +13,7 @@ namespace StockMarket.BAL.Generate_TimeSeries.Utilities
 
         }
 
-        public IEnumerable<SOHistoricalStock> Generate()
+        public IEnumerable<StochasticOscillatorHistoricalStock> Generate()
         {
             return null;
         }
