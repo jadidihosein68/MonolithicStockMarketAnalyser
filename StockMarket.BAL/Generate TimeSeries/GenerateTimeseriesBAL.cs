@@ -51,5 +51,13 @@ namespace StockMarket.BAL.Generate_TimeSeries
 
         }
 
+        public IEnumerable<GuppyHistoricalStock> generateGuppy(string StockIndex)
+        {
+
+            var RowData = QuamdlHisoricalStockRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
+            var RSI = RdotNetRepositories.GetGuppy(RowData);
+            return RSI;
+
+        }
     }
 }

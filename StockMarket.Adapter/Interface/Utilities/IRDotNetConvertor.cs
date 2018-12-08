@@ -12,5 +12,6 @@ namespace StockMarket.Adapter.Interface.Utilities
         IEnumerable<MACDHistoricalStock> DataFrametoMACDMapper(DataFrame dataframe);
         IEnumerable<StochasticOscillatorHistoricalStock> DataFrametoStochasticOscillatorMapper(DataFrame dataframe);
         IEnumerable<RSIHistoricalStock> DataFrametoRSIMapper(DataFrame dataframe);
+        IEnumerable<GuppyHistoricalStock> DataFrametoGuppyMapper(DataFrame dataframe);
     }
 }

@@ -179,9 +179,9 @@ namespace StockMarket.Adapter.Utilities
         }
 
 
-        public IEnumerable<GuppyHistoricalStock> DataFrametoGppyMapper(DataFrame dataframe)
+        public IEnumerable<GuppyHistoricalStock> DataFrametoGuppyMapper(DataFrame dataframe)
         {
-            /*
+
             var reslt = dataframe.ToArray();
 
             var date = dataframe[0].AsCharacter().ToArray();
@@ -189,34 +189,56 @@ namespace StockMarket.Adapter.Utilities
             var Open = dataframe[2].AsNumeric().ToArray();
             var High = dataframe[3].AsNumeric().ToArray();
             var Low = dataframe[4].AsNumeric().ToArray();
-            var Signal = dataframe[5].AsNumeric().ToArray();
-            var MACD = dataframe[6].AsNumeric().ToArray();
-
+            var Volume = dataframe[5].AsNumeric().ToArray();
+            var shortlag3 = dataframe[6].AsNumeric().ToArray();
+            var shortlag5 = dataframe[7].AsNumeric().ToArray();
+            var shortlag8 = dataframe[8].AsNumeric().ToArray();
+            var shortlag10 = dataframe[9].AsNumeric().ToArray();
+            var shortlag12 = dataframe[10].AsNumeric().ToArray();
+            var shortlag15 = dataframe[11].AsNumeric().ToArray();
+            var longlag30 = dataframe[12].AsNumeric().ToArray();
+            var longlag35 = dataframe[13].AsNumeric().ToArray();
+            var longlag40 = dataframe[14].AsNumeric().ToArray();
+            var longlag45 = dataframe[15].AsNumeric().ToArray();
+            var longlag50 = dataframe[16].AsNumeric().ToArray();
+            var longlag60 = dataframe[17].AsNumeric().ToArray();
+            
             var Date = date.Select(x => DateTime.Parse(x)).ToArray();
             var decimalClose = Array.ConvertAll(Close, x => (decimal)x);
             var decimalOpen = Array.ConvertAll(Open, x => (decimal)x);
             var decimalHigh = Array.ConvertAll(High, x => (decimal)x);
             var decimalLow = Array.ConvertAll(Low, x => (decimal)x);
+            var decimalVolume = Array.ConvertAll(Volume, x => (decimal)x);
 
-            IList<MACDHistoricalStock> result = new List<MACDHistoricalStock>();
+            IList<GuppyHistoricalStock> result = new List<GuppyHistoricalStock>();
 
             for (int i = 0; i < Date.Length; i++)
                 result.Add(
-                    new MACDHistoricalStock
+                    new GuppyHistoricalStock
                     {
                         Close = decimalClose[i],
                         Open = decimalOpen[i],
                         Date = Date[i],
                         High = decimalHigh[i],
                         Low = decimalLow[i],
-                        MACD = MACD[i],
-                        Signal = Signal[i],
+                        Volume = decimalVolume[i],
+                        shortlag3 = shortlag3[i],
+                        shortlag5 = shortlag5[i],
+                        shortlag8 = shortlag8[i], 
+                        shortlag10 = shortlag10[i], 
+                        shortlag12 = shortlag12[i], 
+                        shortlag15 = shortlag15[i], 
+                        longlag30 = longlag30[i],
+                        longlag35 = longlag30[i],
+                        longlag40 = longlag30[i],
+                        longlag45 = longlag30[i],
+                        longlag50 = longlag30[i],
+                        longlag60 = longlag30[i],
                     }
                     );
 
             return result;
-            */
-            return null;
+
         }
 
 

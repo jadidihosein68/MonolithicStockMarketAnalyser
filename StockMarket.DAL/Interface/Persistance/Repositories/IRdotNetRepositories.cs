@@ -10,5 +10,6 @@ namespace StockMarket.DAL.Interface.Persistance.Repositories
         IEnumerable<MACDHistoricalStock> getMACD(IEnumerable<RowHistoricalStockBase> input);
         IEnumerable<StochasticOscillatorHistoricalStock> GetStochasticOscillator(IEnumerable<RowHistoricalStockBase> input);
         IEnumerable<RSIHistoricalStock> GetRSI(IEnumerable<RowHistoricalStockBase> input);
+        IEnumerable<GuppyHistoricalStock> GetGuppy(IEnumerable<RowHistoricalStockBase> input);
     }
 }

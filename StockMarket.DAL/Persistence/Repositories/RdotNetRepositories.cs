@@ -33,5 +33,11 @@ namespace StockMarket.DAL.Persistence.Repositories
             return result;
         }
 
+        public IEnumerable<GuppyHistoricalStock> GetGuppy(IEnumerable<RowHistoricalStockBase> input)
+        {
+            var result = RdotNetAdapter.CalculateGuppy(input);
+            return result;
+        }
+
     }
 }

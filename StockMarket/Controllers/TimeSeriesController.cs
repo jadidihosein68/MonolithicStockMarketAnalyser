@@ -57,8 +57,15 @@ namespace StockMarket.Core.Controllers
         }
 
 
+        [HttpGet("[action]")]
+        public IEnumerable<GuppyHistoricalStock> generateGuppy(string StockIndex)
+        {
+            StockIndex = string.IsNullOrEmpty(StockIndex) ? "FB" : StockIndex;
 
+            var result = generateTimeseriesBAL.generateGuppy(StockIndex);
 
+            return result;
+        }
 
     }
 }
