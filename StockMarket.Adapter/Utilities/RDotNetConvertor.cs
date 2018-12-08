@@ -86,5 +86,133 @@ namespace StockMarket.Adapter.Utilities
             return result;
 
         }
+
+
+        public IEnumerable<RSIHistoricalStock> DataFrametoRSIMapper(DataFrame dataframe)
+        {
+            /*
+            var reslt = dataframe.ToArray();
+
+            var date = dataframe[0].AsCharacter().ToArray();
+            var Close = dataframe[1].AsNumeric().ToArray();
+            var Open = dataframe[2].AsNumeric().ToArray();
+            var High = dataframe[3].AsNumeric().ToArray();
+            var Low = dataframe[4].AsNumeric().ToArray();
+            var Signal = dataframe[5].AsNumeric().ToArray();
+            var MACD = dataframe[6].AsNumeric().ToArray();
+
+            var Date = date.Select(x => DateTime.Parse(x)).ToArray();
+            var decimalClose = Array.ConvertAll(Close, x => (decimal)x);
+            var decimalOpen = Array.ConvertAll(Open, x => (decimal)x);
+            var decimalHigh = Array.ConvertAll(High, x => (decimal)x);
+            var decimalLow = Array.ConvertAll(Low, x => (decimal)x);
+
+            IList<MACDHistoricalStock> result = new List<MACDHistoricalStock>();
+
+            for (int i = 0; i < Date.Length; i++)
+                result.Add(
+                    new MACDHistoricalStock
+                    {
+                        Close = decimalClose[i],
+                        Open = decimalOpen[i],
+                        Date = Date[i],
+                        High = decimalHigh[i],
+                        Low = decimalLow[i],
+                        MACD = MACD[i],
+                        Signal = Signal[i],
+                    }
+                    );
+
+            return result;
+            */
+            return null;
+        }
+
+
+
+        public IEnumerable<SOHistoricalStock> DataFrametoSOMapper(DataFrame dataframe)
+        {
+            /*
+            var reslt = dataframe.ToArray();
+
+            var date = dataframe[0].AsCharacter().ToArray();
+            var Close = dataframe[1].AsNumeric().ToArray();
+            var Open = dataframe[2].AsNumeric().ToArray();
+            var High = dataframe[3].AsNumeric().ToArray();
+            var Low = dataframe[4].AsNumeric().ToArray();
+            var Signal = dataframe[5].AsNumeric().ToArray();
+            var MACD = dataframe[6].AsNumeric().ToArray();
+
+            var Date = date.Select(x => DateTime.Parse(x)).ToArray();
+            var decimalClose = Array.ConvertAll(Close, x => (decimal)x);
+            var decimalOpen = Array.ConvertAll(Open, x => (decimal)x);
+            var decimalHigh = Array.ConvertAll(High, x => (decimal)x);
+            var decimalLow = Array.ConvertAll(Low, x => (decimal)x);
+
+            IList<MACDHistoricalStock> result = new List<MACDHistoricalStock>();
+
+            for (int i = 0; i < Date.Length; i++)
+                result.Add(
+                    new MACDHistoricalStock
+                    {
+                        Close = decimalClose[i],
+                        Open = decimalOpen[i],
+                        Date = Date[i],
+                        High = decimalHigh[i],
+                        Low = decimalLow[i],
+                        MACD = MACD[i],
+                        Signal = Signal[i],
+                    }
+                    );
+
+            return result;
+            */
+            return null;
+
+        }
+
+
+
+        public IEnumerable<GuppyHistoricalStock> DataFrametoGppyMapper(DataFrame dataframe)
+        {
+            /*
+            var reslt = dataframe.ToArray();
+
+            var date = dataframe[0].AsCharacter().ToArray();
+            var Close = dataframe[1].AsNumeric().ToArray();
+            var Open = dataframe[2].AsNumeric().ToArray();
+            var High = dataframe[3].AsNumeric().ToArray();
+            var Low = dataframe[4].AsNumeric().ToArray();
+            var Signal = dataframe[5].AsNumeric().ToArray();
+            var MACD = dataframe[6].AsNumeric().ToArray();
+
+            var Date = date.Select(x => DateTime.Parse(x)).ToArray();
+            var decimalClose = Array.ConvertAll(Close, x => (decimal)x);
+            var decimalOpen = Array.ConvertAll(Open, x => (decimal)x);
+            var decimalHigh = Array.ConvertAll(High, x => (decimal)x);
+            var decimalLow = Array.ConvertAll(Low, x => (decimal)x);
+
+            IList<MACDHistoricalStock> result = new List<MACDHistoricalStock>();
+
+            for (int i = 0; i < Date.Length; i++)
+                result.Add(
+                    new MACDHistoricalStock
+                    {
+                        Close = decimalClose[i],
+                        Open = decimalOpen[i],
+                        Date = Date[i],
+                        High = decimalHigh[i],
+                        Low = decimalLow[i],
+                        MACD = MACD[i],
+                        Signal = Signal[i],
+                    }
+                    );
+
+            return result;
+            */
+            return null;
+        }
+
+
     }
 }
