@@ -6,6 +6,7 @@
 /.vs/StockMarket/v15/Server/sqlite3
 /StockMarket/bin
 /StockMarket/obj
+/StockMarket/.vs
 /StockMarket.Adapter/bin
 /StockMarket.Adapter/obj
 /StockMarket.BAL/bin
