@@ -1,9 +1,0 @@
-O:\Asp Core Projects\StockMarket\StockMarket.Model\bin\Debug\netcoreapp2.1\StockMarket.Model.deps.json
-O:\Asp Core Projects\StockMarket\StockMarket.Model\bin\Debug\netcoreapp2.1\StockMarket.Model.dll
-O:\Asp Core Projects\StockMarket\StockMarket.Model\bin\Debug\netcoreapp2.1\StockMarket.Model.pdb
-O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\netcoreapp2.1\StockMarket.Model.csproj.CoreCompileInputs.cache
-O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\netcoreapp2.1\StockMarket.Model.AssemblyInfoInputs.cache
-O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\netcoreapp2.1\StockMarket.Model.AssemblyInfo.cs
-O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\netcoreapp2.1\StockMarket.Model.dll
-O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\netcoreapp2.1\StockMarket.Model.pdb
-O:\Asp Core Projects\StockMarket\StockMarket.Model\obj\Debug\netcoreapp2.1\StockMarket.Model.csprojAssemblyReference.cache
