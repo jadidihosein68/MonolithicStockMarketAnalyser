@@ -8,6 +8,6 @@ namespace StockMarket.Model.Configuration
     {
         public string QuandlAPIKey { get; set;}
         public Endpoints Endpoints { get;set;}
-
+        public TwitterCrodential TwitterCrodential { get; set; }
     }
 }

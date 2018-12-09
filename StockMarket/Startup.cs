@@ -41,6 +41,10 @@ namespace StockMarket
             services.AddScoped<IRdotNetAdapter, RdotNetAdapter>();
             services.AddScoped<IRdotNetRepositories, RdotNetRepositories>();
             services.AddScoped<IGenerateTimeseriesBAL, GenerateTimeseriesBAL>();
+            services.AddScoped<ITwitterAdapter, TwitterAdapter>();
+            services.AddScoped<ITwitterRepository, TwitterRepository>();
+            services.AddScoped<ITwitterBal, TwitterBal>();
+            
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
