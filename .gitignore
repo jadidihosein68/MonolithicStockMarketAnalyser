@@ -4,12 +4,14 @@
 
 /StockMarket.Adapter/obj/Debug
 /.vs/StockMarket/v15/Server/sqlite3
-/StockMarket.Adapter/bin/Debug
-/StockMarket.BAL/bin/Debug
-/StockMarket.BAL/obj/Debug
-/StockMarket.DAL/bin/Debug
-/StockMarket.DAL/obj/Debug
-/TestApps/obj/Debug/netcoreapp2.1
-/TestApps/obj
-/TestApps/bin/Debug/netcoreapp2.1
+/StockMarket/bin
+/StockMarket/obj
+/StockMarket.Adapter/bin
+/StockMarket.Adapter/obj
+/StockMarket.BAL/bin
+/StockMarket.BAL/obj
+/StockMarket.DAL/bin
+/StockMarket.DAL/obj
+/StockMarket.Model/bin
+/StockMarket.Model/obj
 /StockCalculator
