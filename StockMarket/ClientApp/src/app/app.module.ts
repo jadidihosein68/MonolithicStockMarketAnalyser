@@ -1,15 +1,16 @@
+import { WeatherComponent } from './components/Weather/Weather.component';
+import { MACDComponent } from './components/MACD/MACD.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
-
 import { HomeComponent } from './components/home/home.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { FetchDataComponent } from './services/fetch-data/fetch-data.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { WeatherService } from './services/Weather.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    MACDComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,7 +32,7 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
