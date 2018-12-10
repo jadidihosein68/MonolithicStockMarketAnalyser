@@ -11,6 +11,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { FetchDataComponent } from './services/fetch-data/fetch-data.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { WeatherService } from './services/Weather.service';
+import { MACDService } from './services/MACD.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { WeatherService } from './services/Weather.service';
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
-  providers: [WeatherService],
+  providers: [WeatherService 
+              ,MACDService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
