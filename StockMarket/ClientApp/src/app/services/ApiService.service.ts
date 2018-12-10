@@ -2,21 +2,11 @@ import axios from "axios";
 import { Injectable, Inject } from '@angular/core';
 import { ErrorHandler } from "@angular/core";
 import { AxiosInstance } from "axios";
+import { GetOptions } from '../model/interface/APIServiceInterfaces';
 
-export interface Params {
-    [ key: string ]: any;
-}
 
-export interface GetOptions {
-    url: string;
-    params?: Params;
-}
 
-export interface ErrorResponse {
-    id: string;
-    code: string;
-    message: string;
-}
+
 
 
 @Injectable({
@@ -25,13 +15,12 @@ export interface ErrorResponse {
 
 export class ApiService {
 
-    private axiosClient : AxiosInstance;
+    private axiosClient: AxiosInstance;
     private errorHandler: ErrorHandler;
-    _baseURL:string;
+    _baseURL: string;
 
     constructor(@Inject('BASE_URL') baseUrl: string) {
         this._baseURL = baseUrl;
-        
         this.axiosClient = axios.create({
             //timeout: 3000,
             headers: {
@@ -41,25 +30,20 @@ export class ApiService {
 
     }
 
-    public async get<T>( options: GetOptions ) : Promise<T> {
- 
-        console.log({"abu" : this._baseURL + options.url});
+    public async get<T>(options: GetOptions): Promise<T> {
+        
         try {
- 
             var axiosResponse = await this.axiosClient.request<T>({
                 method: "get",
                 url: this._baseURL + options.url,
             });
-                console.log(axiosResponse);
-            return( Promise.resolve(axiosResponse.data));
- 
-        } catch ( error ) {
-            console.log({"error" : error})
-            return( Promise.reject( "Error!" ) );
+            console.log(axiosResponse);
+            return (Promise.resolve(axiosResponse.data));
+        } catch (error) {
+            console.log({ "error": error })
+            return (Promise.reject("Error!"));
         }
- 
+
     }
-
-
 
 }
