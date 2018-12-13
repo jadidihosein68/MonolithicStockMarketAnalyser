@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-
+import {ChartsModule} from 'ng2-charts/ng2-charts';
 
 import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -16,6 +16,7 @@ import { WeatherComponent } from './Weather/Weather.component';
 import { WeatherService } from '../services/Weather.service';
 import { MACDService } from '../services/MACD.service';
 import { ApiService } from '../services/ApiService.service';
+import { ChartsComponent } from './Chart/charts.component';
 
 
 @NgModule({
@@ -27,12 +28,14 @@ import { ApiService } from '../services/ApiService.service';
     FetchDataComponent,
     MACDComponent,
     WeatherComponent,
+    ChartsComponent
 
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ChartsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

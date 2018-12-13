@@ -6,6 +6,7 @@ import { Chart } from 'chart.js';
 @Component({
     selector: 'MACD-Chart',
     templateUrl: './MACD.component.html',
+    styleUrls: ['./MACD.component.scss']
 })
 export class MACDComponent {
     constructor(private MACD: MACDService) { }
