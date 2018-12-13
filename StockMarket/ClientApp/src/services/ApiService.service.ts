@@ -2,11 +2,21 @@ import axios from "axios";
 import { Injectable, Inject } from '@angular/core';
 import { ErrorHandler } from "@angular/core";
 import { AxiosInstance } from "axios";
-import { GetOptions } from '../model/interface/APIServiceInterfaces';
 
+export interface Params {
+    [key: string]: any;
+}
 
+export interface GetOptions {
+    url: string;
+    params?: Params;
+}
 
-
+export interface ErrorResponse {
+    id: string;
+    code: string;
+    message: string;
+}
 
 
 @Injectable({
