@@ -1,7 +1,11 @@
+import { element } from 'protractor';
 
 import { OnInit, Component, ViewChild } from '@angular/core';
 import { MACDService } from '../../services/MACD.service';
 import { Chart } from 'chart.js';
+import { Options } from 'ng5-slider';
+
+
 
 @Component({
     selector: 'MACD-Chart',
@@ -13,58 +17,93 @@ export class MACDComponent {
 
     chart = [];
 
-    data = {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    };
+
+    public pieChartLabels: string[];// = ["Pending", "InProgress", "OnHold", "Complete", "Cancelled"];
+    public pieChartData: any[] =
+        [{
+            x: "01/04/2014", y: 175
+        }, {
+            x: "01/10/2014", y: 175
+        }, {
+            x: "01/04/2015", y: 178
+        }, {
+            x: "01/10/2015", y: 178
+        }];
 
 
-    OnInit() {
 
-        this.chart = new Chart('canvas', {
-            type: 'line',
-            data: this.data,
-            options: {
-                scales: {
-                    xAxes: [{
-                        display: true
-                      }],
-                    yAxes: [{
-                        display: true,  
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
+    public pieChartType: string = 'line';
+    public pieChartOptions: any = {
+        'backgroundColor': [
+            "#FF6384",
+            "#4BC0C0",
+            "#FFCE56",
+            "#E7E9ED",
+            "#36A2EB"
+        ],
+
+        scales: {
+            xAxes: [{
+                type: "time",
+                time: {
+                    unit: 'month',
+                    tooltipFormat: 'll'
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Date'
                 }
-            }
-        });
+            }],
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'value'
+                }
+            }]
+        }
+
 
     }
-    public downloadMACD() {
+
+    OnInit() {
+        /*
+                this.chart = new Chart('canvas', {
+                    type: 'bar',
+                    data: this.data,
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                display: true
+                              }],
+                            yAxes: [{
+                                display: true,  
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+        */
+    }
+    public async downloadMACD() {
+
+        let Rowdataset = await this.MACD.getMACD();
+
+        let chartData = Rowdataset.map(function (elements, ll) {
+            return {
+                x: elements.date,
+                y: elements.macd
+            }
+        }
+
+        );
+
+
+        this.pieChartData = chartData;
         console.log("call API")
-        let dataset = this.MACD.getMACD();
-
-
+        // console.log(labels)
+        console.log(chartData)
 
     }
 }

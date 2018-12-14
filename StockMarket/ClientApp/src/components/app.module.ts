@@ -17,6 +17,8 @@ import { WeatherService } from '../services/Weather.service';
 import { MACDService } from '../services/MACD.service';
 import { ApiService } from '../services/ApiService.service';
 import { ChartsComponent } from './Chart/charts.component';
+import { RangeSliderComponent } from './DynamicOptionsSlider/dynamic-options-slider.component';
+import { Ng5SliderModule } from 'ng5-slider';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { ChartsComponent } from './Chart/charts.component';
     FetchDataComponent,
     MACDComponent,
     WeatherComponent,
-    ChartsComponent
+    ChartsComponent,
+    RangeSliderComponent,
+    
 
   ],
   imports: [
@@ -36,6 +40,7 @@ import { ChartsComponent } from './Chart/charts.component';
     HttpClientModule,
     FormsModule,
     ChartsModule,
+    Ng5SliderModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
