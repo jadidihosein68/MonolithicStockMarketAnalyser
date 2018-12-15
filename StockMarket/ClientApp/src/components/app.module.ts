@@ -12,7 +12,6 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from '../services/fetch-data/fetch-data.component';
 import { MACDComponent } from './MACD/MACD.component';
-import { WeatherComponent } from './Weather/Weather.component';
 import { WeatherService } from '../services/Weather.service';
 import { MACDService } from '../services/MACD.service';
 import { ApiService } from '../services/ApiService.service';
@@ -34,7 +33,6 @@ import { PageHeaderComponent } from './page-header/page-header.component';
     CounterComponent,
     FetchDataComponent,
     MACDComponent,
-    WeatherComponent,
     ChartsComponent,
     gruopChartsComponent,
     PageHeaderComponent
