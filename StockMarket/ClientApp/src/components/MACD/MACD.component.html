@@ -1,32 +1,13 @@
-
-<!--
-<div class="row">
-  <div class="col col-sm-12">
-    <div class="card mb-3">
-      <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
-        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-    </div>
-    
-
-  </div>
-</div>
--->
-
-
-<button class="btn btn-primary" (click)="downloadMACD()">Download MACD</button>
 <div class="row">
     <div class="col col-sm-12">
       <div class="card mb-3">
-
-
-
           <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
           [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
         </canvas>
-
-
       </div>
+      <button class="btn btn-primary" (click)="downloadMACD()">Generate MACD</button>
     </div>
   </div>
 
+  <app-date-picker></app-date-picker>
