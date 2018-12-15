@@ -2,10 +2,6 @@ import { element } from 'protractor';
 
 import { OnInit, Component, ViewChild } from '@angular/core';
 import { MACDService } from '../../services/MACD.service';
-import { Chart } from 'chart.js';
-import { Options } from 'ng5-slider';
-
-
 
 @Component({
     selector: 'MACD-Chart',
@@ -15,19 +11,22 @@ import { Options } from 'ng5-slider';
 export class MACDComponent implements OnInit {
     constructor(private MACD: MACDService) { }
 
+    fromDate: any;
+    toDate: any;
+
     public lineChartOptions: any = {
         responsive: true
         ,
         scales: {
             xAxes: [{
                 type: "time"
-               /*
-                ,time: {
-                    unit: 'month',
-                    tooltipFormat: 'll'
-                }
-                */
-               ,scaleLabel: {
+                /*
+                 ,time: {
+                     unit: 'month',
+                     tooltipFormat: 'll'
+                 }
+                 */
+                , scaleLabel: {
                     display: true,
                     labelString: 'Date'
                 }
@@ -72,7 +71,6 @@ export class MACDComponent implements OnInit {
 
     public lineChartLabels: Array<any> = [];
 
-
     chart = [];
 
     public lineChartLegend: boolean;
@@ -84,21 +82,21 @@ export class MACDComponent implements OnInit {
         { data: [], label: 'signal', type: 'line' }
     ];
 
-
-
-
-
     ngOnInit() {
-
-
         this.lineChartLegend = true;
         this.lineChartType = 'bar';
-
     }
     public async downloadMACD() {
 
+        let parsedFromDate: Date = (this.fromDate ? new Date(this.fromDate.year, this.fromDate.month - 1, this.fromDate.day) : new Date(1970,1,1));
+        let parsedToDate: Date = (this.toDate ? new Date(this.toDate.year, this.toDate.month - 1, this.toDate.day) : new Date());
+
         let sorce = await this.MACD.getMACD();
-        let Rowdataset = sorce.filter(x=> new Date(x.date.toString()) > new Date("2017-09-18"));
+
+        let Rowdataset = sorce.filter(x => 
+            new Date(x.date.toString()) > parsedFromDate
+            && new Date(x.date.toString()) < parsedToDate
+        );
 
         let MACD_Date = Rowdataset.map(x => { return { "x": x.date, "y": x.macd } });
         let Signal_Date = Rowdataset.map(x => { return { "x": x.date, "y": x.signal } });
@@ -112,6 +110,5 @@ export class MACDComponent implements OnInit {
         this.lineChartLabels = singledate;
         this.lineChartData = LinechartDataSet;
     }
-
 
 }
