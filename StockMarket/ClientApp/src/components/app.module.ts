@@ -17,7 +17,6 @@ import { WeatherService } from '../services/Weather.service';
 import { MACDService } from '../services/MACD.service';
 import { ApiService } from '../services/ApiService.service';
 import { ChartsComponent } from './Chart/charts.component';
-import { RangeSliderComponent } from './DynamicOptionsSlider/dynamic-options-slider.component';
 import { Ng5SliderModule } from 'ng5-slider';
 import { SideMenuComponent } from './sidebar-menu/sidebar.menu.component';
 import { HeaderComponent } from './header-menu/header.component';
@@ -37,7 +36,6 @@ import { PageHeaderComponent } from './page-header/page-header.component';
     MACDComponent,
     WeatherComponent,
     ChartsComponent,
-    RangeSliderComponent,
     gruopChartsComponent,
     PageHeaderComponent
 
