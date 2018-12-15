@@ -22,7 +22,7 @@ import { HeaderComponent } from './header-menu/header.component';
 import { gruopChartsComponent } from './bar-chart/group.charts.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { DatePickerComponent } from './Common/Date-picker/date-picker.component';
-
+import 'chartjs-plugin-zoom';
 
 @NgModule({
   declarations: [
