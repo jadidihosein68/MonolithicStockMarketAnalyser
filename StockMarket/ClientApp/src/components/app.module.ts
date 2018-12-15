@@ -23,6 +23,8 @@ import { gruopChartsComponent } from './bar-chart/group.charts.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { DatePickerComponent } from './Common/Date-picker/date-picker.component';
 import 'chartjs-plugin-zoom';
+import { RSIService } from '../services/RSI.service';
+import { RSIComponent } from './RSI/RSI.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import 'chartjs-plugin-zoom';
     CounterComponent,
     FetchDataComponent,
     MACDComponent,
+    RSIComponent,
     ChartsComponent,
     gruopChartsComponent,
     PageHeaderComponent,
@@ -57,6 +60,7 @@ import 'chartjs-plugin-zoom';
   ],
   providers: [WeatherService
     , MACDService
+    , RSIService
     , ApiService
   ],
   bootstrap: [AppComponent]
