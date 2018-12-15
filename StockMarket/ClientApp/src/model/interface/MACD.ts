@@ -3,7 +3,7 @@ export interface MACD {
     macd: number;
     signal: number;
     histogram: number;
-    date: string;
+    date: Date;
     open: number;
     high: number;
     low: number;
