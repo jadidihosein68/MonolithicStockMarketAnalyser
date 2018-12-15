@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-charts',
-    templateUrl: './charts.component.html',
-    styleUrls: ['./charts.component.scss'],
+    selector: 'group-charts',
+    templateUrl: './group.charts.component.html',
+    styleUrls: ['./group.charts.component.scss'],
 })
-export class ChartsComponent implements OnInit {
+export class gruopChartsComponent implements OnInit {
     // bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
@@ -159,13 +159,6 @@ export class ChartsComponent implements OnInit {
     constructor() {}
 
     ngOnInit() {
-        this.barChartType = 'bar';
-        this.barChartLegend = true;
-        this.doughnutChartType = 'doughnut';
-        this.radarChartType = 'radar';
-        this.pieChartType = 'pie';
-        this.polarAreaLegend = true;
-        this.polarAreaChartType = 'polarArea';
         this.lineChartLegend = true;
         this.lineChartType = 'line';
     }

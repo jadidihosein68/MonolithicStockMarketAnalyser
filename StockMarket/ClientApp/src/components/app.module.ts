@@ -21,6 +21,8 @@ import { RangeSliderComponent } from './DynamicOptionsSlider/dynamic-options-sli
 import { Ng5SliderModule } from 'ng5-slider';
 import { SideMenuComponent } from './sidebar-menu/sidebar.menu.component';
 import { HeaderComponent } from './header-menu/header.component';
+import { gruopChartsComponent } from './bar-chart/group.charts.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { HeaderComponent } from './header-menu/header.component';
     WeatherComponent,
     ChartsComponent,
     RangeSliderComponent,
+    gruopChartsComponent,
+    PageHeaderComponent
 
     
 
