@@ -1,7 +1,17 @@
 
-<div class="col-sm-4 col-lg-12 text-center">
-<range-slider></range-slider>
-</div>
+<p>From: <input type="text" [(ngModel)]="minValue"></p>
+<p>To: <input type="text" [(ngModel)]="maxValue"></p>
+
+
+
+<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+
+
+
+
+<button type="button" class="btn btn-primary">Primary</button>
+
+
 <div class="col-sm-4 col-lg-12 text-center">
    
     

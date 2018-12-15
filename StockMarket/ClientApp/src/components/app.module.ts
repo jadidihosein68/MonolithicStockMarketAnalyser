@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import {ChartsModule} from 'ng2-charts/ng2-charts';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { CounterComponent } from './counter/counter.component';
@@ -19,11 +19,15 @@ import { ApiService } from '../services/ApiService.service';
 import { ChartsComponent } from './Chart/charts.component';
 import { RangeSliderComponent } from './DynamicOptionsSlider/dynamic-options-slider.component';
 import { Ng5SliderModule } from 'ng5-slider';
+import { SideMenuComponent } from './sidebar-menu/sidebar.menu.component';
+import { HeaderComponent } from './header-menu/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    SideMenuComponent,
+    HeaderComponent,
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
@@ -32,6 +36,7 @@ import { Ng5SliderModule } from 'ng5-slider';
     WeatherComponent,
     ChartsComponent,
     RangeSliderComponent,
+
     
 
   ],
@@ -40,6 +45,7 @@ import { Ng5SliderModule } from 'ng5-slider';
     HttpClientModule,
     FormsModule,
     ChartsModule,
+    NgbModule,
     Ng5SliderModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },

@@ -2,11 +2,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
-  selector: 'app-nav-menu',
-  templateUrl: './nav-menu.component.html',
-  styleUrls: ['./nav-menu.component.scss']
+  selector: 'app-side-menu',
+  templateUrl: './sidebar.menu.component.html',
+  styleUrls: ['./sidebar.menu.component.scss']
 })
-export class NavMenuComponent implements OnInit {
+export class SideMenuComponent implements OnInit {
   isExpanded = false;
 
 
