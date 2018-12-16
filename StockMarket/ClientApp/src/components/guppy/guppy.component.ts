@@ -61,8 +61,6 @@ export class guppyComponent implements OnInit {
 
     public async getGuppyOnline(){
         this.sorce = await this.guppyService.getGuppy();
-
-        console.log({"this.sorce":this.sorce});
         this.sketchGuppy();
     }
 

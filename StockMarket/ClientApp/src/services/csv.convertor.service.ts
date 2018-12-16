@@ -38,7 +38,7 @@ export class csvConvertorService {
 
     public getGuppycsv (Guppy:guppy[]){
         this.options.headers= this.getProperty(Guppy[0]) ;
-        new Angular5Csv(Guppy, "StochasticOscillator",this.options);
+        new Angular5Csv(Guppy, "Guppy",this.options);
     }
 
 
