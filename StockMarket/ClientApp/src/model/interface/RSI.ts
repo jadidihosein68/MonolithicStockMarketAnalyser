@@ -1,6 +1,6 @@
 
 export interface RSI {
-    RSI: number;
+    rsi: number;
     date: Date;
     open: number;
     high: number;

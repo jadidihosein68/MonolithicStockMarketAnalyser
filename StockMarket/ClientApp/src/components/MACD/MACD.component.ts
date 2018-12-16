@@ -121,6 +121,8 @@ export class MACDComponent implements OnInit {
         ]
         this.lineChartLabels = singledate;
         this.lineChartData = LinechartDataSet;
+        console.log({MACDLinechartDataSet:LinechartDataSet})
+
     }
 
 }

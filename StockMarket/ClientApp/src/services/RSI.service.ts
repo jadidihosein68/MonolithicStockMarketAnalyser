@@ -10,7 +10,6 @@ export class RSIService {
 
     public RSI: RSI[];
     constructor(private apiService: ApiService) {}
-
     public async getRSI() {
         var result = await this.apiService.get<RSI[]>({ url: "api/TimeSeries/generateRSI" });
         return result;

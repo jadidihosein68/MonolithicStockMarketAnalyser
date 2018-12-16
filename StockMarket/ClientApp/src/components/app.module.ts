@@ -15,7 +15,6 @@ import { MACDComponent } from './MACD/MACD.component';
 import { WeatherService } from '../services/Weather.service';
 import { MACDService } from '../services/MACD.service';
 import { ApiService } from '../services/ApiService.service';
-import { ChartsComponent } from './Chart/charts.component';
 import { Ng5SliderModule } from 'ng5-slider';
 import { SideMenuComponent } from './sidebar-menu/sidebar.menu.component';
 import { HeaderComponent } from './header-menu/header.component';
@@ -25,6 +24,9 @@ import { DatePickerComponent } from './Common/Date-picker/date-picker.component'
 import 'chartjs-plugin-zoom';
 import { RSIService } from '../services/RSI.service';
 import { RSIComponent } from './RSI/RSI.component';
+import { ChartsLayoutComponent } from './Layot/Charts-Layout/charts.layout.component';
+
+
 
 @NgModule({
   declarations: [
@@ -37,11 +39,10 @@ import { RSIComponent } from './RSI/RSI.component';
     FetchDataComponent,
     MACDComponent,
     RSIComponent,
-    ChartsComponent,
     gruopChartsComponent,
     PageHeaderComponent,
-    DatePickerComponent
-
+    DatePickerComponent,
+    ChartsLayoutComponent,
     
 
   ],
