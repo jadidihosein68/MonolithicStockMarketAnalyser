@@ -1,3 +1,4 @@
+import { guppy } from './../model/guppy';
 
 import { MACD } from './../model/interface/MACD';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
@@ -35,9 +36,9 @@ export class csvConvertorService {
     }
 
 
-    public getGuppycsv (){
-
-
+    public getGuppycsv (Guppy:guppy[]){
+        this.options.headers= this.getProperty(Guppy[0]) ;
+        new Angular5Csv(Guppy, "StochasticOscillator",this.options);
     }
 
 
