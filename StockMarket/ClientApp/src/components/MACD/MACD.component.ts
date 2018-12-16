@@ -1,8 +1,11 @@
+import { lineChartOptions } from './../../model/constant/lineChartOptions';
 import { element } from 'protractor';
 
 import { OnInit, Component, ViewChild } from '@angular/core';
 import { MACDService } from '../../services/MACD.service';
 import { MACD } from '../../model/interface/MACD';
+import { Angular5Csv } from 'angular5-csv/Angular5-csv';
+
 
 @Component({
     selector: 'MACD-Chart',
@@ -19,43 +22,7 @@ export class MACDComponent implements OnInit {
     sorce : Array<MACD>;
     fromDate: any;
     toDate: any;
-    public lineChartOptions: any = {
-        responsive: true
-        ,
-        scales: {
-            xAxes: [{
-                type: "time"
-                , scaleLabel: {
-                    display: true,
-                    labelString: 'Date'
-                }
-            }],
-            yAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: 'value'
-                }
-            }]
-        }
-        ,pan: {
-            // Boolean to enable panning
-            enabled: true,
-
-            // Panning directions. Remove the appropriate direction to disable 
-            // Eg. 'y' would only allow panning in the y direction
-            mode: 'xy'
-        },
-
-        // Container for zoom options
-        zoom: {
-            // Boolean to enable zooming
-            enabled: true,
-
-            // Zooming directions. Remove the appropriate direction to disable 
-            // Eg. 'y' would only allow zooming in the y direction
-            mode: 'xy',
-        }
-    };
+    public lineChartOptions = lineChartOptions;
     public lineChartColors: Array<any> = [
         {
             // grey
@@ -102,13 +69,15 @@ export class MACDComponent implements OnInit {
         this.sketchMACD();
     }
 
+
+    public ExportToCSV(){
+        new Angular5Csv(this.getSelectedRangeData(), "MACD");
+    }
+
     public sketchMACD() {
         let parsedFromDate: Date = (this.fromDate ? new Date(this.fromDate.year, this.fromDate.month - 1, this.fromDate.day) : new Date(1970,1,1));
         let parsedToDate: Date = (this.toDate ? new Date(this.toDate.year, this.toDate.month - 1, this.toDate.day) : new Date());
-        let Rowdataset = this.sorce.filter(x => 
-            new Date(x.date.toString()) > parsedFromDate
-            && new Date(x.date.toString()) < parsedToDate
-        );
+        let Rowdataset = this.getSelectedRangeData();
 
         let MACD_Date = Rowdataset.map(x => { return { "x": x.date, "y": x.macd } });
         let Signal_Date = Rowdataset.map(x => { return { "x": x.date, "y": x.signal } });
@@ -123,6 +92,19 @@ export class MACDComponent implements OnInit {
         this.lineChartData = LinechartDataSet;
         console.log({MACDLinechartDataSet:LinechartDataSet})
 
+    }
+
+
+
+
+    private getSelectedRangeData(){
+        let parsedFromDate: Date = (this.fromDate ? new Date(this.fromDate.year, this.fromDate.month - 1, this.fromDate.day) : new Date(1970,1,1));
+        let parsedToDate: Date = (this.toDate ? new Date(this.toDate.year, this.toDate.month - 1, this.toDate.day) : new Date());
+        let Rowdataset = this.sorce.filter(x => 
+            new Date(x.date.toString()) > parsedFromDate
+            && new Date(x.date.toString()) < parsedToDate
+        );
+        return Rowdataset;
     }
 
 }
