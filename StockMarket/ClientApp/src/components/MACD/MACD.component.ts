@@ -2,6 +2,7 @@ import { element } from 'protractor';
 
 import { OnInit, Component, ViewChild } from '@angular/core';
 import { MACDService } from '../../services/MACD.service';
+import { MACD } from '../../model/interface/MACD';
 
 @Component({
     selector: 'MACD-Chart',
@@ -10,22 +11,20 @@ import { MACDService } from '../../services/MACD.service';
 })
 export class MACDComponent implements OnInit {
     constructor(private MACD: MACDService) { }
-
+    
+    show:boolean = false ; 
+    public lineChartLabels: Array<any> = [];
+    public lineChartLegend: boolean;
+    public lineChartType: string;
+    sorce : Array<MACD>;
     fromDate: any;
     toDate: any;
-
     public lineChartOptions: any = {
         responsive: true
         ,
         scales: {
             xAxes: [{
                 type: "time"
-                /*
-                 ,time: {
-                     unit: 'month',
-                     tooltipFormat: 'll'
-                 }
-                 */
                 , scaleLabel: {
                     display: true,
                     labelString: 'Date'
@@ -38,10 +37,6 @@ export class MACDComponent implements OnInit {
                 }
             }]
         }
-
-
-
-
         ,pan: {
             // Boolean to enable panning
             enabled: true,
@@ -60,12 +55,6 @@ export class MACDComponent implements OnInit {
             // Eg. 'y' would only allow zooming in the y direction
             mode: 'xy',
         }
-
-
-
-
-
-
     };
     public lineChartColors: Array<any> = [
         {
@@ -97,13 +86,6 @@ export class MACDComponent implements OnInit {
         }
     ];
 
-    public lineChartLabels: Array<any> = [];
-
-    chart = [];
-
-    public lineChartLegend: boolean;
-    public lineChartType: string;
-
     public lineChartData: Array<any> = [
         { data: [], label: 'MACD', type: 'line' },
         { data: [], label: 'Histogram' },
@@ -114,14 +96,16 @@ export class MACDComponent implements OnInit {
         this.lineChartLegend = true;
         this.lineChartType = 'bar';
     }
-    public async downloadMACD() {
 
+    public async getMACDOnline(){
+        this.sorce = await this.MACD.getMACD();
+        this.sketchMACD();
+    }
+
+    public sketchMACD() {
         let parsedFromDate: Date = (this.fromDate ? new Date(this.fromDate.year, this.fromDate.month - 1, this.fromDate.day) : new Date(1970,1,1));
         let parsedToDate: Date = (this.toDate ? new Date(this.toDate.year, this.toDate.month - 1, this.toDate.day) : new Date());
-
-        let sorce = await this.MACD.getMACD();
-
-        let Rowdataset = sorce.filter(x => 
+        let Rowdataset = this.sorce.filter(x => 
             new Date(x.date.toString()) > parsedFromDate
             && new Date(x.date.toString()) < parsedToDate
         );
