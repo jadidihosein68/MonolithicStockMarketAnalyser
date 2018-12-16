@@ -1,3 +1,4 @@
+import { guppyService } from './../services/guppy.service';
 import { Chart } from 'chart.js';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
@@ -27,6 +28,7 @@ import { ChartsLayoutComponent } from './Layot/Charts-Layout/charts.layout.compo
 import { csvConvertorService } from '../services/csv.convertor.service';
 import { SOComponent } from './stochastic-oscillator/stochastic.oscillator.component';
 import { stochasticOscillatorService } from '../services/stochasticOscillator.service';
+import { guppyComponent } from './guppy/guppy.component';
 
 
 
@@ -45,6 +47,7 @@ import { stochasticOscillatorService } from '../services/stochasticOscillator.se
     DatePickerComponent,
     ChartsLayoutComponent,
     SOComponent,
+    guppyComponent,
     
 
   ],
@@ -66,6 +69,7 @@ import { stochasticOscillatorService } from '../services/stochasticOscillator.se
     , ApiService
     , csvConvertorService
     , stochasticOscillatorService
+    , guppyService
   ],
   bootstrap: [AppComponent]
 })

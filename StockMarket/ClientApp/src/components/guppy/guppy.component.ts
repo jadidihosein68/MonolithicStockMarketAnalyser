@@ -5,7 +5,7 @@ import { guppyService } from '../../services/guppy.service';
 import { guppy } from './../../model/guppy';
 
 @Component({
-    selector: 'SO-Chart',
+    selector: 'guppy-Chart',
     templateUrl: './stochastic.oscillator.component.html',
     styleUrls: ['./stochastic.oscillator.component.scss']
 })
