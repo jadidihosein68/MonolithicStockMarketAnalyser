@@ -3,6 +3,11 @@
     <div class="card">
       <div class="card-header">Charts</div>
       <div class="card-body">
+
+
+
+
+        <!--
         <ngb-tabset>
           <ngb-tab title="MACD">
             <ng-template ngbTabContent>
@@ -28,7 +33,51 @@
             </ng-template>
           </ngb-tab>
         </ngb-tabset>
+
+-->
+
+
+
+
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+    <ul class="nav nav-tabs" role="tablist">
+      <li *ngFor="let wallet of coinwallet; let first = first;" [ngClass]="{firstItem: first}" role="presentation"
+        class="accounts_li" [class.active]="selectedwallet===wallet">
+        <a class="nav-item nav-link "  [class.active]= "selectedwallet === wallet" role="tab" (click)="selectedwallet = wallet" aria-controls="one" role="tab" data-toggle="tab">{{wallet}}</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" [hidden]="selectedwallet !== coinwallet[0]"
+        role="tabpanel" class="tab-pane active" id="one">
+        <MACD-Chart></MACD-Chart>
       </div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" [hidden]="selectedwallet !== coinwallet[1]"
+        role="tabpanel" class="tab-pane active" id="two">
+        <RSI-Chart></RSI-Chart>
+      </div>
+
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" [hidden]="selectedwallet !== coinwallet[2]"
+        role="tabpanel" class="tab-pane active" id="two">
+
+      </div>
+
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" [hidden]="selectedwallet !== coinwallet[3]"
+        role="tabpanel" class="tab-pane active" id="two">
+      </div>
+
     </div>
+
+
+
+
+
+    
   </div>
 </div>
+</div>
+</div>
+
+

@@ -9,7 +9,6 @@ import {ChartsModule} from 'ng2-charts/ng2-charts';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from '../services/fetch-data/fetch-data.component';
 import { MACDComponent } from './MACD/MACD.component';
 import { WeatherService } from '../services/Weather.service';
@@ -35,7 +34,6 @@ import { ChartsLayoutComponent } from './Layot/Charts-Layout/charts.layout.compo
     HeaderComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
     FetchDataComponent,
     MACDComponent,
     RSIComponent,
@@ -55,7 +53,6 @@ import { ChartsLayoutComponent } from './Layot/Charts-Layout/charts.layout.compo
     Ng5SliderModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],

@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class ChartsLayoutComponent implements OnInit {
 
   constructor() { }
+  
+  coinwallet: string[] = ['MACD','RSI' , 'SO' , 'Guppy'];
+  selectedwallet = this.coinwallet[0];
 
   ngOnInit() {
   }
