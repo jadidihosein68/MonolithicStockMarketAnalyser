@@ -25,6 +25,8 @@ import { RSIService } from '../services/RSI.service';
 import { RSIComponent } from './RSI/RSI.component';
 import { ChartsLayoutComponent } from './Layot/Charts-Layout/charts.layout.component';
 import { csvConvertorService } from '../services/csv.convertor.service';
+import { SOComponent } from './stochastic-oscillator/stochastic.oscillator.component';
+import { stochasticOscillatorService } from '../services/stochasticOscillator.service';
 
 
 
@@ -42,6 +44,7 @@ import { csvConvertorService } from '../services/csv.convertor.service';
     PageHeaderComponent,
     DatePickerComponent,
     ChartsLayoutComponent,
+    SOComponent,
     
 
   ],
@@ -62,6 +65,7 @@ import { csvConvertorService } from '../services/csv.convertor.service';
     , RSIService
     , ApiService
     , csvConvertorService
+    , stochasticOscillatorService
   ],
   bootstrap: [AppComponent]
 })

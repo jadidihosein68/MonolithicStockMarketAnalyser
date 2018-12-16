@@ -1,4 +1,5 @@
 
+/*
 export interface StochasticOscillator {
     date: Date;
     open: number;
@@ -7,3 +8,4 @@ export interface StochasticOscillator {
     close: number;
     volume: number;
 }
+*/

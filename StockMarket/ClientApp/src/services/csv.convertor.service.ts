@@ -1,7 +1,8 @@
-import { StochasticOscillator } from './../model/interface/StochasticOscillator';
+
 import { MACD } from './../model/interface/MACD';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 import { RSI } from './../model/interface/RSI';
+import { StochasticOscillator } from './../model/StochasticOscillator';
 
 export class csvConvertorService {
 
@@ -28,7 +29,7 @@ export class csvConvertorService {
         new Angular5Csv(RSI, "RSI", this.options);
     }
 
-    public getSOcsv (SO:StochasticOscillator){
+    public getSOcsv (SO:StochasticOscillator[]){
         this.options.headers= this.getProperty(SO[0]) ;
         new Angular5Csv(SO, "StochasticOscillator",this.options);
     }
