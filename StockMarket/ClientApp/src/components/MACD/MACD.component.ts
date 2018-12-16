@@ -1,3 +1,4 @@
+import { csvConvertorService } from './../../services/csv.convertor.service';
 import { lineChartOptions } from './../../model/constant/lineChartOptions';
 import { element } from 'protractor';
 
@@ -13,7 +14,9 @@ import { Angular5Csv } from 'angular5-csv/Angular5-csv';
     styleUrls: ['./MACD.component.scss']
 })
 export class MACDComponent implements OnInit {
-    constructor(private MACD: MACDService) { }
+    constructor(private MACD: MACDService,
+        private csvConvertorService : csvConvertorService
+        ) { }
     
     show:boolean = false ; 
     public lineChartLabels: Array<any> = [];
@@ -71,7 +74,7 @@ export class MACDComponent implements OnInit {
 
 
     public ExportToCSV(){
-        new Angular5Csv(this.getSelectedRangeData(), "MACD");
+        this.csvConvertorService.getMACDcsv(this.getSelectedRangeData());
     }
 
     public sketchMACD() {

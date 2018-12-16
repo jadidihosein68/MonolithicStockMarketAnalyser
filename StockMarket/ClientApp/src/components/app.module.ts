@@ -24,6 +24,7 @@ import 'chartjs-plugin-zoom';
 import { RSIService } from '../services/RSI.service';
 import { RSIComponent } from './RSI/RSI.component';
 import { ChartsLayoutComponent } from './Layot/Charts-Layout/charts.layout.component';
+import { csvConvertorService } from '../services/csv.convertor.service';
 
 
 
@@ -49,7 +50,7 @@ import { ChartsLayoutComponent } from './Layot/Charts-Layout/charts.layout.compo
     HttpClientModule,
     FormsModule,
     ChartsModule,
-    NgbModule,
+    NgbModule,  
     Ng5SliderModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -60,6 +61,7 @@ import { ChartsLayoutComponent } from './Layot/Charts-Layout/charts.layout.compo
     , MACDService
     , RSIService
     , ApiService
+    , csvConvertorService
   ],
   bootstrap: [AppComponent]
 })
