@@ -40,18 +40,18 @@ export class guppyComponent implements OnInit {
     ];
 
     public lineChartData: Array<any> = [
-        { data: [], label: 'shortlag3', type: 'line' },
-        { data: [], label: 'shortlag5', type: 'line' },
-        { data: [], label: 'shortlag8', type: 'line' },
-        { data: [], label: 'shortlag10', type: 'line' },
-        { data: [], label: 'shortlag12', type: 'line' },
-        { data: [], label: 'shortlag15', type: 'line' },
-        { data: [], label: 'longlag30', type: 'line' },
-        { data: [], label: 'longlag35', type: 'line' },
-        { data: [], label: 'longlag40', type: 'line' },
-        { data: [], label: 'longlag45', type: 'line' },
-        { data: [], label: 'longlag50', type: 'line' },
-        { data: [], label: 'longlag60', type: 'line' }      
+        { data: [], label: 'shortlag3', type: 'line' ,fill: false },
+        { data: [], label: 'shortlag5', type: 'line' ,fill: false},
+        { data: [], label: 'shortlag8', type: 'line' ,fill: false},
+        { data: [], label: 'shortlag10', type: 'line' ,fill: false},
+        { data: [], label: 'shortlag12', type: 'line' ,fill: false},
+        { data: [], label: 'shortlag15', type: 'line' ,fill: false},
+        { data: [], label: 'longlag30', type: 'line' ,fill: false},
+        { data: [], label: 'longlag35', type: 'line' ,fill: false},
+        { data: [], label: 'longlag40', type: 'line' ,fill: false},
+        { data: [], label: 'longlag45', type: 'line' ,fill: false},
+        { data: [], label: 'longlag50', type: 'line' ,fill: false},
+        { data: [], label: 'longlag60', type: 'line' ,fill: false}      
     ];
 
     ngOnInit() {
@@ -84,18 +84,18 @@ export class guppyComponent implements OnInit {
 
         let singledate = Rowdataset.map(x => x.date);
         let LinechartDataSet: Array<any> = [
-            { data: shortlag3_Date, label: "short lag 3", type: "line" }
-            ,{ data: shortlag5_Date, label: "short lag 5", type: "line" }
-            ,{ data: shortlag8_Date, label: "short lag 8", type: "line" }
-            ,{ data: shortlag10_Date, label: "short lag 10", type: "line" }
-            ,{ data: shortlag12_Date, label: "short lag 12", type: "line" }
-            ,{ data: shortlag15_Date, label: "short lag 15", type: "line" }
-            ,{ data: longlag30_Date, label: "long lag 30", type: "line" }
-            ,{ data: longlag35_Date, label: "long lag 35", type: "line" }
-            ,{ data: longlag40_Date, label: "long lag 40", type: "line" }
-            ,{ data: longlag45_Date, label: "long lag 45", type: "line" }
-            ,{ data: longlag50_Date, label: "long lag 50", type: "line" }
-            ,{ data: longlag60_Date, label: "long lag 60", type: "line" }
+            { data: shortlag3_Date, label: "short lag 3", type: "line" ,fill: false }
+            ,{ data: shortlag5_Date, label: "short lag 5", type: "line",fill: false }
+            ,{ data: shortlag8_Date, label: "short lag 8", type: "line",fill: false }
+            ,{ data: shortlag10_Date, label: "short lag 10", type: "line",fill: false }
+            ,{ data: shortlag12_Date, label: "short lag 12", type: "line",fill: false }
+            ,{ data: shortlag15_Date, label: "short lag 15", type: "line",fill: false }
+            ,{ data: longlag30_Date, label: "long lag 30", type: "line",fill: false }
+            ,{ data: longlag35_Date, label: "long lag 35", type: "line",fill: false }
+            ,{ data: longlag40_Date, label: "long lag 40", type: "line",fill: false }
+            ,{ data: longlag45_Date, label: "long lag 45", type: "line",fill: false }
+            ,{ data: longlag50_Date, label: "long lag 50", type: "line",fill: false }
+            ,{ data: longlag60_Date, label: "long lag 60", type: "line",fill: false }
         ]
 
         this.lineChartLabels = singledate;

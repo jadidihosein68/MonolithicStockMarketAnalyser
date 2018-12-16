@@ -229,11 +229,11 @@ namespace StockMarket.Adapter.Utilities
                         shortlag12 = shortlag12[i], 
                         shortlag15 = shortlag15[i], 
                         longlag30 = longlag30[i],
-                        longlag35 = longlag30[i],
-                        longlag40 = longlag30[i],
-                        longlag45 = longlag30[i],
-                        longlag50 = longlag30[i],
-                        longlag60 = longlag30[i],
+                        longlag35 = longlag35[i],
+                        longlag40 = longlag40[i],
+                        longlag45 = longlag45[i],
+                        longlag50 = longlag50[i],
+                        longlag60 = longlag60[i],
                     }
                     );
 

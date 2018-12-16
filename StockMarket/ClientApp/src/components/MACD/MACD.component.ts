@@ -57,9 +57,9 @@ export class MACDComponent implements OnInit {
     ];
 
     public lineChartData: Array<any> = [
-        { data: [], label: 'MACD', type: 'line' },
+        { data: [], label: 'MACD', type: 'line' ,fill: false },
         { data: [], label: 'Histogram' },
-        { data: [], label: 'signal', type: 'line' }
+        { data: [], label: 'signal', type: 'line' ,fill: false }
     ];
 
     ngOnInit() {
@@ -84,9 +84,9 @@ export class MACDComponent implements OnInit {
         let Histogram_Date = Rowdataset.map(x => { return { "x": x.date, "y": x.histogram } });
         let singledate = Rowdataset.map(x => x.date);
         let LinechartDataSet: Array<any> = [
-            { data: MACD_Date, label: "MACD", type: "line" }
+            { data: MACD_Date, label: "MACD", type: "line" ,fill: false }
             , { data: Histogram_Date, label: "Histogram" }
-            , { data: Signal_Date, label: "signal", type: "line" }
+            , { data: Signal_Date, label: "signal", type: "line" ,fill: false }
         ]
         this.lineChartLabels = singledate;
         this.lineChartData = LinechartDataSet;
