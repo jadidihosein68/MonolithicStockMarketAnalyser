@@ -86,11 +86,12 @@ namespace StockMarket.Adapter
             return final;
 
         }
-
+        
+        /*
         ~RdotNetAdapter()
         {
             engine.Dispose();
-        }
+        }*/
 
     }
 }
