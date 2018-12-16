@@ -1,7 +1,8 @@
 import { OnInit, Component, ViewChild } from '@angular/core';
 import { RSIService } from '../../services/RSI.service';
 import { RSI } from '../../model/interface/RSI';
-
+import { csvConvertorService } from '../../services/csv.convertor.service';
+import { lineChartOptions } from './../../model/constant/lineChartOptions';
 
 @Component({
     selector: 'RSI-Chart',
@@ -11,7 +12,8 @@ import { RSI } from '../../model/interface/RSI';
 
 
 export class RSIComponent implements OnInit {
-    constructor(private RSI: RSIService) { }
+    constructor(private RSI: RSIService,
+        private csvConvertorService:csvConvertorService) { }
 
     show:boolean = false ; 
     public lineChartLabels: Array<any> = [];
@@ -20,48 +22,7 @@ export class RSIComponent implements OnInit {
     sorce : Array<RSI>;
     fromDate: any;
     toDate: any;
-    public lineChartOptions: any = {
-        responsive: true
-        ,
-        scales: {
-            xAxes: [{
-                type: "time"
-                , scaleLabel: {
-                    display: true,
-                    labelString: 'Date'
-                }
-            }],
-            yAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: 'value'
-                }
-            }]
-        }
-        ,pan: {
-            // Boolean to enable panning
-            enabled: true,
-
-            // Panning directions. Remove the appropriate direction to disable 
-            // Eg. 'y' would only allow panning in the y direction
-            mode: 'xy'
-        },
-
-        // Container for zoom options
-        zoom: {
-            // Boolean to enable zooming
-            enabled: true,
-
-            // Zooming directions. Remove the appropriate direction to disable 
-            // Eg. 'y' would only allow zooming in the y direction
-            mode: 'xy',
-        },
-        elements: {
-            point:{
-                radius: 0
-            }
-        }
-    };
+    public lineChartOptions=lineChartOptions;
     public lineChartColors: Array<any> = [
         {
             // grey
@@ -89,13 +50,8 @@ export class RSIComponent implements OnInit {
     }
 
     public sketchRSI() {
-        let parsedFromDate: Date = (this.fromDate ? new Date(this.fromDate.year, this.fromDate.month - 1, this.fromDate.day) : new Date(1970,1,1));
-        let parsedToDate: Date = (this.toDate ? new Date(this.toDate.year, this.toDate.month - 1, this.toDate.day) : new Date());
-        let Rowdataset = this.sorce.filter(x => 
-            new Date(x.date.toString()) > parsedFromDate
-            && new Date(x.date.toString()) < parsedToDate
-        );
 
+        let Rowdataset = this.getSelectedRangeData();
         let RSI_Date = Rowdataset.map(x => { return { "x": x.date, "y": x.rsi } });
         let singledate = Rowdataset.map(x => x.date);
         let LinechartDataSet: Array<any> = [
@@ -106,5 +62,21 @@ export class RSIComponent implements OnInit {
         console.log({RSILinechartDataSet:LinechartDataSet})
 
     }
+
+    public ExportToCSV(){
+        this.csvConvertorService.getRSIcsv(this.getSelectedRangeData());
+    }
+
+    
+    private getSelectedRangeData(){
+        let parsedFromDate: Date = (this.fromDate ? new Date(this.fromDate.year, this.fromDate.month - 1, this.fromDate.day) : new Date(1970,1,1));
+        let parsedToDate: Date = (this.toDate ? new Date(this.toDate.year, this.toDate.month - 1, this.toDate.day) : new Date());
+        let Rowdataset = this.sorce.filter(x => 
+            new Date(x.date.toString()) > parsedFromDate
+            && new Date(x.date.toString()) < parsedToDate
+        );
+        return Rowdataset;
+    }
+
 
 }

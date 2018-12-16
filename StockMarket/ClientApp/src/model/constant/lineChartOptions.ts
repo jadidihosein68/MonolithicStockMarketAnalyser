@@ -34,6 +34,11 @@ export const lineChartOptions : any = {
         // Eg. 'y' would only allow zooming in the y direction
         mode: 'xy',
     }
+    ,elements: {
+        point:{
+            radius: 0
+        }
+    }
 };
 
 

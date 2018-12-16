@@ -78,10 +78,7 @@ export class MACDComponent implements OnInit {
     }
 
     public sketchMACD() {
-        let parsedFromDate: Date = (this.fromDate ? new Date(this.fromDate.year, this.fromDate.month - 1, this.fromDate.day) : new Date(1970,1,1));
-        let parsedToDate: Date = (this.toDate ? new Date(this.toDate.year, this.toDate.month - 1, this.toDate.day) : new Date());
         let Rowdataset = this.getSelectedRangeData();
-
         let MACD_Date = Rowdataset.map(x => { return { "x": x.date, "y": x.macd } });
         let Signal_Date = Rowdataset.map(x => { return { "x": x.date, "y": x.signal } });
         let Histogram_Date = Rowdataset.map(x => { return { "x": x.date, "y": x.histogram } });
