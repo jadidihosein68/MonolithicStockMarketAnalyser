@@ -29,6 +29,7 @@ import { csvConvertorService } from '../services/csv.convertor.service';
 import { SOComponent } from './stochastic-oscillator/stochastic.oscillator.component';
 import { stochasticOscillatorService } from '../services/stochasticOscillator.service';
 import { guppyComponent } from './guppy/guppy.component';
+import { DateRangeComponent } from './Common/Date-Range/date-range.component';
 
 
 
@@ -48,6 +49,7 @@ import { guppyComponent } from './guppy/guppy.component';
     ChartsLayoutComponent,
     SOComponent,
     guppyComponent,
+    DateRangeComponent,
     
 
   ],

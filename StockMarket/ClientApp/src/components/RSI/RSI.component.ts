@@ -55,7 +55,7 @@ export class RSIComponent implements OnInit {
         let RSI_Date = Rowdataset.map(x => { return { "x": x.date, "y": x.rsi } });
         let singledate = Rowdataset.map(x => x.date);
         let LinechartDataSet: Array<any> = [
-            { data: RSI_Date, label: "RSI", type: "line" }
+            { data: RSI_Date, label: "RSI", type: "line" ,fill: false  }
         ]
         this.lineChartLabels = singledate;
         this.lineChartData = LinechartDataSet;

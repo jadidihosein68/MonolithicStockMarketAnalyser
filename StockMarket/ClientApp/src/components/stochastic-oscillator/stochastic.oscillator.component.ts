@@ -67,9 +67,9 @@ export class SOComponent implements OnInit {
         let SlowD_Date = Rowdataset.map(x => { return { "x": x.date, "y": x.slowD } });
         let singledate = Rowdataset.map(x => x.date);
         let LinechartDataSet: Array<any> = [
-            { data: fastK_Date, label: "Fast K", type: "line" }
-            ,{ data: fastD_Date, label: "Fast D", type: "line" }
-            ,{ data: SlowD_Date, label: "Slow D", type: "line" }
+            { data: fastK_Date, label: "Fast K", type: "line",fill: false  }
+            ,{ data: fastD_Date, label: "Fast D", type: "line",fill: false  }
+            ,{ data: SlowD_Date, label: "Slow D", type: "line",fill: false  }
         ]
 
         this.lineChartLabels = singledate;
