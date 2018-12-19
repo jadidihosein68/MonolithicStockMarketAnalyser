@@ -4,6 +4,7 @@ import { MACDComponent } from '../../../components/MACD/MACD.component';
 import { SOComponent } from '../../../components/stochastic-oscillator/stochastic.oscillator.component';
 import { RSIComponent } from '../../../components/RSI/RSI.component';
 import { guppyComponent } from '../../../components/guppy/guppy.component';
+import swal from '../../../../node_modules/sweetalert2/dist/sweetalert2.js'
 
 @Component({
   selector: 'Chart-layout',
@@ -30,10 +31,50 @@ export class ChartsLayoutComponent implements OnInit {
     console.log({ dateRange: dateRange });
     this.fromDate = dateRange.fromdate;
     this.toDate = dateRange.toDate;
+   
+
+
+    swal({
+      title: 'Generate Charts'
+      ,text: 'Calculate MACD'
+      ,footer: `3 more calculation left`
+ });
+ swal.enableLoading();
+ await this.primaryMACDComponent.getMACDOnline();
+ swal({
+  title: 'Generate Charts'
+  ,text: 'Calculate RSI'
+  ,footer: `2 more calculation left`
+});
+swal.enableLoading();
+await this.primaryRSIComponent.getRSIOnline();
+
+swal({
+  title: 'Generate Charts'
+  ,text: 'Calculate SO'
+  ,footer: `1 more calculation left`
+});
+swal.enableLoading();
+await this.primarySOComponent.getSOOnline();
+
+
+swal({
+  title: 'Generate Charts'
+  ,text: 'Calculate Guppy'
+  ,footer: `We are almost there !`
+});
+swal.enableLoading();
+await this.primaryguppyComponent.getGuppyOnline();
+
+ swal.close();
+/*
     await this.primaryMACDComponent.getMACDOnline();
     await this.primaryRSIComponent.getRSIOnline();
     await this.primarySOComponent.getSOOnline();
     await this.primaryguppyComponent.getGuppyOnline();
+*/
+
+
   }
 
 }

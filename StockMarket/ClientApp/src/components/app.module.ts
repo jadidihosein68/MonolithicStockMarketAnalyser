@@ -30,7 +30,7 @@ import { SOComponent } from './stochastic-oscillator/stochastic.oscillator.compo
 import { stochasticOscillatorService } from '../services/stochasticOscillator.service';
 import { guppyComponent } from './guppy/guppy.component';
 import { DateRangeComponent } from './Common/Date-Range/date-range.component';
-
+import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 
 
 @NgModule({
@@ -63,7 +63,14 @@ import { DateRangeComponent } from './Common/Date-Range/date-range.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'fetch-data', component: FetchDataComponent },
-    ])
+    ]),
+    
+    SweetAlert2Module.forRoot({
+      buttonsStyling: false,
+      customClass: 'modal-content',
+      confirmButtonClass: 'btn btn-primary',
+      cancelButtonClass: 'btn'
+  })
   ],
   providers: [WeatherService
     , MACDService

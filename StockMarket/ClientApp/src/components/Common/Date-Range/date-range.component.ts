@@ -1,8 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
-
-
-
 @Component({
     selector: 'date-range',
     templateUrl: './date-range.component.html',
