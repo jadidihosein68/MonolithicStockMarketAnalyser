@@ -1,6 +1,4 @@
-import { OnInit, Component, ViewChild } from '@angular/core';
-import { RSIService } from '../../services/RSI.service';
-import { RSI } from '../../model/interface/RSI';
+import { OnInit, Component, ViewChild, Input } from '@angular/core';
 import { csvConvertorService } from '../../services/csv.convertor.service';
 import { lineChartOptions } from './../../model/constant/lineChartOptions';
 import { stochasticOscillatorService } from '../../services/stochasticOscillator.service';
@@ -22,8 +20,8 @@ export class SOComponent implements OnInit {
     public lineChartLegend: boolean;
     public lineChartType: string;
     sorce : Array<StochasticOscillator>;
-    fromDate: any;
-    toDate: any;
+    @Input() fromDate: any;
+    @Input() toDate: any;
     public lineChartOptions=lineChartOptions;
     public lineChartColors: Array<any> = [
         {
@@ -54,8 +52,6 @@ export class SOComponent implements OnInit {
 
     public async getSOOnline(){
         this.sorce = await this.stochasticOscillatorService.getStochasticOscillator();
-
-        console.log({"this.sorce":this.sorce});
         this.sketchSO();
     }
 

@@ -1,4 +1,4 @@
-import { OnInit, Component, ViewChild } from '@angular/core';
+import { OnInit, Component, ViewChild, Input } from '@angular/core';
 import { RSIService } from '../../services/RSI.service';
 import { RSI } from '../../model/interface/RSI';
 import { csvConvertorService } from '../../services/csv.convertor.service';
@@ -20,8 +20,8 @@ export class RSIComponent implements OnInit {
     public lineChartLegend: boolean;
     public lineChartType: string;
     sorce : Array<RSI>;
-    fromDate: any;
-    toDate: any;
+    @Input() fromDate: any;
+    @Input() toDate: any;
     public lineChartOptions=lineChartOptions;
     public lineChartColors: Array<any> = [
         {

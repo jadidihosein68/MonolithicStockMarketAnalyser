@@ -4,7 +4,7 @@
       <div class="card-header">Charts</div>
       <div class="card-body">
 
-<date-range></date-range>
+        <date-range (SearchOnDate) = "onDateChange($event)"></date-range>
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
@@ -18,21 +18,21 @@
             <div class="tab-content">
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" [hidden]="selectedwallet !== coinwallet[0]"
                 role="tabpanel" class="tab-pane active" id="one">
-                <MACD-Chart></MACD-Chart>
+                <MACD-Chart [fromDate]="fromDate" [toDate]="toDate"></MACD-Chart>
               </div>
               <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" [hidden]="selectedwallet !== coinwallet[1]"
                 role="tabpanel" class="tab-pane active" id="two">
-                <RSI-Chart></RSI-Chart>
+                <RSI-Chart [fromDate]="fromDate" [toDate]="toDate"></RSI-Chart>
               </div>
 
               <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" [hidden]="selectedwallet !== coinwallet[2]"
                 role="tabpanel" class="tab-pane active" id="two">
-                <SO-Chart></SO-Chart>
+                <SO-Chart [fromDate]="fromDate" [toDate]="toDate"></SO-Chart>
               </div>
 
               <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" [hidden]="selectedwallet !== coinwallet[3]"
                 role="tabpanel" class="tab-pane active" id="two">
-                <guppy-Chart></guppy-Chart>
+                <guppy-Chart [fromDate]="fromDate" [toDate]="toDate"></guppy-Chart>
               </div>
 
             </div>

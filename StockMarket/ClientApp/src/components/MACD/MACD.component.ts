@@ -2,7 +2,7 @@ import { csvConvertorService } from './../../services/csv.convertor.service';
 import { lineChartOptions } from './../../model/constant/lineChartOptions';
 import { element } from 'protractor';
 
-import { OnInit, Component, ViewChild } from '@angular/core';
+import { OnInit, Component, ViewChild, Input } from '@angular/core';
 import { MACDService } from '../../services/MACD.service';
 import { MACD } from '../../model/interface/MACD';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
@@ -23,8 +23,8 @@ export class MACDComponent implements OnInit {
     public lineChartLegend: boolean;
     public lineChartType: string;
     sorce : Array<MACD>;
-    fromDate: any;
-    toDate: any;
+    @Input() fromDate: any;
+    @Input() toDate: any;
     public lineChartOptions = lineChartOptions;
     public lineChartColors: Array<any> = [
         {

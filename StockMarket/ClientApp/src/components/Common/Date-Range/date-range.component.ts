@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 
 
@@ -10,9 +10,17 @@ import { Component } from '@angular/core';
 })
 export class DateRangeComponent 
 {
-
+    
     public lineChartLabels: Array<any> = [];
     fromDate: any;
     toDate: any;
+    @Output() SearchOnDate = new EventEmitter ();
+    
+
+    getChartOnline(){
+        this.SearchOnDate.emit({fromdate: this.fromDate , toDate : this.toDate});
+    }
+
+
 
 }
