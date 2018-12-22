@@ -8,7 +8,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import {ChartsModule} from 'ng2-charts/ng2-charts';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { FetchDataComponent } from '../services/fetch-data/fetch-data.component';
 import { MACDComponent } from './MACD/MACD.component';
@@ -31,6 +30,9 @@ import { stochasticOscillatorService } from '../services/stochasticOscillator.se
 import { guppyComponent } from './guppy/guppy.component';
 import { DateRangeComponent } from './Common/Date-Range/date-range.component';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+import { PageNotFoundComponent } from './Layot/PageNotFoundComponent/page.not.found.component';
+import { HomeComponent } from './Layot/home/home.component';
+import { DashboardComponent } from './Layot/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -50,6 +52,8 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
     SOComponent,
     guppyComponent,
     DateRangeComponent,
+    PageNotFoundComponent,
+    DashboardComponent
     
 
   ],
@@ -61,8 +65,10 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
     NgbModule,  
     Ng5SliderModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: DashboardComponent, pathMatch: 'full' },
+      { path: 'charts', component: HomeComponent, pathMatch: 'full' },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: '**', component: PageNotFoundComponent },
     ]),
     
     SweetAlert2Module.forRoot({
