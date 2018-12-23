@@ -80,13 +80,13 @@ import { TwitterComponent } from './Layot/Twitter/twitter.component';
 
   ],
   providers: [WeatherService
-    , SessionService
     , MACDService
     , RSIService
     , ApiService
     , csvConvertorService
     , stochasticOscillatorService
     , guppyService
+    , SessionService
     
   ],
   bootstrap: [AppComponent]
