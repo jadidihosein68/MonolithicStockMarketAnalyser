@@ -20,3 +20,4 @@
 /StockMarket/.vs/StockMarket/v15
 .vs/StockMarket/v15/.suo
 .vs/StockMarket/DesignTimeBuild/.dtbcache
+StockMarket/ClientApp/package-lock.json
