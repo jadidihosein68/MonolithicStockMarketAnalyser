@@ -1,5 +1,6 @@
 import { guppyService } from './../services/guppy.service';
 import { Chart } from 'chart.js';
+import { SessionService } from '../services/SessionService.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -9,7 +10,6 @@ import { AppComponent } from './app.component';
 import {ChartsModule} from 'ng2-charts/ng2-charts';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { FetchDataComponent } from '../services/fetch-data/fetch-data.component';
 import { MACDComponent } from './MACD/MACD.component';
 import { WeatherService } from '../services/Weather.service';
 import { MACDService } from '../services/MACD.service';
@@ -34,13 +34,13 @@ import { DashboardComponent } from './Layot/dashboard/dashboard.component';
 import { DataTablesModule } from 'angular-datatables';
 import { TwitterComponent } from './Layot/Twitter/twitter.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     SideMenuComponent,
     HeaderComponent,
     NavMenuComponent,
-    FetchDataComponent,
     MACDComponent,
     RSIComponent,
     PageHeaderComponent,
@@ -66,7 +66,6 @@ import { TwitterComponent } from './Layot/Twitter/twitter.component';
     RouterModule.forRoot([
       { path: '', component: DashboardComponent, pathMatch: 'full' },
       { path: 'charts', component: ChartsLayoutComponent, pathMatch: 'full' },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'tweets', component: TwitterComponent },
       { path: '**', component: PageNotFoundComponent },
     ]),
@@ -81,12 +80,14 @@ import { TwitterComponent } from './Layot/Twitter/twitter.component';
 
   ],
   providers: [WeatherService
+    , SessionService
     , MACDService
     , RSIService
     , ApiService
     , csvConvertorService
     , stochasticOscillatorService
     , guppyService
+    
   ],
   bootstrap: [AppComponent]
 })
