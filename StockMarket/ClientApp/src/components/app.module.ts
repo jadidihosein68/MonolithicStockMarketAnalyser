@@ -31,9 +31,8 @@ import { guppyComponent } from './guppy/guppy.component';
 import { DateRangeComponent } from './Common/Date-Range/date-range.component';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { PageNotFoundComponent } from './Layot/PageNotFoundComponent/page.not.found.component';
-import { HomeComponent } from './Layot/home/home.component';
 import { DashboardComponent } from './Layot/dashboard/dashboard.component';
-
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -41,7 +40,6 @@ import { DashboardComponent } from './Layot/dashboard/dashboard.component';
     SideMenuComponent,
     HeaderComponent,
     NavMenuComponent,
-    HomeComponent,
     FetchDataComponent,
     MACDComponent,
     RSIComponent,
@@ -59,6 +57,7 @@ import { DashboardComponent } from './Layot/dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserModule,
     HttpClientModule,
     FormsModule,
     ChartsModule,
@@ -66,17 +65,19 @@ import { DashboardComponent } from './Layot/dashboard/dashboard.component';
     Ng5SliderModule,
     RouterModule.forRoot([
       { path: '', component: DashboardComponent, pathMatch: 'full' },
-      { path: 'charts', component: HomeComponent, pathMatch: 'full' },
+      { path: 'charts', component: ChartsLayoutComponent, pathMatch: 'full' },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: '**', component: PageNotFoundComponent },
     ]),
-    
     SweetAlert2Module.forRoot({
       buttonsStyling: false,
       customClass: 'modal-content',
       confirmButtonClass: 'btn btn-primary',
       cancelButtonClass: 'btn'
   })
+  , DataTablesModule
+
+
   ],
   providers: [WeatherService
     , MACDService
