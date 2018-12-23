@@ -17,7 +17,7 @@
     <div class="row">
       
 
-
+        <div class="col-sm-12">
 <table datatable class="row-border hover">
   <thead>
     <tr>
@@ -96,6 +96,7 @@
 
 
     </div>
+</div>
     <hr />
     <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
     <hr />

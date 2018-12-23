@@ -25,15 +25,17 @@
   <div class="row">
     <div class="col col-sm-6">
         <div *ngIf="lineChartLabels.length == 0 ">
-      <p>
-        <button class="btn btn-primary" (click)="getChartOnline()">Generate MACD</button>
+     <p></p>
+          <p>
+        <button class="btn btn-primary " (click)="getChartOnline()">Generate Charts</button>
       </p>
+      
         </div>
   
         <div *ngIf="lineChartLabels.length > 0 ">
       <p>
-        <button class="btn btn-primary" (click)="sketchMACD()">Draw MACD</button>
-        <button class="btn btn-primary" (click)="ExportToCSV()">Export To CSV</button>
+        <button class="btn btn-primary" (click)="sketchMACD()">Draw</button>
+        <button class="btn btn-primary" (click)="ExportToCSV()">Export dataset To CSV</button>
         </p>
   
         </div>
