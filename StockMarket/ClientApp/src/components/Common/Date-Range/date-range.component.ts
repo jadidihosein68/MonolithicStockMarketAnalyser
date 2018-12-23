@@ -13,7 +13,6 @@ export class DateRangeComponent
     toDate: any;
     @Output() SearchOnDate = new EventEmitter ();
     
-
     getChartOnline(){
         this.SearchOnDate.emit({fromdate: this.fromDate , toDate : this.toDate});
     }

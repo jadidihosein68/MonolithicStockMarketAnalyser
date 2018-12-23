@@ -4,5 +4,5 @@ MACD : "MACD",
 SO : "SO",
 GUPPY:"GUPPY",
 RSI:"RSI",
-
+DateRange:"DateRange",
 };

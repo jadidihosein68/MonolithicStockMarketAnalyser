@@ -18,7 +18,6 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { SideMenuComponent } from './sidebar-menu/sidebar.menu.component';
 import { HeaderComponent } from './header-menu/header.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
-import { DatePickerComponent } from './Common/Date-picker/date-picker.component';
 import 'chartjs-plugin-zoom';
 import { RSIService } from '../services/RSI.service';
 import { RSIComponent } from './RSI/RSI.component';
@@ -44,7 +43,6 @@ import { TwitterComponent } from './Layot/Twitter/twitter.component';
     MACDComponent,
     RSIComponent,
     PageHeaderComponent,
-    DatePickerComponent,
     ChartsLayoutComponent,
     SOComponent,
     guppyComponent,
