@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Inject } from '@angular/core';
 import { ApiService } from './ApiService.service';
 import { __await } from 'tslib';
-import { RSI } from '../model/interface/RSI';
+import { RSI } from '../model/RSI';
 
 
 @Injectable()

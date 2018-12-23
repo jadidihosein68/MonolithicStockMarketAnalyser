@@ -5,7 +5,7 @@ import { element } from 'protractor';
 
 import { OnInit, Component, ViewChild, Input } from '@angular/core';
 import { MACDService } from '../../services/MACD.service';
-import { MACD } from '../../model/interface/MACD';
+import { MACD } from '../../model/MACD';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 import { SessionKeys } from './../../model/constant/SessionKey';
 

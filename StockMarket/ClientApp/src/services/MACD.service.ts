@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Inject } from '@angular/core';
 import { ApiService } from './ApiService.service';
-import { __await } from 'tslib';
-import { MACD } from '../model/interface/MACD';
+import { MACD } from '../model/MACD';
 
 @Injectable()
 export class MACDService {

@@ -1,8 +1,8 @@
 import { guppy } from './../model/guppy';
 
-import { MACD } from './../model/interface/MACD';
+import { MACD } from './../model/MACD';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
-import { RSI } from './../model/interface/RSI';
+import { RSI } from './../model/RSI';
 import { StochasticOscillator } from './../model/StochasticOscillator';
 
 export class csvConvertorService {
