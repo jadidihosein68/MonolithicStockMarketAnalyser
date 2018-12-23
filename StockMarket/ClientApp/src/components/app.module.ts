@@ -32,6 +32,7 @@ import { PageNotFoundComponent } from './Layot/PageNotFoundComponent/page.not.fo
 import { DashboardComponent } from './Layot/dashboard/dashboard.component';
 import { DataTablesModule } from 'angular-datatables';
 import { TwitterComponent } from './Layot/Twitter/twitter.component';
+import { SearchTweetsComponent } from './search-tweets/search.tweets.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { TwitterComponent } from './Layot/Twitter/twitter.component';
     DateRangeComponent,
     PageNotFoundComponent,
     DashboardComponent,
-    TwitterComponent
+    TwitterComponent,
+    SearchTweetsComponent
     
 
   ],
