@@ -5,11 +5,13 @@ export class SessionService {
     session : any[] = new Array<any>();
     constructor() { }
 
-    public getSession (sessionKey:string){
-        return this.session[sessionKey];
+    public async getSession (sessionKey:string){
+        return await this.session[sessionKey];
     }
 
     public SetSession (sessionKey:string, sessionValue : any){
+
+        this.DeleteSession(sessionKey);
         return this.session[sessionKey] = sessionValue;
     }
 

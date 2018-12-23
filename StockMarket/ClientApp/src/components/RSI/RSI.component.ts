@@ -1,8 +1,10 @@
+import { RSI } from './../../model/interface/RSI';
 import { OnInit, Component, ViewChild, Input } from '@angular/core';
 import { RSIService } from '../../services/RSI.service';
-import { RSI } from '../../model/interface/RSI';
 import { csvConvertorService } from '../../services/csv.convertor.service';
 import { lineChartOptions } from './../../model/constant/lineChartOptions';
+import { SessionService } from '../../services/SessionService.service';
+import { SessionKeys } from './../../model/constant/SessionKey';
 
 @Component({
     selector: 'RSI-Chart',
@@ -13,6 +15,7 @@ import { lineChartOptions } from './../../model/constant/lineChartOptions';
 
 export class RSIComponent implements OnInit {
     constructor(private RSI: RSIService,
+        private sessionService:SessionService,
         private csvConvertorService:csvConvertorService) { }
 
     show:boolean = false ; 
@@ -39,13 +42,19 @@ export class RSIComponent implements OnInit {
         { data: [], label: 'RSI', type: 'line' },
     ];
 
-    ngOnInit() {
+    async ngOnInit() {
         this.lineChartLegend = true;
         this.lineChartType = 'line';
+        let SessionRSI = await this.sessionService.getSession(SessionKeys.RSI);
+        if (SessionRSI) {
+            this.sorce = SessionRSI;
+            this.sketchRSI();
+        }
     }
 
     public async getRSIOnline(){
         this.sorce = await this.RSI.getRSI();
+        this.sessionService.SetSession(SessionKeys.RSI, this.sorce);
         this.sketchRSI();
     }
 

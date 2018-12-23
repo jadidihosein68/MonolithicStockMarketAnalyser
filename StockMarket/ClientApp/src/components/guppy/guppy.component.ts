@@ -3,6 +3,8 @@ import { csvConvertorService } from '../../services/csv.convertor.service';
 import { lineChartOptions } from './../../model/constant/lineChartOptions';
 import { guppyService } from '../../services/guppy.service';
 import { guppy } from './../../model/guppy';
+import { SessionService } from '../../services/SessionService.service';
+import { SessionKeys } from './../../model/constant/SessionKey';
 
 @Component({
     selector: 'guppy-Chart',
@@ -13,6 +15,7 @@ import { guppy } from './../../model/guppy';
 
 export class guppyComponent implements OnInit {
     constructor(private guppyService: guppyService,
+        private sessionService:SessionService,
         private csvConvertorService:csvConvertorService) { }
 
     show:boolean = false ; 
@@ -54,13 +57,19 @@ export class guppyComponent implements OnInit {
         { data: [], label: 'longlag60', type: 'line' ,fill: false}      
     ];
 
-    ngOnInit() {
+    async ngOnInit() {
         this.lineChartLegend = true;
         this.lineChartType = 'line';
+        let Sessionguppy =await this.sessionService.getSession(SessionKeys.guppy);
+        if (Sessionguppy) {
+            this.sorce = Sessionguppy;
+            this.sketchGuppy();
+        }
     }
 
     public async getGuppyOnline(){
         this.sorce = await this.guppyService.getGuppy();
+        this.sessionService.SetSession(SessionKeys.guppy, this.sorce);
         this.sketchGuppy();
     }
 

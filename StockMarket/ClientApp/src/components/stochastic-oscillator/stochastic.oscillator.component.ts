@@ -3,6 +3,8 @@ import { csvConvertorService } from '../../services/csv.convertor.service';
 import { lineChartOptions } from './../../model/constant/lineChartOptions';
 import { stochasticOscillatorService } from '../../services/stochasticOscillator.service';
 import { StochasticOscillator } from '../../model/StochasticOscillator';
+import { SessionService } from '../../services/SessionService.service';
+import { SessionKeys } from './../../model/constant/SessionKey';
 
 @Component({
     selector: 'SO-Chart',
@@ -13,6 +15,7 @@ import { StochasticOscillator } from '../../model/StochasticOscillator';
 
 export class SOComponent implements OnInit {
     constructor(private stochasticOscillatorService: stochasticOscillatorService,
+        private sessionService: SessionService,
         private csvConvertorService:csvConvertorService) { }
 
     show:boolean = false ; 
@@ -45,13 +48,19 @@ export class SOComponent implements OnInit {
         { data: [], label: 'Slow D', type: 'line' }
     ];
 
-    ngOnInit() {
+    async ngOnInit() {
         this.lineChartLegend = true;
         this.lineChartType = 'line';
+        let SessionSO =await this.sessionService.getSession(SessionKeys.SO);
+        if (SessionSO) {
+            this.sorce = SessionSO;
+            this.sketchSO();
+        }
     }
 
     public async getSOOnline(){
         this.sorce = await this.stochasticOscillatorService.getStochasticOscillator();
+        this.sessionService.SetSession(SessionKeys.SO, this.sorce);
         this.sketchSO();
     }
 
