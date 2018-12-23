@@ -32,6 +32,7 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { PageNotFoundComponent } from './Layot/PageNotFoundComponent/page.not.found.component';
 import { DashboardComponent } from './Layot/dashboard/dashboard.component';
 import { DataTablesModule } from 'angular-datatables';
+import { TwitterComponent } from './Layot/Twitter/twitter.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { DataTablesModule } from 'angular-datatables';
     guppyComponent,
     DateRangeComponent,
     PageNotFoundComponent,
-    DashboardComponent
+    DashboardComponent,
+    TwitterComponent
     
 
   ],
@@ -65,6 +67,7 @@ import { DataTablesModule } from 'angular-datatables';
       { path: '', component: DashboardComponent, pathMatch: 'full' },
       { path: 'charts', component: ChartsLayoutComponent, pathMatch: 'full' },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'tweets', component: TwitterComponent },
       { path: '**', component: PageNotFoundComponent },
     ]),
     SweetAlert2Module.forRoot({
