@@ -8,7 +8,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   })
   export class SearchTweetsComponent  {
     closeResult: string;
-
+    MardImage = `assets/images/mard2.png`;
     constructor(private modalService: NgbModal) {}
 
     open(content) {
