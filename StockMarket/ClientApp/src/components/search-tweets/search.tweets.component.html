@@ -34,10 +34,7 @@
 
 </div>
 
-
-
-
-
+<!--
 <div class="">
   <div class="form-group input-group">
     <input type="text" class="form-control">
@@ -46,3 +43,39 @@
     </div>
   </div>
 </div>
+-->
+
+<div class="row">
+  <div class="col col-sm-6">
+    <div>
+      <p></p>
+      <p>
+        <button class="btn btn-info " (click)="open(content)">Add User</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Extract Twitts <i class="fab fa fa-twitter"></i></h4>
+    <a class="close" aria-label="Close" (click)="d('Cross click')">
+      <span >&times;</span>
+    </a>
+  </div>
+  <div class="modal-body">
+    <p>Please input the user Twitter ID's to extract</p>
+
+    <div class="">
+      <div class="form-group input-group">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Search</button>
+  </div>
+</ng-template>
