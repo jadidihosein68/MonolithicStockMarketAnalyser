@@ -3,7 +3,7 @@ import { OnInit, Component, ViewChild, Input } from '@angular/core';
 import { RSIService } from '../../services/RSI.service';
 import { csvConvertorService } from '../../services/csv.convertor.service';
 import { lineChartOptions } from './../../model/constant/lineChartOptions';
-import { SessionService } from '../../services/SessionService.service';
+import { CacheService } from '../../services/CacheService.service';
 import { SessionKeys } from './../../model/constant/SessionKey';
 
 @Component({
@@ -15,7 +15,7 @@ import { SessionKeys } from './../../model/constant/SessionKey';
 
 export class RSIComponent implements OnInit {
     constructor(private RSI: RSIService,
-        private sessionService:SessionService,
+        private sessionService:CacheService,
         private csvConvertorService:csvConvertorService) { }
 
     show:boolean = false ; 

@@ -1,6 +1,6 @@
 import { guppyService } from './../services/guppy.service';
 import { Chart } from 'chart.js';
-import { SessionService } from '../services/SessionService.service';
+import { CacheService } from '../services/CacheService.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -86,7 +86,7 @@ import { SearchTweetsComponent } from './search-tweets/search.tweets.component';
     , csvConvertorService
     , stochasticOscillatorService
     , guppyService
-    , SessionService
+    , CacheService
     
   ],
   bootstrap: [AppComponent]

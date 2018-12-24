@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class SessionService {
+export class CacheService {
     session : any[] = new Array<any>();
     constructor() { }
 

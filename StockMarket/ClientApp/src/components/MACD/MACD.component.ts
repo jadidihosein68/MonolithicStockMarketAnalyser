@@ -1,4 +1,4 @@
-import { SessionService } from './../../services/SessionService.service';
+import { CacheService } from '../../services/CacheService.service';
 import { csvConvertorService } from './../../services/csv.convertor.service';
 import { lineChartOptions } from './../../model/constant/lineChartOptions';
 import { element } from 'protractor';
@@ -17,7 +17,7 @@ import { SessionKeys } from './../../model/constant/SessionKey';
 })
 export class MACDComponent implements OnInit {
     constructor(private MACD: MACDService,
-        private sessionService: SessionService,
+        private sessionService: CacheService,
         private csvConvertorService: csvConvertorService
     ) { }
 

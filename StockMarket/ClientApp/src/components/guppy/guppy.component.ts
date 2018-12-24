@@ -3,7 +3,7 @@ import { csvConvertorService } from '../../services/csv.convertor.service';
 import { lineChartOptions } from './../../model/constant/lineChartOptions';
 import { guppyService } from '../../services/guppy.service';
 import { guppy } from './../../model/guppy';
-import { SessionService } from '../../services/SessionService.service';
+import { CacheService } from '../../services/CacheService.service';
 import { SessionKeys } from './../../model/constant/SessionKey';
 
 @Component({
@@ -15,7 +15,7 @@ import { SessionKeys } from './../../model/constant/SessionKey';
 
 export class guppyComponent implements OnInit {
     constructor(private guppyService: guppyService,
-        private sessionService:SessionService,
+        private sessionService:CacheService,
         private csvConvertorService:csvConvertorService) { }
 
     show:boolean = false ; 
