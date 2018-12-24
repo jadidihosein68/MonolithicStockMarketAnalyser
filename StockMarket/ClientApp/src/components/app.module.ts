@@ -1,3 +1,4 @@
+import { TwitterService } from './../services/TwitterService';
 import { guppyService } from './../services/guppy.service';
 import { Chart } from 'chart.js';
 import { CacheService } from '../services/CacheService.service';
@@ -33,6 +34,7 @@ import { DashboardComponent } from './Layot/dashboard/dashboard.component';
 import { DataTablesModule } from 'angular-datatables';
 import { TwitterComponent } from './Layot/Twitter/twitter.component';
 import { SearchTweetsComponent } from './search-tweets/search.tweets.component';
+import { sweetAlertService } from '../services/sweetAlertService.service';
 
 
 @NgModule({
@@ -87,6 +89,8 @@ import { SearchTweetsComponent } from './search-tweets/search.tweets.component';
     , stochasticOscillatorService
     , guppyService
     , CacheService
+    ,TwitterService
+    ,sweetAlertService
     
   ],
   bootstrap: [AppComponent]

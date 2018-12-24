@@ -64,7 +64,7 @@ namespace StockMarket.Adapter
         }
 
 
-        private List<Tweet> SendRequestToGetTweets(IQueryable<Status> statusTweets , TwitterContext twitterContext, string ScreenName)
+        private List<Tweet> SendRequestToGetTweets(IQueryable<Status> statusTweets, TwitterContext twitterContext, string ScreenName)
         {
 
             ulong temp = 0;
@@ -82,25 +82,26 @@ namespace StockMarket.Adapter
                     TweetID = statusTweet.StatusID,
                     Tweets = statusTweet.Text.ToString()
                 });
-                
+
                 if (i == 200)
                 {
                     temp = statusTweet.StatusID;
                 }
             }
 
-            
+
             while (i != 0)
             {
 
-               var statusTweets2 = twitterContext.Status.Where(
-               c => c.Type == StatusType.User
-               && c.ScreenName == ScreenName
-               && c.IncludeContributorDetails == true
-               && c.Count == 200
-               && c.IncludeEntities == true
-               && c.MaxID == temp - 1
-               );
+                var statusTweets2 =
+                     twitterContext.Status.Where(
+                c => c.Type == StatusType.User
+                && c.ScreenName == ScreenName
+                && c.IncludeContributorDetails == true
+                && c.Count == 200
+                && c.IncludeEntities == true
+                && c.MaxID == temp - 1
+                );
 
                 i = 0;
                 foreach (var statusTweet in statusTweets2)
@@ -117,8 +118,8 @@ namespace StockMarket.Adapter
                 }
                 temp = mystorage[mystorage.Count - 1].TweetID;
             }
-            
-            return mystorage; 
+
+            return mystorage;
         }
 
     }

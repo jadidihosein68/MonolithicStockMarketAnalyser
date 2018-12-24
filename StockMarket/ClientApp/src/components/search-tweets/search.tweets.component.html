@@ -62,20 +62,33 @@
   <div class="modal-header">
     <h4 class="modal-title">Extract Twitts <i class="fab fa fa-twitter"></i></h4>
     <a class="close" aria-label="Close" (click)="d('Cross click')">
-      <span >&times;</span>
+      <span>&times;</span>
     </a>
   </div>
   <div class="modal-body">
+
+
+<div class="row">
+    <div class="col col-sm-3">
+  <img class="img-fluid mx-auto d-block" [src]="MardImage" alt="Random first slide" width="100%">
+
+    </div>
+    <div class="col col-sm-9">
     <p>Please input the user Twitter ID's to extract</p>
 
     <div class="">
       <div class="form-group input-group">
-        <input type="text" class="form-control">
+        <input type="text" [(ngModel)]="TweetID" class="form-control">
       </div>
     </div>
+
+</div>
+</div>
+
+
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Search</button>
+    <button type="button" class="btn btn-info" (click)="getTweet()">Search</button>
   </div>
 </ng-template>
