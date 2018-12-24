@@ -9,6 +9,7 @@ using StockMarket.Adapter.Interface;
 using StockMarket.Adapter.Interface.Utilities;
 using StockMarket.Adapter.Utilities;
 using StockMarket.BAL.Generate_TimeSeries;
+using StockMarket.BAL.ExtractText;
 using StockMarket.BAL.Generate_TimeSeries.Interfaces;
 using StockMarket.BAL.Generate_TimeSeries.Interfaces.Utilities;
 using StockMarket.BAL.Generate_TimeSeries.Utilities;

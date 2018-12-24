@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace StockMarket.BAL.Generate_TimeSeries
+namespace StockMarket.BAL.ExtractText
 {
     public class TwitterBal : ITwitterBal
     {
