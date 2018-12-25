@@ -1,3 +1,4 @@
 export const Appsetting: any = {
-    BaseURL: ""
+    BaseURL: "",
+    TwitterURL:"https://twitter.com"
 };

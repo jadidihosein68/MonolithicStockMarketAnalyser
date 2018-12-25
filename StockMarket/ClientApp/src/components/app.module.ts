@@ -33,6 +33,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { TwitterComponent } from './Layot/Twitter/twitter.component';
 import { SearchTweetsComponent } from './search-tweets/search.tweets.component';
 import { sweetAlertService } from '../services/sweetAlertService.service';
+import { TwitterDatatableComponent } from './datatables/TwitterDatatable/twitter.datatable.component';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import { sweetAlertService } from '../services/sweetAlertService.service';
     DashboardComponent,
     TwitterComponent,
     SearchTweetsComponent,
-    salModalComponent
+    salModalComponent,
+    TwitterDatatableComponent
     
 
   ],
@@ -79,6 +82,7 @@ import { sweetAlertService } from '../services/sweetAlertService.service';
 
   ],
   providers: [
+    , DatePipe
     , MACDService
     , RSIService
     , ApiService
