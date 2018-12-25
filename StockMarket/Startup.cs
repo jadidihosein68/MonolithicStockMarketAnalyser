@@ -17,12 +17,21 @@ using StockMarket.DAL.Interface.Persistance.Repositories;
 using StockMarket.DAL.Persistence.Repositories;
 using StockMarket.Model.Configuration;
 using Swashbuckle.AspNetCore.Swagger;
+using StockMarket.DAL.DBContext;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+
 namespace StockMarket
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly AppConfiguration AppConfiguration;
+        public Startup(
+            IConfiguration configuration
+            , IOptions<AppConfiguration> _AppConfiguration
+            )
         {
+            AppConfiguration = _AppConfiguration.Value;
             Configuration = configuration;
         }
 
@@ -31,6 +40,10 @@ namespace StockMarket
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connection = AppConfiguration.ConnectionString;
+            services.AddDbContext<SalDbContext>
+                (options => options.UseSqlServer(connection));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddHttpClient();
 
