@@ -1,3 +1,4 @@
+import { salModalComponent } from './Common/modal/modal.component';
 import { TwitterService } from './../services/TwitterService';
 import { guppyService } from './../services/guppy.service';
 import { Chart } from 'chart.js';
@@ -53,7 +54,8 @@ import { sweetAlertService } from '../services/sweetAlertService.service';
     PageNotFoundComponent,
     DashboardComponent,
     TwitterComponent,
-    SearchTweetsComponent
+    SearchTweetsComponent,
+    salModalComponent
     
 
   ],
