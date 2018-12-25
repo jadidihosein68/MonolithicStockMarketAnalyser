@@ -1,10 +1,10 @@
 import { OnInit, Component, ViewChild, Input } from '@angular/core';
-import { csvConvertorService } from '../../services/csv.convertor.service';
-import { lineChartOptions } from './../../model/constant/lineChartOptions';
-import { stochasticOscillatorService } from '../../services/stochasticOscillator.service';
-import { StochasticOscillator } from '../../model/StochasticOscillator';
-import { CacheService } from '../../services/CacheService.service';
-import { SessionKeys } from './../../model/constant/SessionKey';
+import { csvConvertorService } from '../../../services/csv.convertor.service';
+import { lineChartOptions } from './../../../model/constant/lineChartOptions';
+import { stochasticOscillatorService } from '../../../services/stochasticOscillator.service';
+import { StochasticOscillator } from '../../../model/StochasticOscillator';
+import { CacheService } from '../../../services/CacheService.service';
+import { SessionKeys } from './../../../model/constant/SessionKey';
 
 @Component({
     selector: 'SO-Chart',

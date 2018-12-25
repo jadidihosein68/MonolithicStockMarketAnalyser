@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { dateRangeEventArgs } from '../../../model/interface/dateRangeEventArgs';
-import { MACDComponent } from '../../../components/MACD/MACD.component';
-import { SOComponent } from '../../../components/stochastic-oscillator/stochastic.oscillator.component';
-import { RSIComponent } from '../../../components/RSI/RSI.component';
-import { guppyComponent } from '../../../components/guppy/guppy.component';
+import { MACDComponent } from '../../../components/charts/MACD/MACD.component';
+import { SOComponent } from '../../../components/charts/stochastic-oscillator/stochastic.oscillator.component';
+import { RSIComponent } from '../../../components/charts/RSI/RSI.component';
+import { guppyComponent } from '../../../components/charts/guppy/guppy.component';
 import swal from '../../../../node_modules/sweetalert2/dist/sweetalert2.js'
 
 @Component({

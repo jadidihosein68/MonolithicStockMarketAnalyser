@@ -1,10 +1,10 @@
-import { RSI } from './../../model/RSI';
+import { RSI } from './../../../model/RSI';
 import { OnInit, Component, ViewChild, Input } from '@angular/core';
-import { RSIService } from '../../services/RSI.service';
-import { csvConvertorService } from '../../services/csv.convertor.service';
-import { lineChartOptions } from './../../model/constant/lineChartOptions';
-import { CacheService } from '../../services/CacheService.service';
-import { SessionKeys } from './../../model/constant/SessionKey';
+import { RSIService } from '../../../services/RSI.service';
+import { csvConvertorService } from '../../../services/csv.convertor.service';
+import { lineChartOptions } from './../../../model/constant/lineChartOptions';
+import { CacheService } from '../../../services/CacheService.service';
+import { SessionKeys } from './../../../model/constant/SessionKey';
 
 @Component({
     selector: 'RSI-Chart',

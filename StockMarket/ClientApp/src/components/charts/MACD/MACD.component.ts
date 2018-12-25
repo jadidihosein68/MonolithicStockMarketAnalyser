@@ -1,13 +1,13 @@
-import { CacheService } from '../../services/CacheService.service';
-import { csvConvertorService } from './../../services/csv.convertor.service';
-import { lineChartOptions } from './../../model/constant/lineChartOptions';
+import { CacheService } from '../../../services/CacheService.service';
+import { csvConvertorService } from './../../../services/csv.convertor.service';
+import { lineChartOptions } from './../../../model/constant/lineChartOptions';
 import { element } from 'protractor';
 
 import { OnInit, Component, ViewChild, Input } from '@angular/core';
-import { MACDService } from '../../services/MACD.service';
-import { MACD } from '../../model/MACD';
+import { MACDService } from '../../../services/MACD.service';
+import { MACD } from '../../../model/MACD';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
-import { SessionKeys } from './../../model/constant/SessionKey';
+import { SessionKeys } from './../../../model/constant/SessionKey';
 
 
 @Component({
