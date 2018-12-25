@@ -27,5 +27,34 @@ namespace StockMarket.Core.Controllers
             return result;
         }
 
+
+        [HttpGet("[action]")]
+        public List<TweetsSummary> GetTweetsSummary()
+        {
+            List<TweetsSummary> result = new List<TweetsSummary>();
+            result.Add(new TweetsSummary {
+                LastUpdate = new DateTime(2018,11,1),
+                NOofRecords = 3200,
+                Screen_Name = "@BarackObama",
+            });
+
+            result.Add(new TweetsSummary
+            {
+                LastUpdate = new DateTime(2018, 11, 1),
+                NOofRecords = 6200,
+                Screen_Name = "@realDonaldTrump",
+            });
+            result.Add(new TweetsSummary
+            {
+                LastUpdate = new DateTime(2018, 11, 1),
+                NOofRecords = 6200,
+                Screen_Name = "@JZarif",
+            });
+
+            return result;
+        }
+
+
+
     }
 }
