@@ -14,10 +14,22 @@ namespace StockMarket.Adapter
     public class TwitterAdapter : ITwitterAdapter
     {
         private readonly AppConfiguration AppConfiguration;
+        private readonly SingleUserAuthorizer Athorization; 
 
         public TwitterAdapter(IOptions<AppConfiguration> _AppConfiguration)
         {
             AppConfiguration = _AppConfiguration.Value;
+            Athorization= new SingleUserAuthorizer
+            {
+                CredentialStore = new InMemoryCredentialStore
+                {
+                    ConsumerKey = AppConfiguration.TwitterCrodential.consumerKey,
+                    ConsumerSecret = AppConfiguration.TwitterCrodential.consumerSecret,
+                    OAuthToken = AppConfiguration.TwitterCrodential.accessToken,
+                    OAuthTokenSecret = AppConfiguration.TwitterCrodential.accessTokenSecret
+                }
+            };
+
         }
 
         public LinqToTwitterResponces GetTweetsFromTwitter(string ScreenName)
@@ -26,8 +38,7 @@ namespace StockMarket.Adapter
             if (string.IsNullOrEmpty(ScreenName))
                 return null;
 
-            var authorizer = CreateAuthorizer();
-            var twitterContext = new TwitterContext(authorizer);
+            var twitterContext = new TwitterContext(Athorization);
 
             var statusTweets = twitterContext.Status.Where(
                 c => c.Type == StatusType.User
@@ -45,24 +56,6 @@ namespace StockMarket.Adapter
             return response;
 
         }
-
-
-        private SingleUserAuthorizer CreateAuthorizer()
-        {
-
-            return new SingleUserAuthorizer
-            {
-                CredentialStore = new InMemoryCredentialStore
-                {
-                    ConsumerKey = AppConfiguration.TwitterCrodential.consumerKey,
-                    ConsumerSecret = AppConfiguration.TwitterCrodential.consumerSecret,
-                    OAuthToken = AppConfiguration.TwitterCrodential.accessToken,
-                    OAuthTokenSecret = AppConfiguration.TwitterCrodential.accessTokenSecret
-                }
-            };
-
-        }
-
 
         private List<Tweet> SendRequestToGetTweets(IQueryable<Status> statusTweets, TwitterContext twitterContext, string ScreenName)
         {
