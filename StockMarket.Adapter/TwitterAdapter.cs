@@ -14,12 +14,12 @@ namespace StockMarket.Adapter
     public class TwitterAdapter : ITwitterAdapter
     {
         private readonly AppConfiguration AppConfiguration;
-        private readonly SingleUserAuthorizer Athorization; 
+        private readonly SingleUserAuthorizer Athorization;
 
         public TwitterAdapter(IOptions<AppConfiguration> _AppConfiguration)
         {
             AppConfiguration = _AppConfiguration.Value;
-            Athorization= new SingleUserAuthorizer
+            Athorization = new SingleUserAuthorizer
             {
                 CredentialStore = new InMemoryCredentialStore
                 {
@@ -59,45 +59,14 @@ namespace StockMarket.Adapter
 
         private List<Tweet> SendRequestToGetTweets(IQueryable<Status> statusTweets, TwitterContext twitterContext, string ScreenName)
         {
-
             ulong temp = 0;
             int i = 0;
             List<Tweet> mystorage = new List<Tweet>();
 
-            foreach (var statusTweet in statusTweets)
-            {
-                i++;
-                DateTime dt = Convert.ToDateTime(statusTweet.CreatedAt);
-                mystorage.Add(new Tweet()
-                {
-                    Date = dt,
-                    Screen_Name = statusTweet.ScreenName.ToString(),
-                    TweetID = statusTweet.StatusID,
-                    Tweets = statusTweet.Text.ToString()
-                });
-
-                if (i == 200)
-                {
-                    temp = statusTweet.StatusID;
-                }
-            }
-
-
-            while (i != 0)
+            try
             {
 
-                var statusTweets2 =
-                     twitterContext.Status.Where(
-                c => c.Type == StatusType.User
-                && c.ScreenName == ScreenName
-                && c.IncludeContributorDetails == true
-                && c.Count == 200
-                && c.IncludeEntities == true
-                && c.MaxID == temp - 1
-                );
-
-                i = 0;
-                foreach (var statusTweet in statusTweets2)
+                foreach (var statusTweet in statusTweets)
                 {
                     i++;
                     DateTime dt = Convert.ToDateTime(statusTweet.CreatedAt);
@@ -108,11 +77,46 @@ namespace StockMarket.Adapter
                         TweetID = statusTweet.StatusID,
                         Tweets = statusTweet.Text.ToString()
                     });
-                }
-                temp = mystorage[mystorage.Count - 1].TweetID;
-            }
 
-            return mystorage;
+                    if (i == 200)
+                    {
+                        temp = statusTweet.StatusID;
+                    }
+                }
+
+
+                while (i != 0)
+                {
+
+                    var statusTweets2 =
+                         twitterContext.Status.Where(
+                    c => c.Type == StatusType.User
+                    && c.ScreenName == ScreenName
+                    && c.IncludeContributorDetails == true
+                    && c.Count == 200
+                    && c.IncludeEntities == true
+                    && c.MaxID == temp - 1
+                    );
+
+                    i = 0;
+                    foreach (var statusTweet in statusTweets2)
+                    {
+                        i++;
+                        DateTime dt = Convert.ToDateTime(statusTweet.CreatedAt);
+                        mystorage.Add(new Tweet()
+                        {
+                            Date = dt,
+                            Screen_Name = statusTweet.ScreenName.ToString(),
+                            TweetID = statusTweet.StatusID,
+                            Tweets = statusTweet.Text.ToString()
+                        });
+                    }
+                    temp = mystorage[mystorage.Count - 1].TweetID;
+                }
+
+                return mystorage;
+            }
+            catch { return null; }
         }
 
     }
