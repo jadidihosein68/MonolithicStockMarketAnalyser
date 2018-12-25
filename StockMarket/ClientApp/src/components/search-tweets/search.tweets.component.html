@@ -11,7 +11,7 @@
     <tbody>
       <tr>
         <td>2018/10/20</td>
-        <td>@JZarif</td>
+        <td> <a href="https://twitter.com/@JZarif" target="_blank">@JZarif</a></td>
         <td>3200</td>
         <td>
           <i class="fas fa fa-download"></i>
@@ -19,13 +19,13 @@
       </tr>
       <tr>
         <td>2018/10/20</td>
-        <td>@realDonaldTrump</td>
+        <td> <a href="https://twitter.com/@realDonaldTrump" target="_blank">@realDonaldTrump</a></td>
         <td>3100</td>
         <td><i class="fas fa fa-download"></i></td>
       </tr>
       <tr>
         <td>2018/10/20</td>
-        <td>@POTUS</td>
+        <td> <a href="https://twitter.com/@POTUS" target="_blank">@POTUS</a></td>
         <td>3000</td>
         <td><i class="fas fa fa-download"></i></td>
       </tr>
@@ -34,61 +34,36 @@
 
 </div>
 
-<!--
-<div class="">
-  <div class="form-group input-group">
-    <input type="text" class="form-control">
-    <div class="input-group-append">
-      <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
-    </div>
-  </div>
-</div>
--->
+
 
 <div class="row">
   <div class="col col-sm-6">
     <div>
       <p></p>
-      <p>
-        <button class="btn btn-info " (click)="open(content)">Add User</button>
-      </p>
+      <sal-modal>
+        <div class="header">
+          <h4 class="modal-title">Extract Twitts <i class="fab fa fa-twitter"></i></h4>
+        </div>
+        <div class="body">
+          <div class="row">
+            <div class="col col-sm-3">
+              <img class="img-fluid mx-auto d-block" [src]="'assets/images/Mard2.png'" alt="Random first slide" width="100%">
+            </div>
+            <div class="col col-sm-9">
+              <p>Please input the user Twitter ID's to extract</p>
+
+              <div class="">
+                <div class="form-group input-group">
+                  <input type="text" [(ngModel)]="TweetID" class="form-control">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <button type="button" class="btn btn-info" (click)="getTweet()">Search</button>
+        </div>
+      </sal-modal>
     </div>
   </div>
 </div>
-
-
-
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Extract Twitts <i class="fab fa fa-twitter"></i></h4>
-    <a class="close" aria-label="Close" (click)="d('Cross click')">
-      <span>&times;</span>
-    </a>
-  </div>
-  <div class="modal-body">
-
-
-<div class="row">
-    <div class="col col-sm-3">
-  <img class="img-fluid mx-auto d-block" [src]="MardImage" alt="Random first slide" width="100%">
-
-    </div>
-    <div class="col col-sm-9">
-    <p>Please input the user Twitter ID's to extract</p>
-
-    <div class="">
-      <div class="form-group input-group">
-        <input type="text" [(ngModel)]="TweetID" class="form-control">
-      </div>
-    </div>
-
-</div>
-</div>
-
-
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-    <button type="button" class="btn btn-info" (click)="getTweet()">Search</button>
-  </div>
-</ng-template>
