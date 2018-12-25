@@ -6,13 +6,11 @@ import { CacheService } from '../services/CacheService.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import {ChartsModule} from 'ng2-charts/ng2-charts';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MACDComponent } from './charts/MACD/MACD.component';
-import { WeatherService } from '../services/Weather.service';
 import { MACDService } from '../services/MACD.service';
 import { ApiService } from '../services/ApiService.service';
 import { Ng5SliderModule } from 'ng5-slider';
@@ -60,7 +58,6 @@ import { sweetAlertService } from '../services/sweetAlertService.service';
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     BrowserModule,
-    HttpClientModule,
     FormsModule,
     ChartsModule,
     NgbModule,  
@@ -81,7 +78,7 @@ import { sweetAlertService } from '../services/sweetAlertService.service';
 
 
   ],
-  providers: [WeatherService
+  providers: [
     , MACDService
     , RSIService
     , ApiService
