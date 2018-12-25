@@ -47,10 +47,17 @@ namespace StockMarket.Adapter
                 && c.Count == 200
                 && c.IncludeEntities == true);
             List<Tweet> mystorage = SendRequestToGetTweets(statusTweets, twitterContext, ScreenName);
+
+            if (mystorage == null)
+            {
+                mystorage = new List<Tweet>();
+            }
+
             LinqToTwitterResponces response = new LinqToTwitterResponces()
             {
+                
                 ScreenName = ScreenName,
-                TotalNoOfTweets = mystorage.Count,
+                TotalNoOfTweets =  mystorage.Count,
                 Tweets = mystorage
             };
             return response;
