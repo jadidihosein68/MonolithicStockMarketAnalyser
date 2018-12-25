@@ -1,3 +1,4 @@
+import { normalizedComponent } from './charts/Normalized/normalized.component';
 import { salModalComponent } from './Common/modal/modal.component';
 import { TwitterService } from './../services/TwitterService';
 import { guppyService } from './../services/guppy.service';
@@ -54,7 +55,8 @@ import { DatePipe } from '@angular/common';
     TwitterComponent,
     SearchTweetsComponent,
     salModalComponent,
-    TwitterDatatableComponent
+    TwitterDatatableComponent,
+    normalizedComponent
     
 
   ],
