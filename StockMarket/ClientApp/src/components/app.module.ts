@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import {ChartsModule} from 'ng2-charts/ng2-charts';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { MACDComponent } from './charts/MACD/MACD.component';
 import { WeatherService } from '../services/Weather.service';
 import { MACDService } from '../services/MACD.service';
@@ -43,7 +42,6 @@ import { sweetAlertService } from '../services/sweetAlertService.service';
     AppComponent,
     SideMenuComponent,
     HeaderComponent,
-    NavMenuComponent,
     MACDComponent,
     RSIComponent,
     PageHeaderComponent,
