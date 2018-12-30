@@ -8,9 +8,9 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using StockMarket.Adapter;
 using StockMarket.Adapter.Interface;
-using StockMarket.DAL.Interface.Persistance.Repositories;
 using StockMarket.Model;
 using StockMarket.Model.Configuration;
+using StockMarket.Repository.Interface;
 
 namespace StockMarket.Core.Controllers
 {

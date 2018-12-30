@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace StockMarket.DAL.Interface.Persistance.Repositories
+namespace StockMarket.Repository.Interface
 {
     public interface IRdotNetRepositories
     {

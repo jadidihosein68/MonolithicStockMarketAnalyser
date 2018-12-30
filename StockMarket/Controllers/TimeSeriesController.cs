@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using StockMarket.Adapter.Interface;
 using StockMarket.BAL.Generate_TimeSeries;
 using StockMarket.BAL.Generate_TimeSeries.Interfaces;
-using StockMarket.DAL.Interface.Persistance.Repositories;
 using StockMarket.Model;
 
 namespace StockMarket.Core.Controllers

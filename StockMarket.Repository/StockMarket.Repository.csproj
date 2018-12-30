@@ -5,13 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="R.NET" Version="1.7.0" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\StockMarket.Adapter\StockMarket.Adapter.csproj" />
     <ProjectReference Include="..\StockMarket.DAL\StockMarket.DAL.csproj" />
     <ProjectReference Include="..\StockMarket.Model\StockMarket.Model.csproj" />
-    <ProjectReference Include="..\StockMarket.Repository\StockMarket.Repository.csproj" />
   </ItemGroup>
 
 </Project>

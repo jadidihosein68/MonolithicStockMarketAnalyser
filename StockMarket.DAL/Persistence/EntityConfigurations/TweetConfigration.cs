@@ -11,7 +11,6 @@ namespace StockMarket.DAL.Persistence.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Tweet> builder)
         {
-
             //builder.HasKey(c => c.Screen_Name);
             //builder.Property(c => c.Screen_Name).HasMaxLength(200);
         }

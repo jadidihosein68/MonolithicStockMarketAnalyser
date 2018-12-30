@@ -1,11 +1,11 @@
 ﻿using StockMarket.Adapter.Interface;
-using StockMarket.DAL.Interface.Persistance.Repositories;
 using StockMarket.Model;
+using StockMarket.Repository.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace StockMarket.DAL.Persistence.Repositories
+namespace StockMarket.Repository.Concreate
 {
     public class RdotNetRepositories : IRdotNetRepositories
     {

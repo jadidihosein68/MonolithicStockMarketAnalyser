@@ -13,13 +13,13 @@ using StockMarket.BAL.ExtractText;
 using StockMarket.BAL.Generate_TimeSeries.Interfaces;
 using StockMarket.BAL.Generate_TimeSeries.Interfaces.Utilities;
 using StockMarket.BAL.Generate_TimeSeries.Utilities;
-using StockMarket.DAL.Interface.Persistance.Repositories;
-using StockMarket.DAL.Persistence.Repositories;
 using StockMarket.Model.Configuration;
 using Swashbuckle.AspNetCore.Swagger;
 using StockMarket.DAL.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using StockMarket.Repository.Concreate;
+using StockMarket.Repository.Interface;
 
 namespace StockMarket
 {
@@ -40,7 +40,8 @@ namespace StockMarket
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = AppConfiguration.ConnectionString;
+            //var connection = AppConfiguration.ConnectionString;
+            var connection = "";
             services.AddDbContext<SalDbContext>
                 (options => options.UseSqlServer(connection));
 
@@ -48,6 +49,9 @@ namespace StockMarket
             services.AddHttpClient();
 
             services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
+
+            services.AddScoped<ISalDbContext, SalDbContext>();
+            
             services.AddScoped<IQuandlHistoricalStockAdapter, QuandlHistoricalStockAdapter>();
             services.AddScoped<IQuamdlHisoricalStockRepository, QuandlHisoricalStockRepository>();
 

@@ -21,3 +21,5 @@
 .vs/StockMarket/v15/.suo
 .vs/StockMarket/DesignTimeBuild/.dtbcache
 StockMarket/ClientApp/package-lock.json
+/StockMarket.Repository/obj
+/StockMarket.Repository/bin/Debug/netcoreapp2.1
