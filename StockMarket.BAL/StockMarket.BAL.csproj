@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StockMarket.DAL\StockMarket.DAL.csproj" />
+    <ProjectReference Include="..\StockMarket.DAL\StockMarket.Repository.csproj" />
     <ProjectReference Include="..\StockMarket.Model\StockMarket.Model.csproj" />
   </ItemGroup>
 

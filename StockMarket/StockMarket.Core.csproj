@@ -33,7 +33,7 @@
   <ItemGroup>
     <ProjectReference Include="..\StockMarket.Adapter\StockMarket.Adapter.csproj" />
     <ProjectReference Include="..\StockMarket.BAL\StockMarket.BAL.csproj" />
-    <ProjectReference Include="..\StockMarket.DAL\StockMarket.DAL.csproj" />
+    <ProjectReference Include="..\StockMarket.DAL\StockMarket.Repository.csproj" />
     <ProjectReference Include="..\StockMarket.Model\StockMarket.Model.csproj" />
   </ItemGroup>
 
