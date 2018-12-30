@@ -25,9 +25,4 @@
     </Reference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interface\Persistance\Repositories\" />
-    <Folder Include="Persistence\Repositories\" />
-  </ItemGroup>
-
 </Project>

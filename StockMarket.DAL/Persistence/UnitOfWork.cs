@@ -1,5 +1,7 @@
 ﻿using StockMarket.DAL.DBContext;
 using StockMarket.DAL.Interface.Persistance;
+using StockMarket.DAL.Interface.Persistance.Repositories;
+using StockMarket.DAL.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,9 +13,12 @@ namespace StockMarket.DAL.Persistence
     {
         private readonly SalDbContext context;
 
+        public ITwitterDAL TwitterDAL { get; private set; }
+
         public UnitOfWork(SalDbContext _context)
         {
             context = _context;
+            TwitterDAL = new TwitterDAL(_context);
         }
         
         public void Complite()
@@ -26,6 +31,8 @@ namespace StockMarket.DAL.Persistence
             await context.SaveChangesAsync();
 
         }
+
+        
 
     }
 }
