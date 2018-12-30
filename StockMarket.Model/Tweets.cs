@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StockMarket.Model
 {
-    public class Tweet
+    public class Tweet : BaseClass
     {
         public ulong TweetID { get; set;}
         public string Screen_Name { get; set; }
