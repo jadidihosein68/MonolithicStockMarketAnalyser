@@ -58,7 +58,7 @@ export class TwitterDatatableComponent implements OnInit {
                 title: 'Action',
                 data: 'screen_Name'
                 , render: function (data) {
-                    return `<i class="fa fa-refresh"></i><i class="fas fa fa-download"></i>`;
+                    return `<i class="fa fa-refresh"></i>  <i class="fas fa fa-download"></i>`;
                 }
             }]
         };
