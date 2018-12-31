@@ -39,6 +39,9 @@ namespace StockMarket.Repository.Concreate {
             return IUnitOfWork.TwitterDAL.GetLatestTweetSummary (screen);
         }
 
+        public IEnumerable<Tweet> GetTweetsByScreenName (string ScreenName) {
+            return IUnitOfWork.TwitterDAL.GetTweetsByScreenName (ScreenName);
+        }
     }
 
 }

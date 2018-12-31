@@ -27,5 +27,10 @@ namespace StockMarket.DAL.Persistence.Repositories {
             return context.TweetsSummary.FirstOrDefault (c => c.Screen_Name == screen && c.LastTweetDate == maxDate);
         }
 
+        public IEnumerable<Tweet> GetTweetsByScreenName (string ScreenName) {
+            return context.Tweet.Where (c => c.Screen_Name == ScreenName).ToList ();
+
+        }
+
     }
 }

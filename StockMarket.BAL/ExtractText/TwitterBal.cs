@@ -29,5 +29,9 @@ namespace StockMarket.BAL.ExtractText {
             return TwitterRepository.GetTweetSmmary ();
         }
 
+        public IEnumerable<Tweet> GetTweetsByScreenName (string ScreenName) {
+            return TwitterRepository.GetTweetsByScreenName (ScreenName);
+        }
+
     }
 }

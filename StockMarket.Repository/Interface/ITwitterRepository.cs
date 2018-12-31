@@ -11,6 +11,7 @@ namespace StockMarket.Repository.Interface {
         void SaveTweets (IEnumerable<Tweet> tweets);
         IEnumerable<TweetsSummary> GetTweetSmmary ();
         TweetsSummary GetLatestTweetSummary (string screen);
+        IEnumerable<Tweet> GetTweetsByScreenName (string ScreenName);
 
     }
 }

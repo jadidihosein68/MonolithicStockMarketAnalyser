@@ -8,6 +8,7 @@ namespace StockMarket.DAL.Interface.Persistance.Repositories {
         void AddRange (IEnumerable<Tweet> DataSet);
         IEnumerable<TweetsSummary> GetTweetSmmary ();
         TweetsSummary GetLatestTweetSummary (string screen);
+        IEnumerable<Tweet> GetTweetsByScreenName (string ScreenName);
 
     }
 }

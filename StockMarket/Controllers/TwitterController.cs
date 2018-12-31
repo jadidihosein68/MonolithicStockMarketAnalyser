@@ -27,5 +27,10 @@ namespace StockMarket.Core.Controllers {
             return TwitterBal.GetTweetsSummaries ();
         }
 
+        [HttpGet ("[action]")]
+        public IEnumerable<Tweet> GetTweetsByScreenName (string ScreenName) {
+            return TwitterBal.GetTweetsByScreenName (ScreenName);
+        }
+
     }
 }

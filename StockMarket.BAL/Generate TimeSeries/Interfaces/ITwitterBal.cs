@@ -7,5 +7,7 @@ namespace StockMarket.BAL.Generate_TimeSeries.Interfaces {
     public interface ITwitterBal {
         LinqToTwitterResponces GetTweettsFromTwitter (string ScreenName);
         IEnumerable<TweetsSummary> GetTweetsSummaries ();
+        IEnumerable<Tweet> GetTweetsByScreenName(string ScreenName);
+
     }
 }
