@@ -1,12 +1,14 @@
-﻿using StockMarket.DAL.Interface.Persistance.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using StockMarket.DAL.Interface.Persistance.Repositories;
 
-namespace StockMarket.DAL.Interface.Persistance
-{
-    public interface IUnitOfWork
-    {
-        ITwitterDAL TwitterDAL { get;}
+namespace StockMarket.DAL.Interface.Persistance {
+    public interface IUnitOfWork {
+        ITwitterDAL TwitterDAL { get; }
+        void Complite ();
+        Task CompliteAsync ();
+
     }
 }

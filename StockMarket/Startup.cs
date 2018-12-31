@@ -20,6 +20,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using StockMarket.Repository.Concreate;
 using StockMarket.Repository.Interface;
+using StockMarket.DAL.Persistence;
+using StockMarket.DAL.Interface.Persistance;
 
 namespace StockMarket
 {
@@ -51,7 +53,8 @@ namespace StockMarket
             services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
 
             services.AddScoped<ISalDbContext, SalDbContext>();
-            
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             services.AddScoped<IQuandlHistoricalStockAdapter, QuandlHistoricalStockAdapter>();
             services.AddScoped<IQuamdlHisoricalStockRepository, QuandlHisoricalStockRepository>();
 
