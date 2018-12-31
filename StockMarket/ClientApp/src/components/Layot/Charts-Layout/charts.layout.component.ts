@@ -5,6 +5,7 @@ import { SOComponent } from '../../../components/charts/stochastic-oscillator/st
 import { RSIComponent } from '../../../components/charts/RSI/RSI.component';
 import { guppyComponent } from '../../../components/charts/guppy/guppy.component';
 import swal from '../../../../node_modules/sweetalert2/dist/sweetalert2.js'
+import { sweetAlertService } from '../../../services/sweetAlertService.service';
 
 @Component({
   selector: 'Chart-layout',
@@ -13,7 +14,7 @@ import swal from '../../../../node_modules/sweetalert2/dist/sweetalert2.js'
 })
 export class ChartsLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sweetAlertService:sweetAlertService) { }
   fromDate: any;
   toDate: any;
   coinwallet: string[] = ['MACD', 'RSI', 'SO', 'Guppy'];
@@ -31,9 +32,6 @@ export class ChartsLayoutComponent implements OnInit {
     console.log({ dateRange: dateRange });
     this.fromDate = dateRange.fromdate;
     this.toDate = dateRange.toDate;
-   
-
-
     swal({
       title: 'Generate Charts'
       ,text: 'Calculate MACD'
@@ -54,6 +52,7 @@ swal({
   ,text: 'Calculate SO'
   ,footer: `1 more calculation left`
 });
+
 swal.enableLoading();
 await this.primarySOComponent.getSOOnline();
 
