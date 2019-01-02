@@ -36,6 +36,7 @@ import { SearchTweetsComponent } from './search-tweets/search.tweets.component';
 import { sweetAlertService } from '../services/sweetAlertService.service';
 import { TwitterDatatableComponent } from './datatables/TwitterDatatable/twitter.datatable.component';
 import { DatePipe } from '@angular/common';
+import { RefreshComponent } from './datatables/refresh-component/refresh.component';
 
 
 @NgModule({
@@ -56,9 +57,8 @@ import { DatePipe } from '@angular/common';
     SearchTweetsComponent,
     salModalComponent,
     TwitterDatatableComponent,
-    normalizedComponent
-    
-
+    normalizedComponent,
+    RefreshComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -1,3 +1,4 @@
+import { tweets } from './../model/base/tweets';
 import { guppy } from './../model/guppy';
 
 import { MACD } from './../model/MACD';
@@ -50,6 +51,12 @@ export class csvConvertorService {
             elements.push(element)
         }
         return elements;
+    }
+
+
+    public getTweetsCsv (Tweets:tweets[] , Name:string){
+        this.options.headers= this.getProperty(Tweets[0]) ;
+        new Angular5Csv(Tweets, Name + " Tweets",this.options);
     }
 
 }

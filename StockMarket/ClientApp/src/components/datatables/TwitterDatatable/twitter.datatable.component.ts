@@ -1,4 +1,5 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { csvConvertorService } from './../../../services/csv.convertor.service';
+import { Component, ViewChild, OnInit, Renderer } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { TwitterService } from '../../../services/TwitterService';
 import { sweetAlertService } from '../../../services/sweetAlertService.service';
@@ -6,6 +7,7 @@ import { DataTableDirective, DataTablesModule } from 'angular-datatables';
 import { DatePipe } from '@angular/common';
 import { TweetsSummary } from '../../../model/interface/TweetsSummary';
 import { Appsetting } from '../../../model/constant/Appsetting';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'Datatable-Twitter',
@@ -18,7 +20,10 @@ export class TwitterDatatableComponent implements OnInit {
     dtOptions: DataTables.Settings = {};
     closeResult: string;
     TweetID: string;
-    constructor(private TwitterService: TwitterService, ) { }
+    constructor(private TwitterService: TwitterService,
+         private renderer: Renderer,
+         private csvConvertorService:csvConvertorService
+         ) { }
 
     dataset = {
         "data": [
@@ -31,6 +36,7 @@ export class TwitterDatatableComponent implements OnInit {
         ]
     }
     async ngOnInit() {
+        var abu = "<refresh-Datatable></refresh-Datatable>";
         var datePipe = new DatePipe("en-US");
         this.dtOptions = {
             ajax: {
@@ -57,12 +63,31 @@ export class TwitterDatatableComponent implements OnInit {
             {
                 title: 'Action',
                 data: 'screen_Name'
-                , render: function (data) {
-                    return `<i class="fa fa-refresh" (click)={{abu}}></i>  <i class="fas fa fa-download"></i>`;
+                , render: function (data: any, type: any, full: any) {
+                    return `<i class="fa fa-refresh" refresh-id=${data} ></i>  <i class="fas fa fa-download" download-id=${data}></i>` ;
                 }
             }]
         };
     }
+
+    async ngAfterViewInit() {
+        this.renderer.listenGlobal('document', 'click', async (event) => {
+            
+          if (event.target.hasAttribute("refresh-id")) {
+            var screenName= event.target.getAttribute("refresh-id");
+            var results = this.TwitterService.getTweets(screenName);
+            console.log(results);
+          }
+
+          if (event.target.hasAttribute("download-id")) {
+            var screenName= event.target.getAttribute("download-id");
+            var  reslt = await this.TwitterService.GetTweetsFromDBByScreenName(screenName);
+            this.csvConvertorService.getTweetsCsv(reslt,screenName);
+          }
+
+        });
+      }
+
 
     addRow(object: TweetsSummary) {
         this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
