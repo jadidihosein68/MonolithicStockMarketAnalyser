@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using StockMarket.Adapter.Interface;
 using StockMarket.Adapter.Utilities;
 using StockMarket.Model;
+using StockMarket.Model.Base;
 using StockMarket.Model.Configuration;
 using StockMarket.Model.Constant;
 using System;

@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using StockMarket.Adapter;
 using StockMarket.Adapter.Interface;
 using StockMarket.Model;
+using StockMarket.Model.Base;
 using StockMarket.Model.Configuration;
 using StockMarket.Repository.Interface;
 

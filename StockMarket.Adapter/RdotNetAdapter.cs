@@ -2,6 +2,7 @@
 using StockMarket.Adapter.Interface;
 using StockMarket.Adapter.Interface.Utilities;
 using StockMarket.Model;
+using StockMarket.Model.Base;
 using System;
 using System.Collections;
 using System.Collections.Generic;

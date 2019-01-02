@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockMarket.Model.Base;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

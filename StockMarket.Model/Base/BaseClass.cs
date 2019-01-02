@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StockMarket.Model
+namespace StockMarket.Model.Base
 {
     public class BaseClass
     {

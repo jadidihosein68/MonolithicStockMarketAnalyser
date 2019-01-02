@@ -7,6 +7,7 @@ using System.Linq;
 using System.Collections;
 using StockMarket.Adapter.Interface;
 using StockMarket.Adapter.Interface.Utilities;
+using StockMarket.Model.Base;
 
 namespace StockMarket.Adapter.Utilities
 {

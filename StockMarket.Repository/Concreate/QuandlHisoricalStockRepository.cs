@@ -1,5 +1,6 @@
 ﻿using StockMarket.Adapter.Interface;
 using StockMarket.Model;
+using StockMarket.Model.Base;
 using StockMarket.Repository.Interface;
 using System;
 using System.Collections.Generic;
