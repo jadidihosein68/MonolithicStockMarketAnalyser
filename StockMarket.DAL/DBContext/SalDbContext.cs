@@ -13,6 +13,9 @@ namespace StockMarket.DAL.DBContext
         
         // Models
         public DbSet<Tweet> Tweet { get; set; }
+        public DbSet<StockFocuse> StockFocuse { get; set; }
+        public DbSet<StockLabel> StockLabel { get; set; }
+
 
         // Views 
         public DbQuery<TweetsSummary> TweetsSummary { get; set; }
@@ -23,6 +26,8 @@ namespace StockMarket.DAL.DBContext
                 .Query<TweetsSummary>().ToView("View_TweetsSummary");
 
             modelBuilder.ApplyConfiguration(new TweetConfigration());
+            modelBuilder.ApplyConfiguration(new StockFocuseConfigration());
+            modelBuilder.ApplyConfiguration(new StockLabelConfigration());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
