@@ -87,7 +87,7 @@ export class TwitterDatatableComponent implements OnInit {
                 var results = await this.TwitterService.getTweets(screenName);
                 this.sweetAlertService.getSwal({
                     type: 'success',
-                    title: 'Tweets !',
+                    title: `${screenName}  Tweets !`,
                     text: `A Total No. of ${results.totalNoOfTweets} Tweets were extracted`,
                     footer: '<a >Dont tell anyone !</a>'
                 });
