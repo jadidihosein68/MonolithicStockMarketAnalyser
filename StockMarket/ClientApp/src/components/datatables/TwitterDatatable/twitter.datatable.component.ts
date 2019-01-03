@@ -21,9 +21,10 @@ export class TwitterDatatableComponent implements OnInit {
     closeResult: string;
     TweetID: string;
     constructor(private TwitterService: TwitterService,
-         private renderer: Renderer,
-         private csvConvertorService:csvConvertorService
-         ) { }
+        private renderer: Renderer,
+        private csvConvertorService: csvConvertorService,
+        private sweetAlertService: sweetAlertService
+    ) { }
 
     dataset = {
         "data": [
@@ -64,7 +65,7 @@ export class TwitterDatatableComponent implements OnInit {
                 title: 'Action',
                 data: 'screen_Name'
                 , render: function (data: any, type: any, full: any) {
-                    return `<i class="fa fa-refresh" refresh-id=${data} ></i>  <i class="fas fa fa-download" download-id=${data}></i>` ;
+                    return `<i class="fa fa-refresh" refresh-id=${data} ></i>  <i class="fas fa fa-download" download-id=${data}></i>`;
                 }
             }]
         };
@@ -72,22 +73,32 @@ export class TwitterDatatableComponent implements OnInit {
 
     async ngAfterViewInit() {
         this.renderer.listenGlobal('document', 'click', async (event) => {
-            
-          if (event.target.hasAttribute("refresh-id")) {
-            var screenName= event.target.getAttribute("refresh-id");
-            var results = this.TwitterService.getTweets(screenName);
-            console.log(results);
-          }
 
-          if (event.target.hasAttribute("download-id")) {
-            var screenName= event.target.getAttribute("download-id");
-            var  reslt = await this.TwitterService.GetTweetsFromDBByScreenName(screenName);
-            this.csvConvertorService.getTweetsCsv(reslt,screenName);
-          }
+            if (event.target.hasAttribute("refresh-id")) {
 
+                var screenName = event.target.getAttribute("refresh-id");
+                var theobj = {
+                    title: 'Updating Tweets!',
+                    html: `Update <strong>${screenName}</strong> Tweets.`,
+                    showConfirmButton: false,
+                    showCloseButton: false,
+                };
+                this.sweetAlertService.AJAXCallSwal(theobj);
+                var results = await this.TwitterService.getTweets(screenName);
+                this.sweetAlertService.getSwal({
+                    type: 'success',
+                    title: 'Tweets !',
+                    text: `A Total No. of ${results.totalNoOfTweets} Tweets were extracted`,
+                    footer: '<a >Dont tell anyone !</a>'
+                });
+            }
+            if (event.target.hasAttribute("download-id")) {
+                var screenName = event.target.getAttribute("download-id");
+                var reslt = await this.TwitterService.GetTweetsFromDBByScreenName(screenName);
+                this.csvConvertorService.getTweetsCsv(reslt, screenName);
+            }
         });
-      }
-
+    }
 
     addRow(object: TweetsSummary) {
         this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
