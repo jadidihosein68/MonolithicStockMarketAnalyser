@@ -85,6 +85,7 @@ export class TwitterDatatableComponent implements OnInit {
                 };
                 this.sweetAlertService.AJAXCallSwal(theobj);
                 var results = await this.TwitterService.getTweets(screenName);
+                this.refreshTable()
                 this.sweetAlertService.getSwal({
                     type: 'success',
                     title: `${screenName}  Tweets !`,
@@ -112,4 +113,11 @@ export class TwitterDatatableComponent implements OnInit {
             ).draw();
         })
     }
+
+    refreshTable() {
+        this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+            dtInstance.ajax.reload();
+        })
+    }
+
 }
