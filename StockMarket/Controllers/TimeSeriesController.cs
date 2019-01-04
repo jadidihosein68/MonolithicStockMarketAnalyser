@@ -66,5 +66,15 @@ namespace StockMarket.Core.Controllers
             return result;
         }
 
+
+        [HttpGet("[action]")]
+        public ActionResult SyncTimeSeries(string StockIndex) {
+            StockIndex = string.IsNullOrEmpty(StockIndex) ? "FB" : StockIndex;
+
+            var result = generateTimeseriesBAL.generateGuppy(StockIndex);
+
+            return Ok();
+        }
+
     }
 }

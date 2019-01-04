@@ -7,6 +7,7 @@ using StockMarket.DAL.Interface.Persistance.Repositories;
 namespace StockMarket.DAL.Interface.Persistance {
     public interface IUnitOfWork {
         ITwitterDAL TwitterDAL { get; }
+        ITimeSeriesDAL TimeSeriesDAL { get; }
         void Complite ();
         Task CompliteAsync ();
 

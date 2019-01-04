@@ -14,11 +14,14 @@ namespace StockMarket.DAL.Persistence
         private readonly SalDbContext context;
 
         public ITwitterDAL TwitterDAL { get; private set; }
+        public ITimeSeriesDAL TimeSeriesDAL { get; private set; }
 
         public UnitOfWork(SalDbContext _context)
         {
             context = _context;
             TwitterDAL = new TwitterDAL(_context);
+            TimeSeriesDAL = new TimeSeriesDAL(_context);
+
         }
         
         public void Complite()

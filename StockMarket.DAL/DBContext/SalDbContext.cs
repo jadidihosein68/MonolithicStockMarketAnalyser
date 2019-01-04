@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StockMarket.DAL.Persistence.EntityConfigurations;
 using StockMarket.Model;
+using StockMarket.Model.Base;
 using System.Collections.Generic;
 
 namespace StockMarket.DAL.DBContext
@@ -15,6 +16,7 @@ namespace StockMarket.DAL.DBContext
         public DbSet<Tweet> Tweet { get; set; }
         public DbSet<StockFocuse> StockFocuse { get; set; }
         public DbSet<StockLabel> StockLabel { get; set; }
+        public DbSet<RowHistoricalStockBase> TimeSeries { get; set; }
 
 
         // Views 
@@ -28,6 +30,7 @@ namespace StockMarket.DAL.DBContext
             modelBuilder.ApplyConfiguration(new TweetConfigration());
             modelBuilder.ApplyConfiguration(new StockFocuseConfigration());
             modelBuilder.ApplyConfiguration(new StockLabelConfigration());
+            modelBuilder.ApplyConfiguration(new TimeSeriesConfigration());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
