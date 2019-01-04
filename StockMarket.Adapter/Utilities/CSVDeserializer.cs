@@ -13,6 +13,8 @@ namespace StockMarket.Adapter.Utilities
         {
             TextReader TextReader = new StringReader(CSV);
             var csv = new CsvReader(TextReader);
+            csv.Configuration.HeaderValidated = null;
+            csv.Configuration.MissingFieldFound = null;
             var records = csv.GetRecords<T>();
             return records;
         }

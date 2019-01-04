@@ -6,10 +6,12 @@ using System.Text;
 
 namespace StockMarket.Repository.Interface
 {
-    public interface IQuamdlHisoricalStockRepository
+    public interface ITimeSeriesRepository
     {
         IEnumerable<RowHistoricalStockBase> GetQuandlData(RequestHistoricalStockQuandl RequestHistoricalStockQuandl);
         string getStringFromQuandl(RequestHistoricalStockQuandl RequestHistoricalStockQuandl);
+        IEnumerable<RowHistoricalStockBase> getTimeSeriesFromDB(string StockIndex);
+        void AddRangeToDB(IEnumerable<RowHistoricalStockBase> RowHistoricalStockBase);
 
     }
 }

@@ -13,7 +13,8 @@ namespace StockMarket.Repository.Concreate {
         private readonly IUnitOfWork IUnitOfWork;
 
         public TwitterRepository (
-            ITwitterAdapter _TwitterAdapter, IUnitOfWork _IUnitOfWork) {
+            ITwitterAdapter _TwitterAdapter,
+            IUnitOfWork _IUnitOfWork) {
             twitterAdapter = _TwitterAdapter;
             IUnitOfWork = _IUnitOfWork;
         }

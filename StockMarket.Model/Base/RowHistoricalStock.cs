@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StockMarket.Model.Base
 {
-    public class RowHistoricalStockBase
+    public class RowHistoricalStockBase // order is important !
     {
 
         public DateTime Date { get; set; }
@@ -13,6 +13,7 @@ namespace StockMarket.Model.Base
         public decimal Low { get; set; }
         public decimal Close { get; set; }
         public decimal Volume { get; set; }
-
+        public int Id { get; set; }
+        public string StockIndex { get; set; }
     }
 }

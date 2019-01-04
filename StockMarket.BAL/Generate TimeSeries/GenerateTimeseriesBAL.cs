@@ -1,5 +1,6 @@
 ﻿
 using StockMarket.BAL.Generate_TimeSeries.Interfaces;
+using StockMarket.DAL.Interface.Persistance.Repositories;
 using StockMarket.Model;
 using StockMarket.Repository.Interface;
 using System;
@@ -12,13 +13,13 @@ namespace StockMarket.BAL.Generate_TimeSeries
     public class GenerateTimeseriesBAL : IGenerateTimeseriesBAL
     {
         private readonly IRdotNetRepositories RdotNetRepositories;
-        private readonly IQuamdlHisoricalStockRepository QuamdlHisoricalStockRepository;
+        private readonly ITimeSeriesRepository TimeSeriesRepository;
 
         public GenerateTimeseriesBAL(IRdotNetRepositories _RdotNetRepositories,
-                                    IQuamdlHisoricalStockRepository _QuamdlHisoricalStockRepository
+                                    ITimeSeriesRepository _TimeSeriesRepository
             )
         {
-            QuamdlHisoricalStockRepository = _QuamdlHisoricalStockRepository;
+            TimeSeriesRepository = _TimeSeriesRepository;
             RdotNetRepositories = _RdotNetRepositories;
         }
 
@@ -26,7 +27,7 @@ namespace StockMarket.BAL.Generate_TimeSeries
         public IEnumerable<MACDHistoricalStock> generateMacd(string StockIndex)
         {
 
-            var RowData = QuamdlHisoricalStockRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
+            var RowData = TimeSeriesRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
             var MACD = RdotNetRepositories.getMACD(RowData);
             return MACD;
 
@@ -35,7 +36,7 @@ namespace StockMarket.BAL.Generate_TimeSeries
         public IEnumerable<StochasticOscillatorHistoricalStock> generateStochasticOscillator(string StockIndex)
         {
 
-            var RowData = QuamdlHisoricalStockRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
+            var RowData = TimeSeriesRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
             var StochasticOscillator = RdotNetRepositories.GetStochasticOscillator(RowData);
             return StochasticOscillator;
 
@@ -45,7 +46,7 @@ namespace StockMarket.BAL.Generate_TimeSeries
         public IEnumerable<RSIHistoricalStock> generateRSI(string StockIndex)
         {
 
-            var RowData = QuamdlHisoricalStockRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
+            var RowData = TimeSeriesRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
             var RSI = RdotNetRepositories.GetRSI(RowData);
             return RSI;
 
@@ -54,10 +55,23 @@ namespace StockMarket.BAL.Generate_TimeSeries
         public IEnumerable<GuppyHistoricalStock> generateGuppy(string StockIndex)
         {
 
-            var RowData = QuamdlHisoricalStockRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
+            var RowData = TimeSeriesRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
             var RSI = RdotNetRepositories.GetGuppy(RowData);
             return RSI;
 
         }
+
+
+        public bool SyncTimeSeries(string StockIndex )
+        {
+
+            var DataFromQuadel = TimeSeriesRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
+            var DataFromDB = TimeSeriesRepository.getTimeSeriesFromDB(StockIndex);
+            TimeSeriesRepository.AddRangeToDB(DataFromQuadel.Where(x=>x.Date > DataFromDB.Max(z=>z.Date)));
+
+            return true;
+        }
+
+
     }
 }

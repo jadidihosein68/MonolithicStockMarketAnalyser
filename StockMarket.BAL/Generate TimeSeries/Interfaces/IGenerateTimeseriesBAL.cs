@@ -11,5 +11,7 @@ namespace StockMarket.BAL.Generate_TimeSeries.Interfaces
         IEnumerable<StochasticOscillatorHistoricalStock> generateStochasticOscillator(string StockIndex);
         IEnumerable<RSIHistoricalStock> generateRSI(string StockIndex);
         IEnumerable<GuppyHistoricalStock> generateGuppy(string StockIndex);
+        bool SyncTimeSeries(string StockIndex);
+
     }
 }

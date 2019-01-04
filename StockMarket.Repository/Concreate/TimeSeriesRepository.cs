@@ -1,4 +1,6 @@
 ﻿using StockMarket.Adapter.Interface;
+using StockMarket.DAL.Interface.Persistance;
+using StockMarket.DAL.Interface.Persistance.Repositories;
 using StockMarket.Model;
 using StockMarket.Model.Base;
 using StockMarket.Repository.Interface;
@@ -8,13 +10,17 @@ using System.Text;
 
 namespace StockMarket.Repository.Concreate
 {
-    public class QuandlHisoricalStockRepository : IQuamdlHisoricalStockRepository
+    public class TimeSeriesRepository : ITimeSeriesRepository
     {
         private readonly IQuandlHistoricalStockAdapter IHistoricalStockAdapter;
+        private readonly IUnitOfWork IUnitOfWork;
 
-        public QuandlHisoricalStockRepository(IQuandlHistoricalStockAdapter _IHistoricalStockAdapter)
+        public TimeSeriesRepository(IQuandlHistoricalStockAdapter _IHistoricalStockAdapter,
+            IUnitOfWork _IUnitOfWork
+            )
         {
             IHistoricalStockAdapter = _IHistoricalStockAdapter;
+            IUnitOfWork = _IUnitOfWork;
         }
 
 
@@ -31,5 +37,17 @@ namespace StockMarket.Repository.Concreate
             var result = IHistoricalStockAdapter.getStringFromQuandl(RequestHistoricalStockQuandl);
             return result;
         }
+
+
+        public IEnumerable<RowHistoricalStockBase> getTimeSeriesFromDB (string StockIndex) {
+            return IUnitOfWork.TimeSeriesDAL.getTimeSeriesByStockIndex(StockIndex);
+        }
+
+        public void AddRangeToDB(IEnumerable<RowHistoricalStockBase> RowHistoricalStockBase)
+        {
+            IUnitOfWork.TimeSeriesDAL.AddRange(RowHistoricalStockBase);
+        }
+
+
     }
 }
