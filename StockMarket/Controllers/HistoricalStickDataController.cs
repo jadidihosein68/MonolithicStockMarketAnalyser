@@ -20,8 +20,8 @@ namespace StockMarket.Core.Controllers
     public class HistoricalStickDataController : ControllerBase
     {
 
-        private readonly IQuamdlHisoricalStockRepository IHisoricalStockRepository;
-        public HistoricalStickDataController(IQuamdlHisoricalStockRepository _IHisoricalStockRepository)
+        private readonly ITimeSeriesRepository IHisoricalStockRepository;
+        public HistoricalStickDataController(ITimeSeriesRepository _IHisoricalStockRepository)
         {
             IHisoricalStockRepository = _IHisoricalStockRepository;
         }
