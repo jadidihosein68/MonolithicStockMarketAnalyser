@@ -1,6 +1,7 @@
 ﻿using StockMarket.Adapter.Interface;
 using StockMarket.Model;
 using StockMarket.Model.Base;
+using StockMarket.Model.Quantitative;
 using StockMarket.Repository.Interface;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,31 @@ namespace StockMarket.Repository.Concreate
             RdotNetAdapter = _RdotNetAdapter;
         }
 
+
+        public IEnumerable<MACDIndex> getMACDIndex(IEnumerable<TimeSeries> input)
+        {
+            var result = RdotNetAdapter.CalculateMACDIndex(input);
+            return result;
+        }
+
+        public IEnumerable<RSIIndex> getRSIIndex(IEnumerable<TimeSeries> input)
+        {
+            var result = RdotNetAdapter.CalculateRSIIndex(input);
+            return result;
+        }
+
+        public IEnumerable<SOIndex> getSOIndex(IEnumerable<TimeSeries> input)
+        {
+            var result = RdotNetAdapter.CalculateSOIndex(input);
+            return result;
+        }
+
+        public IEnumerable<GuppyIndex> getGuppyIndex(IEnumerable<TimeSeries> input)
+        {
+            var result = RdotNetAdapter.CalculateGuppyIndex(input);
+            return result;
+        }
+
         public IEnumerable<MACDHistoricalStock> getMACD(IEnumerable<RowHistoricalStockBase> input) {
             var result = RdotNetAdapter.CalculateMACD(input);
             return result;
@@ -26,7 +52,6 @@ namespace StockMarket.Repository.Concreate
             var result = RdotNetAdapter.CalculateStochasticOscillator(input);
             return result;
         }
-
 
         public IEnumerable<RSIHistoricalStock> GetRSI(IEnumerable<RowHistoricalStockBase> input)
         {

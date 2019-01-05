@@ -31,6 +31,13 @@ namespace StockMarket.Repository.Concreate
             return result;
         }
 
+        public IEnumerable<TimeSeries> GetQuandlDataIndex(RequestHistoricalStockQuandl RequestHistoricalStockQuandl)
+        {
+
+            var result = IHistoricalStockAdapter.getCSVFromQuandlIndex(RequestHistoricalStockQuandl);
+            return result;
+        }
+
         public string getStringFromQuandl(RequestHistoricalStockQuandl RequestHistoricalStockQuandl)
         {
 
