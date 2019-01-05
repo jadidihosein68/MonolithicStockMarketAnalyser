@@ -8,6 +8,7 @@ using System.Collections;
 using StockMarket.Adapter.Interface;
 using StockMarket.Adapter.Interface.Utilities;
 using StockMarket.Model.Base;
+using StockMarket.Model.Quantitative;
 
 namespace StockMarket.Adapter.Utilities
 {
@@ -49,6 +50,164 @@ namespace StockMarket.Adapter.Utilities
 
         }
 
+        // new imp
+        public DataFrame TimeSeriesToDataFrame(IEnumerable<TimeSeries> input, REngine engine)
+        {
+
+            var dateSelect = input.Select(x => x.Date).ToArray();
+            var closeSelect = input.Select(x => x.Close).ToArray();
+            var openSelect = input.Select(x => x.Open).ToArray();
+            var highSelect = input.Select(x => x.High).ToArray();
+            var lowSelect = input.Select(x => x.Low).ToArray();
+            var VolumeSelect = input.Select(x => x.Volume).ToArray();
+
+            string[] stringDate = dateSelect.Select(x => x.ToShortDateString()).ToArray();
+            double[] doubleClose = Array.ConvertAll(closeSelect, x => (double)x);
+            double[] doubleOpen = Array.ConvertAll(openSelect, x => (double)x);
+            double[] doubleHigh = Array.ConvertAll(highSelect, x => (double)x);
+            double[] doubleLow = Array.ConvertAll(lowSelect, x => (double)x);
+            double[] doubleVolume = Array.ConvertAll(VolumeSelect, x => (double)x);
+
+            IEnumerable[] RowDatasets = new IEnumerable[6];
+            RowDatasets[0] = stringDate;
+            RowDatasets[1] = doubleClose;
+            RowDatasets[2] = doubleOpen;
+            RowDatasets[3] = doubleHigh;
+            RowDatasets[4] = doubleLow;
+            RowDatasets[5] = doubleVolume;
+
+            var RowcolumnNames = new[] { "Date", "Close", "Open", "High", "Low", "Volume" };
+
+            return engine.CreateDataFrame(RowDatasets, columnNames: RowcolumnNames);
+
+        }
+       
+
+        public IEnumerable<MACDIndex> DataFrametoMACDIndexMapper(DataFrame dataframe)
+        {
+
+            var reslt = dataframe.ToArray();
+
+            var date = dataframe[0].AsCharacter().ToArray();
+            var MACD = dataframe[6].AsNumeric().ToArray();
+            var Signal = dataframe[7].AsNumeric().ToArray();
+
+            var Date = date.Select(x => DateTime.Parse(x)).ToArray();
+
+            IList<MACDIndex> result = new List<MACDIndex>();
+
+            for (int i = 0; i < Date.Length; i++)
+                result.Add(
+                    new MACDIndex
+                    {
+                        Date = Date[i],
+                        MACD = MACD[i],
+                        Signal = Signal[i],
+                    }
+                    );
+
+            return result;
+
+        }
+
+        public IEnumerable<SOIndex> DataFrametoSOIndexMapper(DataFrame dataframe)
+        {
+
+            var reslt = dataframe.ToArray();
+
+            var date = dataframe[0].AsCharacter().ToArray();
+            var fastK = dataframe[6].AsNumeric().ToArray();
+            var fastD = dataframe[7].AsNumeric().ToArray();
+            var slowD = dataframe[8].AsNumeric().ToArray();
+            var Date = date.Select(x => DateTime.Parse(x)).ToArray();
+            IList<SOIndex> result = new List<SOIndex>();
+
+            for (int i = 0; i < Date.Length; i++)
+                result.Add(
+                    new SOIndex
+                    {
+                        Date = Date[i],
+                        fastK = fastK[i],
+                        fastD = fastD[i],
+                        slowD = slowD[i]
+                    }
+                    );
+
+            return result;
+
+        }
+
+        public IEnumerable<RSIIndex> DataFrametoRSIIndexMapper(DataFrame dataframe)
+        {
+            var reslt = dataframe.ToArray();
+
+            var date = dataframe[0].AsCharacter().ToArray();
+            var RSI = dataframe[6].AsNumeric().ToArray();
+            var Date = date.Select(x => DateTime.Parse(x)).ToArray();
+ 
+            IList<RSIIndex> result = new List<RSIIndex>();
+
+            for (int i = 0; i < Date.Length; i++)
+                result.Add(
+                    new RSIIndex
+                    {
+                        Date = Date[i],
+                        RSI = RSI[i]
+                    }
+                    );
+
+            return result;
+        }
+
+        public IEnumerable<GuppyIndex> DataFrametoGuppyIndexMapper(DataFrame dataframe)
+        {
+
+            var reslt = dataframe.ToArray();
+
+            var date = dataframe[0].AsCharacter().ToArray();
+            var shortlag3 = dataframe[6].AsNumeric().ToArray();
+            var shortlag5 = dataframe[7].AsNumeric().ToArray();
+            var shortlag8 = dataframe[8].AsNumeric().ToArray();
+            var shortlag10 = dataframe[9].AsNumeric().ToArray();
+            var shortlag12 = dataframe[10].AsNumeric().ToArray();
+            var shortlag15 = dataframe[11].AsNumeric().ToArray();
+            var longlag30 = dataframe[12].AsNumeric().ToArray();
+            var longlag35 = dataframe[13].AsNumeric().ToArray();
+            var longlag40 = dataframe[14].AsNumeric().ToArray();
+            var longlag45 = dataframe[15].AsNumeric().ToArray();
+            var longlag50 = dataframe[16].AsNumeric().ToArray();
+            var longlag60 = dataframe[17].AsNumeric().ToArray();
+
+            var Date = date.Select(x => DateTime.Parse(x)).ToArray();
+
+            IList<GuppyIndex> result = new List<GuppyIndex>();
+
+            for (int i = 0; i < Date.Length; i++)
+                result.Add(
+                    new GuppyIndex
+                    {
+                        Date = Date[i],
+                        shortlag3 = shortlag3[i],
+                        shortlag5 = shortlag5[i],
+                        shortlag8 = shortlag8[i],
+                        shortlag10 = shortlag10[i],
+                        shortlag12 = shortlag12[i],
+                        shortlag15 = shortlag15[i],
+                        longlag30 = longlag30[i],
+                        longlag35 = longlag35[i],
+                        longlag40 = longlag40[i],
+                        longlag45 = longlag45[i],
+                        longlag50 = longlag50[i],
+                        longlag60 = longlag60[i],
+                    }
+                    );
+
+            return result;
+
+        }
+
+
+        //
 
 
         public IEnumerable<MACDHistoricalStock> DataFrametoMACDMapper(DataFrame dataframe)
@@ -92,7 +251,6 @@ namespace StockMarket.Adapter.Utilities
             return result;
 
         }
-
 
         public IEnumerable<StochasticOscillatorHistoricalStock> DataFrametoStochasticOscillatorMapper(DataFrame dataframe)
         {
@@ -138,9 +296,6 @@ namespace StockMarket.Adapter.Utilities
 
         }
 
-
-
-
         public IEnumerable<RSIHistoricalStock> DataFrametoRSIMapper(DataFrame dataframe)
         {
             var reslt = dataframe.ToArray();
@@ -178,7 +333,6 @@ namespace StockMarket.Adapter.Utilities
 
             return result;
         }
-
 
         public IEnumerable<GuppyHistoricalStock> DataFrametoGuppyMapper(DataFrame dataframe)
         {

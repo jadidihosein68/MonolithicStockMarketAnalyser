@@ -34,6 +34,19 @@ namespace StockMarket.Adapter
             return (new CSVDeserializer().Decerialize<RowHistoricalStockBase>(result));
         }
 
+        public IEnumerable<TimeSeries> getCSVFromQuandlIndex(RequestHistoricalStockQuandl RequestHistoricalStock)
+        {
+            var index = string.IsNullOrEmpty(RequestHistoricalStock.Index) ? QuandlStockIndex.DefaltIndex : RequestHistoricalStock.Index;
+            var URL = $"{AppConfiguration.Endpoints.QuadlPoint}{index}/data.{RequestHistoricalStock.DataType}?api_key={AppConfiguration.QuandlAPIKey}";
+            var client = new System.Net.WebClient();
+            var result = client.DownloadString(URL);
+            return (new CSVDeserializer().Decerialize<TimeSeries>(result));
+        }
+
+
+
+
+
         public string getStringFromQuandl(RequestHistoricalStockQuandl RequestHistoricalStock)
         {
             var index = string.IsNullOrEmpty(RequestHistoricalStock.Index) ? QuandlStockIndex.DefaltIndex : RequestHistoricalStock.Index;

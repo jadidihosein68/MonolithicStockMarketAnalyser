@@ -9,7 +9,9 @@ namespace StockMarket.Adapter.Interface
 {
     public interface IQuandlHistoricalStockAdapter
     {
+        IEnumerable<TimeSeries> getCSVFromQuandlIndex(RequestHistoricalStockQuandl RequestHistoricalStock);
         IEnumerable<RowHistoricalStockBase> getCSVFromQuandl(RequestHistoricalStockQuandl RequestHistoricalStock);
         string getStringFromQuandl(RequestHistoricalStockQuandl RequestHistoricalStock);
+
     }
 }
