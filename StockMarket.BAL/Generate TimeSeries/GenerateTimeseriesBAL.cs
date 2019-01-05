@@ -2,6 +2,7 @@
 using StockMarket.BAL.Generate_TimeSeries.Interfaces;
 using StockMarket.DAL.Interface.Persistance.Repositories;
 using StockMarket.Model;
+using StockMarket.Model.Quantitative;
 using StockMarket.Repository.Interface;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,50 @@ namespace StockMarket.BAL.Generate_TimeSeries
             return MACD;
 
         }
+
+        public IEnumerable<MACDIndex> generateMACDIndex(string StockIndex)
+        {
+
+            var RowData = TimeSeriesRepository.GetQuandlDataIndex(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
+            var MACD = RdotNetRepositories.getMACDIndex(RowData);
+            return MACD;
+
+        }
+
+
+        public IEnumerable<SOIndex> generateSOIndex(string StockIndex)
+        {
+
+            var RowData = TimeSeriesRepository.GetQuandlDataIndex(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
+            var StochasticOscillator = RdotNetRepositories.getSOIndex(RowData);
+            return StochasticOscillator;
+
+        }
+
+
+
+
+        public IEnumerable<RSIIndex> generateRSIIndex(string StockIndex)
+        {
+
+            var RowData = TimeSeriesRepository.GetQuandlDataIndex(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
+            var RSI = RdotNetRepositories.getRSIIndex(RowData);
+            return RSI;
+
+        }
+
+        public IEnumerable<GuppyIndex> generateGuppyIndex(string StockIndex)
+        {
+
+            var RowData = TimeSeriesRepository.GetQuandlDataIndex(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
+            var RSI = RdotNetRepositories.getGuppyIndex(RowData);
+            return RSI;
+
+        }
+
+
+
+
 
         public IEnumerable<StochasticOscillatorHistoricalStock> generateStochasticOscillator(string StockIndex)
         {
