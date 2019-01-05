@@ -71,9 +71,9 @@ namespace StockMarket.Core.Controllers
         public ActionResult SyncTimeSeries(string StockIndex) {
             StockIndex = string.IsNullOrEmpty(StockIndex) ? "FB" : StockIndex;
 
-            var result = generateTimeseriesBAL.generateGuppy(StockIndex);
+            var result = generateTimeseriesBAL.SyncTimeSeries(StockIndex);
 
-            return Ok();
+            return Ok(result);
         }
 
     }

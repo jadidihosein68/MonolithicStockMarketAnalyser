@@ -24,7 +24,7 @@ namespace StockMarket.Repository.Concreate
         }
 
 
-        public IEnumerable<RowHistoricalStockBase> GetQuandlData (RequestHistoricalStockQuandl RequestHistoricalStockQuandl)
+        public IEnumerable<RowHistoricalStockBase> GetQuandlData(RequestHistoricalStockQuandl RequestHistoricalStockQuandl)
         {
 
             var result = IHistoricalStockAdapter.getCSVFromQuandl(RequestHistoricalStockQuandl);
@@ -39,13 +39,15 @@ namespace StockMarket.Repository.Concreate
         }
 
 
-        public IEnumerable<RowHistoricalStockBase> getTimeSeriesFromDB (string StockIndex) {
+        public IEnumerable<RowHistoricalStockBase> getTimeSeriesFromDB(string StockIndex)
+        {
             return IUnitOfWork.TimeSeriesDAL.getTimeSeriesByStockIndex(StockIndex);
         }
 
         public void AddRangeToDB(IEnumerable<RowHistoricalStockBase> RowHistoricalStockBase)
         {
             IUnitOfWork.TimeSeriesDAL.AddRange(RowHistoricalStockBase);
+            IUnitOfWork.Complite();
         }
 
 

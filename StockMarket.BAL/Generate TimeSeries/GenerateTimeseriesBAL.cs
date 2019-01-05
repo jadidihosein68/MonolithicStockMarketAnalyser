@@ -65,9 +65,15 @@ namespace StockMarket.BAL.Generate_TimeSeries
         public bool SyncTimeSeries(string StockIndex )
         {
 
+            var maxdate = DateTime.MinValue;
             var DataFromQuadel = TimeSeriesRepository.GetQuandlData(new RequestHistoricalStockQuandl() { Index = StockIndex }).OrderBy(x => x.Date).ToList();
             var DataFromDB = TimeSeriesRepository.getTimeSeriesFromDB(StockIndex);
-            TimeSeriesRepository.AddRangeToDB(DataFromQuadel.Where(x=>x.Date > DataFromDB.Max(z=>z.Date)));
+            if (DataFromDB.Any())
+                 maxdate = DataFromDB.Select(x=>x.Date).Max(c=>c.Date);
+
+            var toinsert = DataFromQuadel.Where(x => x.Date > maxdate).ToList();
+            toinsert.ForEach(c => c.StockIndex = StockIndex);
+            TimeSeriesRepository.AddRangeToDB(toinsert);
 
             return true;
         }
