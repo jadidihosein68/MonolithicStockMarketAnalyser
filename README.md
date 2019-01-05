@@ -29,4 +29,4 @@ after update the DB create the view mentioned below :
   
     
   create view "View_StockSummary" as
-  select [StockIndex], max([Date]) as EndDate, max([Date]) as StartDate from [stockmarket].[dbo].[TimeSeriesReal] group by [StockIndex]
+  select [StockIndex], max([Date]) as EndDate, max([Date]) as StartDate from [stockmarket].[dbo].[TimeSeriesIndex] group by [StockIndex]
