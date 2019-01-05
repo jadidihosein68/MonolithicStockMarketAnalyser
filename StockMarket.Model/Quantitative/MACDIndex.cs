@@ -6,6 +6,7 @@ namespace StockMarket.Model.Quantitative
 {
     public class MACDIndex
     {
+        public DateTime Date { get; set; }
         public double MACD { get; set; }
         public double Signal { get; set; }
         public double Histogram { get { return MACD - Signal; } set { } }

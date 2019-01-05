@@ -6,6 +6,7 @@ namespace StockMarket.Model.Quantitative
 {
     public class SOIndex
     {
+        public DateTime Date { get; set; }
         public double fastK { get; set; }
         public double fastD { get; set; }
         public double slowD { get; set; }

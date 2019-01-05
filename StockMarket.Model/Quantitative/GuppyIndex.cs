@@ -6,6 +6,7 @@ namespace StockMarket.Model.Quantitative
 {
     public class GuppyIndex
     {
+        public DateTime Date { get; set; }
         public double shortlag3 { get; set; }
         public double shortlag5 { get; set; }
         public double shortlag8 { get; set; }
