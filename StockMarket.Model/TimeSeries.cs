@@ -6,9 +6,18 @@ using System.Text;
 
 namespace StockMarket.Model
 {
-    public class TimeSeries : BaseClass
+    public class TimeSeriesIndex : BaseClass
     {
-        public double Id { get; set; }
+       
+        public TimeSeriesIndex()
+        {
+            MACDIndex = new MACDIndex();
+            RSIIndex = new RSIIndex();
+            GuppyIndex = new GuppyIndex();
+            SOIndex = new SOIndex();
+        }
+       
+        public int Id { get; set; }
         public DateTime Date { get; set; }
         public decimal Open { get; set; }
         public decimal High { get; set; }
