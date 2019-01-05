@@ -12,10 +12,11 @@ namespace StockMarket.DAL.Persistence.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<StockFocuse> builder)
         {
-
+            /*
             builder.HasKey(c => c.Id);
             builder.HasMany(e => e.StockLabels)
                 .WithOne(x=>x.StockFocuse);
+            */    
         }
     }
 }
