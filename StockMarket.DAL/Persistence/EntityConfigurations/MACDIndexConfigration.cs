@@ -11,6 +11,13 @@ namespace StockMarket.DAL.Persistence.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<MACDIndex> builder)
         {
+            
+                 builder.HasKey(c => c.MACDId);
+            /*
+                builder.HasOne(d => d.TimeSeries)
+                    .WithOne(c=>c.MACDIndex)
+                    .HasForeignKey<MACDIndex>(d => d.TimeSeriesId);
+              */      
 
         }
 

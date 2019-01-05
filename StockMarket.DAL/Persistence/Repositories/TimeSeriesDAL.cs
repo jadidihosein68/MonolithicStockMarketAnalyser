@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using StockMarket.Model;
+
 namespace StockMarket.DAL.Persistence.Repositories
 {
     public class TimeSeriesDAL : ITimeSeriesDAL
@@ -16,6 +18,12 @@ namespace StockMarket.DAL.Persistence.Repositories
         }
         public void AddRange(IEnumerable<RowHistoricalStockBase> DataSet) {
             context.TimeSeries.AddRange(DataSet);
+        }
+
+
+        public void AddRangeIndex(IEnumerable<TimeSeriesIndex> DataSet)
+        {
+            context.TimeSeriesIndex.AddRange(DataSet);
         }
 
         public IEnumerable <RowHistoricalStockBase> getTimeSeriesByStockIndex(string StockIndex)

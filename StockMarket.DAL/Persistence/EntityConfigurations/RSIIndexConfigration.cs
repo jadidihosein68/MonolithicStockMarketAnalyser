@@ -11,7 +11,12 @@ namespace StockMarket.DAL.Persistence.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<RSIIndex> builder)
         {
-
+            builder.HasKey(c => c.RSIId);
+            /*
+            builder.HasOne(d => d.TimeSeries)
+                .WithOne(c => c.RSIIndex)
+                .HasForeignKey<RSIIndex>(d => d.TimeSeriesId);
+                */
         }
 
     }

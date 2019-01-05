@@ -11,7 +11,12 @@ namespace StockMarket.DAL.Persistence.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<GuppyIndex> builder)
         {
-
+            builder.HasKey(c => c.GuppyId);
+            /*
+            builder.HasOne(d => d.TimeSeries)
+                .WithOne(c => c.GuppyIndex)
+                .HasForeignKey<GuppyIndex>(d => d.TimeSeriesId);
+                */
         }
 
     }
