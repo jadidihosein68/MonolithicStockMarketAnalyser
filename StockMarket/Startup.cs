@@ -22,6 +22,7 @@ using StockMarket.Repository.Concreate;
 using StockMarket.Repository.Interface;
 using StockMarket.DAL.Persistence;
 using StockMarket.DAL.Interface.Persistance;
+using AutoMapper;
 
 namespace StockMarket
 {
@@ -56,7 +57,7 @@ namespace StockMarket
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IQuandlHistoricalStockAdapter, QuandlHistoricalStockAdapter>();
-            services.AddScoped<IQuamdlHisoricalStockRepository, QuandlHisoricalStockRepository>();
+            services.AddScoped<ITimeSeriesRepository, TimeSeriesRepository>();
 
             services.AddScoped<IRDotNetConvertor, RDotNetConvertor>();
             services.AddScoped<IRdotNetAdapter, RdotNetAdapter>();
@@ -65,8 +66,9 @@ namespace StockMarket
             services.AddScoped<ITwitterAdapter, TwitterAdapter>();
             services.AddScoped<ITwitterRepository, TwitterRepository>();
             services.AddScoped<ITwitterBal, TwitterBal>();
-            
 
+
+            services.AddAutoMapper();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
