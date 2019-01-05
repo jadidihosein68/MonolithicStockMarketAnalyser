@@ -8,11 +8,12 @@ namespace StockMarket.Repository.Interface
 {
     public interface ITimeSeriesRepository
     {
-        IEnumerable<TimeSeries> GetQuandlDataIndex(RequestHistoricalStockQuandl RequestHistoricalStockQuandl);
+        IEnumerable<TimeSeriesIndex> GetQuandlDataIndex(RequestHistoricalStockQuandl RequestHistoricalStockQuandl);
         IEnumerable<RowHistoricalStockBase> GetQuandlData(RequestHistoricalStockQuandl RequestHistoricalStockQuandl);
         string getStringFromQuandl(RequestHistoricalStockQuandl RequestHistoricalStockQuandl);
         IEnumerable<RowHistoricalStockBase> getTimeSeriesFromDB(string StockIndex);
         void AddRangeToDB(IEnumerable<RowHistoricalStockBase> RowHistoricalStockBase);
+        void AddRangeIndexToDB(IEnumerable<TimeSeriesIndex> RowHistoricalStockBase);
 
     }
 }

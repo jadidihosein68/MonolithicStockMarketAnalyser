@@ -10,9 +10,9 @@ namespace StockMarket.Model.Quantitative
         public double fastK { get; set; }
         public double fastD { get; set; }
         public double slowD { get; set; }
-        public TimeSeries TimeSeries { get; set; }
-        public double Id { get; set; }
-        public double TimeSeriesId { get; set; }
+        public TimeSeriesIndex TimeSeries { get; set; }
+        public int SOId { get; set; }
+        public int TimeSeriesId { get; set; }
 
 
     }

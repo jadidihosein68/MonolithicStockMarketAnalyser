@@ -96,10 +96,17 @@ namespace StockMarket.Core.Controllers {
         [HttpGet ("[action]")]
         public ActionResult SyncTimeSeries (string StockIndex) {
             StockIndex = string.IsNullOrEmpty (StockIndex) ? "FB" : StockIndex;
-
             var result = generateTimeseriesBAL.SyncTimeSeries (StockIndex);
-
             return Ok (result);
+        }
+
+        [HttpGet ("[action]")]
+        public ActionResult SyncTimeSeriesIndex (string StockIndex) {
+            StockIndex = string.IsNullOrEmpty (StockIndex) ? "FB" : StockIndex;
+
+            var result = generateTimeseriesBAL.SyncTimeSeriesIndex (StockIndex);
+            return Ok (result);
+
         }
 
     }

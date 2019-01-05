@@ -10,8 +10,8 @@ namespace StockMarket.Model.Quantitative
         public double MACD { get; set; }
         public double Signal { get; set; }
         public double Histogram { get { return MACD - Signal; } set { } }
-        public TimeSeries TimeSeries { get; set; }
-        public double Id { get; set; }
-        public double TimeSeriesId { get; set; }
+        public TimeSeriesIndex TimeSeries { get; set; }
+        public int MACDId { get; set; }
+        public int TimeSeriesId { get; set; }
     }
 }

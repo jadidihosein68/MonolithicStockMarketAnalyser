@@ -9,10 +9,10 @@ namespace StockMarket.Repository.Interface
 {
     public interface IRdotNetRepositories
     {
-        IEnumerable<MACDIndex> getMACDIndex(IEnumerable<TimeSeries> input);
-        IEnumerable<RSIIndex> getRSIIndex(IEnumerable<TimeSeries> input);
-        IEnumerable<SOIndex> getSOIndex(IEnumerable<TimeSeries> input);
-        IEnumerable<GuppyIndex> getGuppyIndex(IEnumerable<TimeSeries> input);
+        IEnumerable<MACDIndex> getMACDIndex(IEnumerable<TimeSeriesIndex> input);
+        IEnumerable<RSIIndex> getRSIIndex(IEnumerable<TimeSeriesIndex> input);
+        IEnumerable<SOIndex> getSOIndex(IEnumerable<TimeSeriesIndex> input);
+        IEnumerable<GuppyIndex> getGuppyIndex(IEnumerable<TimeSeriesIndex> input);
 
 
         IEnumerable<MACDHistoricalStock> getMACD(IEnumerable<RowHistoricalStockBase> input);

@@ -19,9 +19,9 @@ namespace StockMarket.Model.Quantitative
         public double longlag45 { get; set; }
         public double longlag50 { get; set; }
         public double longlag60 { get; set; }
-        public TimeSeries TimeSeries { get; set; }
-        public double Id { get; set; }
-        public double TimeSeriesId { get; set; }
+        public TimeSeriesIndex TimeSeries { get; set; }
+        public int GuppyId { get; set; }
+        public int TimeSeriesId { get; set; }
 
 
     }

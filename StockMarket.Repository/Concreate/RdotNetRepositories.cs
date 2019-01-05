@@ -18,25 +18,25 @@ namespace StockMarket.Repository.Concreate
         }
 
 
-        public IEnumerable<MACDIndex> getMACDIndex(IEnumerable<TimeSeries> input)
+        public IEnumerable<MACDIndex> getMACDIndex(IEnumerable<TimeSeriesIndex> input)
         {
             var result = RdotNetAdapter.CalculateMACDIndex(input);
             return result;
         }
 
-        public IEnumerable<RSIIndex> getRSIIndex(IEnumerable<TimeSeries> input)
+        public IEnumerable<RSIIndex> getRSIIndex(IEnumerable<TimeSeriesIndex> input)
         {
             var result = RdotNetAdapter.CalculateRSIIndex(input);
             return result;
         }
 
-        public IEnumerable<SOIndex> getSOIndex(IEnumerable<TimeSeries> input)
+        public IEnumerable<SOIndex> getSOIndex(IEnumerable<TimeSeriesIndex> input)
         {
             var result = RdotNetAdapter.CalculateSOIndex(input);
             return result;
         }
 
-        public IEnumerable<GuppyIndex> getGuppyIndex(IEnumerable<TimeSeries> input)
+        public IEnumerable<GuppyIndex> getGuppyIndex(IEnumerable<TimeSeriesIndex> input)
         {
             var result = RdotNetAdapter.CalculateGuppyIndex(input);
             return result;
