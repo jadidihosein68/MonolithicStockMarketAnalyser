@@ -8,72 +8,98 @@ using StockMarket.Adapter.Interface;
 using StockMarket.BAL.Generate_TimeSeries;
 using StockMarket.BAL.Generate_TimeSeries.Interfaces;
 using StockMarket.Model;
+using StockMarket.Model.Quantitative;
 
-namespace StockMarket.Core.Controllers
-{
-    [Route("api/[controller]")]
+namespace StockMarket.Core.Controllers {
+    [Route ("api/[controller]")]
     [ApiController]
-    public class TimeSeriesController : ControllerBase
-    {
+    public class TimeSeriesController : ControllerBase {
 
         private readonly IGenerateTimeseriesBAL generateTimeseriesBAL;
 
-        public TimeSeriesController(IGenerateTimeseriesBAL _generateTimeseriesBAL )
-        {
+        public TimeSeriesController (IGenerateTimeseriesBAL _generateTimeseriesBAL) {
             generateTimeseriesBAL = _generateTimeseriesBAL;
         }
 
-        [HttpGet("[action]")]
-        public IEnumerable<MACDHistoricalStock> generateMacd(string StockIndex)
-        {
-            StockIndex = string.IsNullOrEmpty(StockIndex) ? "FB" : StockIndex;
+        [HttpGet ("[action]")]
+        public IEnumerable<MACDHistoricalStock> generateMacd (string StockIndex) {
+            StockIndex = string.IsNullOrEmpty (StockIndex) ? "FB" : StockIndex;
 
-            var result = generateTimeseriesBAL.generateMacd(StockIndex);
-
-            return result;
-        }
-
-
-
-        [HttpGet("[action]")]
-        public IEnumerable<StochasticOscillatorHistoricalStock> generateStochasticOscillator(string StockIndex)
-        {
-            StockIndex = string.IsNullOrEmpty(StockIndex) ? "FB" : StockIndex;
-
-            var result = generateTimeseriesBAL.generateStochasticOscillator(StockIndex);
+            var result = generateTimeseriesBAL.generateMacd (StockIndex);
 
             return result;
         }
 
-        [HttpGet("[action]")]
-        public IEnumerable<RSIHistoricalStock> generateRSI(string StockIndex)
-        {
-            StockIndex = string.IsNullOrEmpty(StockIndex) ? "FB" : StockIndex;
+        [HttpGet ("[action]")]
+        public IEnumerable<MACDIndex> generateMacdIndex (string StockIndex) {
+            StockIndex = string.IsNullOrEmpty (StockIndex) ? "FB" : StockIndex;
 
-            var result = generateTimeseriesBAL.generateRSI(StockIndex);
-
-            return result;
-        }
-
-
-        [HttpGet("[action]")]
-        public IEnumerable<GuppyHistoricalStock> generateGuppy(string StockIndex)
-        {
-            StockIndex = string.IsNullOrEmpty(StockIndex) ? "FB" : StockIndex;
-
-            var result = generateTimeseriesBAL.generateGuppy(StockIndex);
+            var result = generateTimeseriesBAL.generateMACDIndex (StockIndex);
 
             return result;
         }
 
+        [HttpGet ("[action]")]
+        public IEnumerable<RSIIndex> generateRSIIndex (string StockIndex) {
+            StockIndex = string.IsNullOrEmpty (StockIndex) ? "FB" : StockIndex;
 
-        [HttpGet("[action]")]
-        public ActionResult SyncTimeSeries(string StockIndex) {
-            StockIndex = string.IsNullOrEmpty(StockIndex) ? "FB" : StockIndex;
+            var result = generateTimeseriesBAL.generateRSIIndex (StockIndex);
 
-            var result = generateTimeseriesBAL.SyncTimeSeries(StockIndex);
+            return result;
+        }
 
-            return Ok(result);
+        [HttpGet ("[action]")]
+        public IEnumerable<SOIndex> generateSOIndex (string StockIndex) {
+            StockIndex = string.IsNullOrEmpty (StockIndex) ? "FB" : StockIndex;
+
+            var result = generateTimeseriesBAL.generateSOIndex (StockIndex);
+
+            return result;
+        }
+
+        [HttpGet ("[action]")]
+        public IEnumerable<GuppyIndex> generateGuppyIndex (string StockIndex) {
+            StockIndex = string.IsNullOrEmpty (StockIndex) ? "FB" : StockIndex;
+
+            var result = generateTimeseriesBAL.generateGuppyIndex (StockIndex);
+
+            return result;
+        }
+
+        [HttpGet ("[action]")]
+        public IEnumerable<StochasticOscillatorHistoricalStock> generateStochasticOscillator (string StockIndex) {
+            StockIndex = string.IsNullOrEmpty (StockIndex) ? "FB" : StockIndex;
+
+            var result = generateTimeseriesBAL.generateStochasticOscillator (StockIndex);
+
+            return result;
+        }
+
+        [HttpGet ("[action]")]
+        public IEnumerable<RSIHistoricalStock> generateRSI (string StockIndex) {
+            StockIndex = string.IsNullOrEmpty (StockIndex) ? "FB" : StockIndex;
+
+            var result = generateTimeseriesBAL.generateRSI (StockIndex);
+
+            return result;
+        }
+
+        [HttpGet ("[action]")]
+        public IEnumerable<GuppyHistoricalStock> generateGuppy (string StockIndex) {
+            StockIndex = string.IsNullOrEmpty (StockIndex) ? "FB" : StockIndex;
+
+            var result = generateTimeseriesBAL.generateGuppy (StockIndex);
+
+            return result;
+        }
+
+        [HttpGet ("[action]")]
+        public ActionResult SyncTimeSeries (string StockIndex) {
+            StockIndex = string.IsNullOrEmpty (StockIndex) ? "FB" : StockIndex;
+
+            var result = generateTimeseriesBAL.SyncTimeSeries (StockIndex);
+
+            return Ok (result);
         }
 
     }
