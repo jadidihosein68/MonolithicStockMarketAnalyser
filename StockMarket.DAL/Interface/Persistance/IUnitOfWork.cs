@@ -8,6 +8,11 @@ namespace StockMarket.DAL.Interface.Persistance {
     public interface IUnitOfWork {
         ITwitterDAL TwitterDAL { get; }
         ITimeSeriesDAL TimeSeriesDAL { get; }
+        IGUPPYDAL GUPPYDAL { get; }
+        IMACDDAL MACDDAL { get; }
+        ISODAL SODAL { get; }
+        IRSIDAL RSIDAL { get; }
+
         void Complite ();
         Task CompliteAsync ();
 
