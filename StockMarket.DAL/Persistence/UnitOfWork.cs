@@ -17,6 +17,7 @@ namespace StockMarket.DAL.Persistence {
         public IMACDDAL MACDDAL { get; private set; }
         public ISODAL SODAL { get; private set; }
         public IRSIDAL RSIDAL { get; private set; }
+        public IStockSummaryDAL StockSummaryDAL { get; private set; }
 
         public UnitOfWork (SalDbContext _context) {
             context = _context;
@@ -26,6 +27,7 @@ namespace StockMarket.DAL.Persistence {
             MACDDAL = new MACDDAL (_context);
             SODAL = new SODAL (_context);
             RSIDAL = new RSIDAL (_context);
+            StockSummaryDAL = new StockSummaryDAL (_context);
 
         }
 

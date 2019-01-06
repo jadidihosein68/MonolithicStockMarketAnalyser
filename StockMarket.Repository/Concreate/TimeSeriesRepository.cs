@@ -73,5 +73,13 @@ namespace StockMarket.Repository.Concreate {
             IUnitOfWork.Complite ();
         }
 
+        public StockSummary getStockSummaryByIndex (string StockIndex) {
+            return IUnitOfWork.StockSummaryDAL.getStockSumarryByIndex (StockIndex);
+        }
+
+        public IEnumerable<StockSummary> getAllStockSumaries () {
+            return IUnitOfWork.StockSummaryDAL.getAllStockSumaries ();
+        }
+
     }
 }

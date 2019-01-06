@@ -10,13 +10,13 @@ namespace StockMarket.BAL.Generate_TimeSeries.Interfaces {
         IEnumerable<SOIndex> generateSOIndex (string StockIndex);
         IEnumerable<RSIIndex> generateRSIIndex (string StockIndex);
         IEnumerable<GuppyIndex> generateGuppyIndex (string StockIndex);
-        bool SyncTimeSeriesIndex (string StockIndex);
-
+        StockSyncResult SyncTimeSeriesIndex (string StockIndex);
         IEnumerable<MACDHistoricalStock> generateMacd (string StockIndex);
         IEnumerable<StochasticOscillatorHistoricalStock> generateStochasticOscillator (string StockIndex);
         IEnumerable<RSIHistoricalStock> generateRSI (string StockIndex);
         IEnumerable<GuppyHistoricalStock> generateGuppy (string StockIndex);
         bool SyncTimeSeries (string StockIndex);
+        IEnumerable<StockSummary> getAllStockSumaries ();
 
     }
 }

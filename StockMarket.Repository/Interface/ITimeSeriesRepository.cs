@@ -18,6 +18,8 @@ namespace StockMarket.Repository.Interface {
         void AddRangeSO (IEnumerable<SOIndex> SOIndex);
         void AddRangeRSI (IEnumerable<RSIIndex> RSIIndex);
         void AddRangeMACD (IEnumerable<MACDIndex> MACDIndex);
+        StockSummary getStockSummaryByIndex (string StockIndex);
+        IEnumerable<StockSummary> getAllStockSumaries ();
 
     }
 }

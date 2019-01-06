@@ -104,7 +104,26 @@ namespace StockMarket.BAL.Generate_TimeSeries {
             return true;
         }
 
-        private List<TimeSeriesIndex> formedTimeSeriesByCalclateIndexes (List<TimeSeriesIndex> DataFromQuadel) {
+        public IEnumerable<StockSummary> getAllStockSumaries () {
+
+            return TimeSeriesRepository.getAllStockSumaries ();
+        }
+
+        public StockSyncResult SyncTimeSeriesIndex (string StockIndex) {
+
+            var DataFromQuadel = TimeSeriesRepository.GetQuandlDataIndex (new RequestHistoricalStockQuandl () { Index = StockIndex }).OrderBy (x => x.Date).ToList ();
+            DataFromQuadel.ForEach (x => x.StockIndex = StockIndex);
+            var result = CalclateIndexes (DataFromQuadel);
+
+            var summary = TimeSeriesRepository.getStockSummaryByIndex (StockIndex);
+            var maxdate = summary == null ? DateTime.MinValue : summary.EndDate;
+            var toinsert = result.Where (x => x.Date > maxdate);
+
+            TimeSeriesRepository.AddRangeIndexToDB (toinsert);
+            return new StockSyncResult { TotalCount = toinsert.Count () };
+        }
+
+        private List<TimeSeriesIndex> CalclateIndexes (List<TimeSeriesIndex> DataFromQuadel) {
 
             var MACD = RdotNetRepositories.getMACDIndex (DataFromQuadel);
             var RSI = RdotNetRepositories.getRSIIndex (DataFromQuadel);
@@ -120,18 +139,6 @@ namespace StockMarket.BAL.Generate_TimeSeries {
 
         }
 
-        public bool SyncTimeSeriesIndex (string StockIndex) {
-
-            var DataFromQuadel = TimeSeriesRepository.GetQuandlDataIndex (new RequestHistoricalStockQuandl () { Index = StockIndex }).OrderBy (x => x.Date).ToList ();
-            DataFromQuadel.ForEach (x => x.StockIndex = StockIndex);
-            var result = formedTimeSeriesByCalclateIndexes (DataFromQuadel);
-            // get smmeriesd data 
-            // compare summerezed with reuslt 
-            // return result ! 
-
-            TimeSeriesRepository.AddRangeIndexToDB (result);
-            return true;
-        }
-
     }
+
 }

@@ -12,6 +12,7 @@ namespace StockMarket.DAL.Interface.Persistance {
         IMACDDAL MACDDAL { get; }
         ISODAL SODAL { get; }
         IRSIDAL RSIDAL { get; }
+        IStockSummaryDAL StockSummaryDAL { get; }
 
         void Complite ();
         Task CompliteAsync ();
