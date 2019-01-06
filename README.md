@@ -27,6 +27,6 @@ after update the DB create the view mentioned below :
   select [Screen_Name], MAX([CreateDate]) as LastUpdate, MAX([Date]) as LastTweetDate , COUNT([Tweets]) as NOofRecords from [stockmarket].[dbo].[Tweet]  group by [Screen_Name]
   
   
-    
+  
   create view "View_StockSummary" as
-  select [StockIndex], max([Date]) as EndDate, max([Date]) as StartDate from [stockmarket].[dbo].[TimeSeriesIndex] group by [StockIndex]
+  select [StockIndex], max([Date]) as EndDate, min([Date]) as StartDate from [stockmarket].[dbo].[TimeSeriesIndex] group by [StockIndex]
