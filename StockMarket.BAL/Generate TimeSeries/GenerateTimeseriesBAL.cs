@@ -104,20 +104,32 @@ namespace StockMarket.BAL.Generate_TimeSeries {
             return true;
         }
 
+        private List<TimeSeriesIndex> formedTimeSeriesByCalclateIndexes (List<TimeSeriesIndex> DataFromQuadel) {
+
+            var MACD = RdotNetRepositories.getMACDIndex (DataFromQuadel);
+            var RSI = RdotNetRepositories.getRSIIndex (DataFromQuadel);
+            var SO = RdotNetRepositories.getSOIndex (DataFromQuadel);
+            var Guppy = RdotNetRepositories.getGuppyIndex (DataFromQuadel);
+
+            DataFromQuadel.ForEach (x => x.MACDIndex = MACD.SingleOrDefault (z => z.Date == x.Date));
+            DataFromQuadel.ForEach (x => x.RSIIndex = RSI.SingleOrDefault (z => z.Date == x.Date));
+            DataFromQuadel.ForEach (x => x.SOIndex = SO.SingleOrDefault (z => z.Date == x.Date));
+            DataFromQuadel.ForEach (x => x.GuppyIndex = Guppy.SingleOrDefault (z => z.Date == x.Date));
+
+            return DataFromQuadel;
+
+        }
+
         public bool SyncTimeSeriesIndex (string StockIndex) {
 
-            var maxdate = DateTime.MinValue;
             var DataFromQuadel = TimeSeriesRepository.GetQuandlDataIndex (new RequestHistoricalStockQuandl () { Index = StockIndex }).OrderBy (x => x.Date).ToList ();
-            //var DataFromDB = TimeSeriesRepository.getTimeSeriesFromDB(StockIndex);
-            //if (DataFromDB.Any())
-            //  maxdate = DataFromDB.Select(x => x.Date).Max(c => c.Date);
+            DataFromQuadel.ForEach (x => x.StockIndex = StockIndex);
+            var result = formedTimeSeriesByCalclateIndexes (DataFromQuadel);
+            // get smmeriesd data 
+            // compare summerezed with reuslt 
+            // return result ! 
 
-            var toinsert = DataFromQuadel.Where (x => x.Date > maxdate).ToList ();
-            toinsert.ForEach (c => c.StockIndex = StockIndex);
-
-            //var DTO = mapper.Map<List<TimeSeriesIndex>, List<TimeSeriesDTO>>(toinsert);
-            TimeSeriesRepository.AddRangeIndexToDB (toinsert);
-
+            TimeSeriesRepository.AddRangeIndexToDB (result);
             return true;
         }
 
