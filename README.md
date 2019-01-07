@@ -30,3 +30,14 @@ after update the DB create the view mentioned below :
   
   create view "View_StockSummary" as
   select [StockIndex], max([Date]) as EndDate, min([Date]) as StartDate from [stockmarket].[dbo].[TimeSeriesIndex] group by [StockIndex]
+
+
+
+Twitter API : 
+In order to use twitter API you need to Get the Consumer Key, Consumer Secret, Acess token, Access Token Secret for your application you can find them here :
+https://developer.twitter.com/en/docs/basics/authentication/guides/access-tokens.html
+
+Qandel API : 
+to se stock market data you need to get a quandel API tocken 
+you can find it here : 
+https://help.quandl.com/article/320-where-can-i-find-my-api-key
