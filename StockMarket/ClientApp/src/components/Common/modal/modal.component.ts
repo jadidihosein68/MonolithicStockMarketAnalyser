@@ -11,8 +11,8 @@ export class salModalComponent {
   closeResult: string;
   @Input() header: string;
   @Input() hasClose: boolean = true;
-
-  constructor(private modalService: NgbModal,) { }
+  @Input() btnlabel: string;
+  constructor(private modalService: NgbModal, ) { }
 
   open(content) {
     this.modalService.open(content).result.then((result) => {
@@ -31,7 +31,7 @@ export class salModalComponent {
       return `with: ${reason}`;
     }
   }
-  
+
   public closeModal() {
     this.modalService.dismissAll();
   }
