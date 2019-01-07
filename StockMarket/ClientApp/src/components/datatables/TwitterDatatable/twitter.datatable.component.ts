@@ -37,7 +37,6 @@ export class TwitterDatatableComponent implements OnInit {
         ]
     }
     async ngOnInit() {
-        var abu = "<refresh-Datatable></refresh-Datatable>";
         var datePipe = new DatePipe("en-US");
         this.dtOptions = {
             ajax: {

@@ -9,8 +9,8 @@ import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import {ChartsModule} from 'ng2-charts/ng2-charts';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MACDComponent } from './charts/MACD/MACD.component';
 import { MACDService } from '../services/MACD.service';
 import { ApiService } from '../services/ApiService.service';
@@ -37,6 +37,10 @@ import { sweetAlertService } from '../services/sweetAlertService.service';
 import { TwitterDatatableComponent } from './datatables/TwitterDatatable/twitter.datatable.component';
 import { DatePipe } from '@angular/common';
 import { RefreshComponent } from './datatables/refresh-component/refresh.component';
+import { StockSummaryDatatableComponent } from './datatables/StockSummaryDatatable/stock.summary.datatable.component';
+import { SearchStockSummaryComponent } from './search-stock-summary/search.stock.summary.component';
+import { ManageTimeseriesComponent } from './Layot/manage-Timeseries/manage.timeseries.component';
+
 
 
 @NgModule({
@@ -58,19 +62,23 @@ import { RefreshComponent } from './datatables/refresh-component/refresh.compone
     salModalComponent,
     TwitterDatatableComponent,
     normalizedComponent,
-    RefreshComponent
+    RefreshComponent,
+    StockSummaryDatatableComponent,
+    SearchStockSummaryComponent,
+    ManageTimeseriesComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     BrowserModule,
     FormsModule,
     ChartsModule,
-    NgbModule,  
+    NgbModule,
     Ng5SliderModule,
     RouterModule.forRoot([
       { path: '', component: DashboardComponent, pathMatch: 'full' },
       { path: 'charts', component: ChartsLayoutComponent, pathMatch: 'full' },
       { path: 'tweets', component: TwitterComponent },
+      { path: 'managetimeseries', component: ManageTimeseriesComponent },
       { path: '**', component: PageNotFoundComponent },
     ]),
     SweetAlert2Module.forRoot({
@@ -78,8 +86,8 @@ import { RefreshComponent } from './datatables/refresh-component/refresh.compone
       customClass: 'modal-content',
       confirmButtonClass: 'btn btn-primary',
       cancelButtonClass: 'btn'
-  })
-  , DataTablesModule
+    })
+    , DataTablesModule
 
 
   ],
@@ -92,9 +100,9 @@ import { RefreshComponent } from './datatables/refresh-component/refresh.compone
     , stochasticOscillatorService
     , guppyService
     , CacheService
-    ,TwitterService
-    ,sweetAlertService
-    
+    , TwitterService
+    , sweetAlertService
+
   ],
   bootstrap: [AppComponent]
 })
