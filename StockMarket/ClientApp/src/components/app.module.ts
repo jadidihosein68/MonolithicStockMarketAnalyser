@@ -1,3 +1,4 @@
+import { TimeSeriesService } from './../services/time.series.service';
 import { normalizedComponent } from './charts/Normalized/normalized.component';
 import { salModalComponent } from './Common/modal/modal.component';
 import { TwitterService } from './../services/TwitterService';
@@ -102,6 +103,7 @@ import { ManageTimeseriesComponent } from './Layot/manage-Timeseries/manage.time
     , CacheService
     , TwitterService
     , sweetAlertService
+    , TimeSeriesService
 
   ],
   bootstrap: [AppComponent]

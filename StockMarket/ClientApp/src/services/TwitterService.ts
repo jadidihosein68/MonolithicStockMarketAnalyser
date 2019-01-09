@@ -8,21 +8,21 @@ import { tweets } from '../model/base/tweets';
 @Injectable()
 export class TwitterService {
 
-    constructor(private apiService: ApiService) {}
-    public async getTweets(TweetID:string) {
-        var result = await this.apiService.get<TwitterDto>({ url: "api/Twitter/GetTweetFromTwtter?ScreenName="+TweetID });
+    constructor(private apiService: ApiService) { }
+    public async getTweets(TweetID: string) {
+        var result = await this.apiService.get<TwitterDto>({ url: "api/Twitter/GetTweetFromTwtter?ScreenName=" + TweetID });
         return result;
     }
 
 
     public async  getTweetSummary() {
-        var result = await this.apiService.get<TweetsSummary[]>({ url: "api/Twitter/GetTweetsSummary"});
+        var result = await this.apiService.get<TweetsSummary[]>({ url: "api/Twitter/GetTweetsSummary" });
         return result;
     }
 
 
-    public async GetTweetsFromDBByScreenName(TweetID:string) {
-        var result = await this.apiService.get<tweets[]>({ url: "api/Twitter/GetTweetsByScreenName?ScreenName="+TweetID });
+    public async GetTweetsFromDBByScreenName(TweetID: string) {
+        var result = await this.apiService.get<tweets[]>({ url: "api/Twitter/GetTweetsByScreenName?ScreenName=" + TweetID });
         return result;
     }
 
