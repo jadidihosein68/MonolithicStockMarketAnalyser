@@ -1,3 +1,4 @@
+import { TimeSeriesService } from './../../services/time.series.service';
 import { Component, ViewChild } from '@angular/core';
 import { StockSummaryDatatableComponent } from '../datatables/StockSummaryDatatable/stock.summary.datatable.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -16,12 +17,25 @@ export class SearchStockSummaryComponent {
 
   constructor(private modalService: NgbModal
     , private sweetAlertService: sweetAlertService
+    , private TimeSeriesService: TimeSeriesService
 
   ) { }
 
 
-  SyncStockIndex() {
-    console.log("Ok ! No problem !");
+  async SyncStockIndex() {
+
+    console.log("Ok ! No problem !" + this.stockIndex);
+    var result = await this.TimeSeriesService.SyncTimeSeries(this.stockIndex);
     this.modalService.dismissAll();
+    this.sweetAlertService.getSwal(
+      {
+        type: 'success',
+        title: this.stockIndex + ' Stock Index !',
+        text: `A Total No. of ${result.totalCount} Records were extracted`,
+        footer: 'Cheers !'
+      }
+    );
+    this.StockSummaryDatatableComponent.refreshTable();
+
   }
 }

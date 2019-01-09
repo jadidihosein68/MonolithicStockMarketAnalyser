@@ -73,4 +73,10 @@ export class StockSummaryDatatableComponent implements OnInit {
         };
 
     }
+
+    refreshTable() {
+        this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+            dtInstance.ajax.reload();
+        })
+    }
 }
